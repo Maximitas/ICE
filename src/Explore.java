@@ -11,14 +11,14 @@ public class Explore {
         TextUI ui = new TextUI();
         int rand = random(100);
 
-        if (rand < 40) {
-           // fishing();
+        if (rand < 20) {
+            fishing();
+
+        } else if (rand < 40) {
+           findItem();
 
         } else if (rand < 60) {
-           // findItem();
-
-        } else if (rand < 80) {
-          //  randomDialogue();
+            randomDialogue();
 
         } else if (rand < 100) {
             //combat();
@@ -36,15 +36,14 @@ public class Explore {
     }
 
     public void fishing() throws InterruptedException {
-        int delay = (1000);
         ui.displayMsg("You entered Route 12 (Fishing area)");
         ui.displayMsg("You are now fishing..");
-        int randy = random(100);
+        int randy = random(40);
         if (randy < 20) {
 
             showMagikarp(1000);
 
-        } else if (randy < 40) {
+        } else if (randy < 40 ) {
 
             showPikachu(1000);
 
@@ -70,7 +69,7 @@ public class Explore {
         } else if (randy < 60) {
             System.out.println("You are visiting Safari Zone ..");
             System.out.println("Entering Safari Zone.");
-            showTreasureChest(100);
+            showTreasureChest(1000);
 
         } else if (randy < 80) {
             System.out.println("You are came near a Diglett's Cave ..");
