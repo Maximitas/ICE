@@ -11,17 +11,14 @@ public class Explore {
         TextUI ui = new TextUI();
         int rand = random(100);
 
-        if (rand < 100) {
-            fishing();
-
-        } else if (rand < 40) {
-            //  findItem();
+        if (rand < 40) {
+           // fishing();
 
         } else if (rand < 60) {
-            // randomDialogue();
+           // findItem();
 
         } else if (rand < 80) {
-            //randomDialogue();
+          //  randomDialogue();
 
         } else if (rand < 100) {
             //combat();
@@ -31,6 +28,7 @@ public class Explore {
         }
 
     }
+
 
 
     public int random(int k) {
