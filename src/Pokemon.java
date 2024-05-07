@@ -68,8 +68,8 @@ public class Pokemon {
 
 
     public void levelUp() {
-        this.lvl++;
         Random rand = new Random();
+        this.lvl++;
         this.attackPower += rand.nextInt(6) + 1;
         this.defensePower += rand.nextInt(6) + 1;
         this.hp += rand.nextInt(4)+1;
