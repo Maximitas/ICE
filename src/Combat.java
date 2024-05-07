@@ -53,6 +53,8 @@ public class Combat {
         return (int) (attacker.getAttackPower() * defenseScaling * typeMultiplier);
 
     }
+
+    // personal note for asimovich maybe this needs to be looked over again since it might not work as intended
     private double typeMultiplier(String attackerType, String defenderType) {
         switch (attackerType) {
             case "Normal":
