@@ -7,6 +7,7 @@ public class FileIO {
 
     public void loadPokemonFromFile(String filePath, ArrayList<Pokemon> pokemonList) {
         try (Scanner scan = new Scanner(new File(filePath))) {
+            scan.nextLine();
             while (scan.hasNextLine()) {
                 String[] line = scan.nextLine().split(",");
 
@@ -22,12 +23,13 @@ public class FileIO {
                 String rarity = line[9];
 
                 pokemonList.add(new Pokemon(id,hp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity));
-
             }
     } catch (FileNotFoundException e) {
         System.out.println("File not found");
     } catch (NumberFormatException e) {
         System.out.println("Error parsing value");
     }
+
     }
+
 }

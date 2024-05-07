@@ -5,9 +5,10 @@ public class UserInterface {
     Town town = new Town();
     Player player = new Player();
 
-    public void userOptions(){
+    public void userOptions() throws InterruptedException {
 
-        UI.displayMsg("Select your option:");
+        UI.displayMsg("Select your option below:");
+        UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Exit");
 
         boolean whileKey = false;
 
@@ -15,7 +16,8 @@ public class UserInterface {
 
             String option = UI.userInput();
             switch(option){
-                case "1":explore.explore();
+                case "1":
+                    explore.explore();
                 whileKey = true;
                     break;
                 case "2"://Town
@@ -29,15 +31,7 @@ public class UserInterface {
                     break;
                 default: UI.displayMsg("Invalid input, please try again");
 
-
-
+            }
         }
-
-
-
-
-        }
-
-
     }
 }
