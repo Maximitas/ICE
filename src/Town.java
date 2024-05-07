@@ -56,9 +56,9 @@ public class Town {
         Item selectedItem = itemsForSale[choice - 1];
         if (player.getWallet() >= selectedItem.getPrice()) {
             player.setWallet(player.getWallet() - selectedItem.getPrice());
-            player.addItemToBag(selectedItem);
             textUI.displayMsg("You have bought a " + selectedItem.getName() + ".");
             textUI.displayMsg("Remaining balance: $" + player.getWallet());
+            player.addItemToBag(selectedItem);
         } else {
             textUI.displayMsg("You do not have enough money to buy this item.");
         }
