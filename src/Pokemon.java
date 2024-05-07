@@ -1,2 +1,2 @@
-public interface Pokemon {
+public class Pokemon {
 }

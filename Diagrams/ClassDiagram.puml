@@ -17,13 +17,16 @@ class StartMenu {
 + starterPokemon()
 }
 
-interface Pokemon{
+interface PokemonTemplate{
 - String name
 - int hp
 - int lvl
 - String type
 - String moveSet
 - String abilities
+}
+
+class Pokemon{
 }
 
 class Combat{
@@ -86,6 +89,7 @@ UserInterface --> Town
 UserInterface --> Explore
 Explore --> CombatInterface
 CombatInterface --> Combat
+PokemonTemplate --> Pokemon
 Pokemon ---> Player
 Pokemon ---> Combat
 StartMenu -> FileIO
