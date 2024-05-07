@@ -18,15 +18,20 @@ class StartMenu {
 }
 
 interface PokemonTemplate{
-- String name
+- int pokemonID
+- int attackPower
+- int defensePower
 - int hp
 - int lvl
-- String type
-- String moveSet
+- String name
+- String typeOne
+- String typeTwo
 - String abilities
+- String rarity
 }
 
 class Pokemon{
+
 }
 
 class Combat{
