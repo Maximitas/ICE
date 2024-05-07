@@ -1,0 +1,98 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam linetype polyline
+skinparam linetype ortho
+
+class Main{
++ static void main(String[] args)
+}
+
+class StartMenu {
++ startupInterface()
++ newGame()
++ continueGame()
++ exitGame()
++ chooseGender()
++ chooseName()
++ starterPokemon()
+}
+
+interface Pokemon{
+- String name
+- int hp
+- int lvl
+- String type
+- String moveSet
+- String abilities
+}
+
+class Combat{
++ takeDamage()
++ giveDamage()
++ blackout()
+}
+
+class CombatInterface{
++ combatOptions()
++ run()
++ fight()
++ bag()
++ switchPokemon()
++ catchPokemon()
+
+}
+
+class Player{
+- Arraylist<Pokemon> pokeDex
+- Arraylist<String> bag
+- Arraylist<String> playerInfo
+
+}
+
+class UserInterface {
+- Explore explore = new Explore
+- Town town = new Town
+- Player player = new Player
++ userOptions()
+}
+
+class Town {
++ pokeCenter()
++ pokeMart()
+}
+
+class Explore {
+- CombatInterface combat = new CombatInterface
++ random()
++ fishing()
++ findItem()
++ randomDialogue()
+}
+
+class FileIO{
++ writeData()
++ loadData()
+}
+class TextUI{
+- Scanner scanner = new Scanner
++ displayMsg()
++ userInput()
+}
+
+Main --> StartMenu
+StartMenu --> UserInterface
+UserInterface --> Player
+UserInterface --> Town
+UserInterface --> Explore
+Explore --> CombatInterface
+CombatInterface --> Combat
+Pokemon ---> Player
+Pokemon ---> Combat
+StartMenu -> FileIO
+TextUI -> StartMenu
+TextUI --> UserInterface
+TextUI --> Explore
+TextUI --> CombatInterface
+
+
+@enduml
