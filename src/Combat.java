@@ -1,9 +1,21 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Combat {
     private TextUI textUI = new TextUI();
     private Town town = new Town();
+    private ArrayList<Pokemon> pokemonList = new ArrayList<>();
+    private FileIO fileIO = new FileIO();
 
+    public Combat(String pokemonFile) {
+        fileIO.loadPokemonFromFile(pokemonFile, pokemonList);
+        if (pokemonList.isEmpty()) {
+            System.out.println("No Pokémon data loaded. Check file path.");
+        }
+    }
 
-    public void battleRound(Pokemon playerPokemon, Pokemon enemyPokemon, Player player, Player enemy) {
+    public void battleRound(Pokemon playerPokemon, Player player, Player enemy) {
+        Pokemon enemyPokemon = getRandomPokemon();
         textUI.displayMsg("A battle has begun between " + playerPokemon.getName() + " and " + enemyPokemon.getName() + "!");
         boolean playerTurn = true;
 
@@ -23,7 +35,6 @@ public class Combat {
                     break;
                 }
             }
-
             playerTurn = !playerTurn;
         }
 
@@ -178,5 +189,9 @@ public class Combat {
         } else {
             textUI.displayMsg("You don't have enough currency to pay the penalty.");
         }
+    }
+    private Pokemon getRandomPokemon() {
+        Random random = new Random();
+        return pokemonList.get(random.nextInt(pokemonList.size()));
     }
 }
