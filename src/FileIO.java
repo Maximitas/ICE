@@ -35,8 +35,7 @@ public class FileIO {
     }
 
     public void saveItemsToBag(String filePath, ArrayList<Item> items) {
-        try (FileWriter writer = new FileWriter(filePath)) {
-
+        try (FileWriter writer = new FileWriter(filePath, true)) {
             for (Item item : items) {
                 writer.write(item.getName() + "," + item.getPrice() + "\n");
             }
