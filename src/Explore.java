@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 public class Explore {
     private CombatInterface combat = new CombatInterface();
-    private Random random = new Random();
+
     private TextUI ui = new TextUI();
     private FileIO io = new FileIO();
     private Player player = new Player();
     private ArrayList<Item> item = new ArrayList<>();
     String itemFile = "Data/Item.csv";
+    UserInterface user = new UserInterface();
 
     public void itemList() {
         this.item = io.readItemsFromBag(itemFile);
@@ -23,6 +24,7 @@ public class Explore {
 
     public void explore() throws InterruptedException {
         TextUI ui = new TextUI();
+
         int rand = random(100);
 
         if (rand < 20) {
@@ -34,7 +36,7 @@ public class Explore {
         } else if (rand < 60) {
             randomDialogue();
 
-        } else if (rand < 100) {
+        } else if (rand < 80) {
             //combat();
 
         } else {
@@ -45,6 +47,7 @@ public class Explore {
 
 
     public int random(int k) {
+        Random random = new Random();
         return random.nextInt(k);
     }
 
@@ -55,9 +58,10 @@ public class Explore {
         if (randy < 20) {
 
             showMagikarp(1000);
+            //todo mangler at add pokemon i bag
 
         } else if (randy < 40) {
-
+            //todo mangler at add pokemon i bag
             showPikachu(1000);
 
         }
@@ -73,49 +77,55 @@ public class Explore {
     public void findItem() throws InterruptedException {
         System.out.println("Exploring the world... (for items)");
         int randy = random(100);
-        if (randy < 20 ) {
+        if (randy < 20) {
             System.out.println("You see a Rock Tunnel..");
-            //todo måske en, if you want to enter, yes or no <-- right here.
             System.out.println("Entering Rock Tunnel.");
             showTreasureChest(1000);
             itemInitializer();
-            System.out.println(item.get(itemInitializer()));
-
-
-
+            System.out.println("You found: " + item.get(itemInitializer()));
+            //todo husk at add item to bagpack.
+            user.userOptions();
 
         } else if (randy < 40) {
             System.out.println("You see a Power Plant ..");
             System.out.println("Entering Power Plant.");
             showTreasureChest(1000);
+            itemInitializer();
+            System.out.println("You found: " + item.get(itemInitializer()));
+            user.userOptions();
 
         } else if (randy < 60) {
             System.out.println("You are visiting Safari Zone ..");
             System.out.println("Entering Safari Zone.");
             showTreasureChest(1000);
-
+            itemInitializer();
+            System.out.println("You found: " + item.get(itemInitializer()));
+            user.userOptions();
 
         } else if (randy < 80) {
             System.out.println("You are came near a Diglett's Cave ..");
             System.out.println("Entering Diglett's Cave.");
             showTreasureChest(1000);
+            itemInitializer();
+            System.out.println("You found: " + "Diglett ding, diglett ding - DIGLETT");
+            System.out.println("⊂(◉‿◉)つ");
+            user.userOptions();
 
-
-        } else if (randy < 90) {
+        } else if (randy < 100) {
             System.out.println("You are came near a Pokemon Tower ..");
             System.out.println("Entering Pokemon Tower.");
             showTreasureChest(1000);
+            itemInitializer();
+            System.out.println("You found: " + item.get(itemInitializer()));
+            user.userOptions();
 
         } else {
             System.out.println("You got lost and found your way back..");
-            //method to interface igen.
-
-
+            user.userOptions();
         }
     }
 
-
-    public void randomDialogue() {
+    public void randomDialogue() throws InterruptedException {
         System.out.println("Exploring the area... (for knowledge)");
 
         int randy = random(100);
@@ -134,28 +144,26 @@ public class Explore {
 
     }
 
-    public void dialogLegendary() {
+    public void dialogLegendary() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You are enjoying yourself and see a group of people storming at you!");
         ui.displayMsg("It seems like you need to prepare for battle");
         System.out.println("Some guy named 'Red' wants to battle you");
         ui.displayMsg("Do you want this. y/n");
-        ui.userInput();
         if (scanner.nextLine().equals("y")) {
             //Battle red
         } else if (scanner.nextLine().equals("n")) {
             System.out.println("Next time, take the battle, you wont regret it..Goodluck");
             //todo enten tilbage til randomdialog eller menu
-            randomDialogue();
+            user.userOptions();
         }
 
     }
 
-    public void dialogOldman() {
+    public void dialogOldman() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You see a old man near a statue...");
         ui.displayMsg("Do you want to approach him? y/n");
-        ui.userInput();
         if (scanner.nextLine().equals("y")) {
             System.out.println("Soon this beast will come back alive.");
             System.out.println("i hope there is good enough poketrainers in this world..");
@@ -166,30 +174,28 @@ public class Explore {
         } else if (scanner.nextLine().equals("n")) {
             System.out.println("He looked worried..maybe i should talk to him.");
             //todo enten tilbage til randomdialog eller menu
-            randomDialogue();
+            user.userOptions();
         }
     }
 
 
-    public void dialogIdiotKid() {
+    public void dialogIdiotKid() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You see a kid sitting near a tree...");
         ui.displayMsg("Do you want to approach him? y/n");
-        ui.userInput();
         if (scanner.nextLine().equals("y")) {
             ui.displayMsg("When i think about it, you, too, are all alone in this world..");
         } else if (scanner.nextLine().equals("n")) {
             System.out.println("Trust me, you dodged a bullet..");
             //todo enten tilbage til randomdialog eller menu
-            randomDialogue();
+            user.userOptions();
         }
     }
 
-    public void dialogFishingMan() {
+    public void dialogFishingMan() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You see a man fishing...");
         ui.displayMsg("do you want to approach him? y/n");
-        ui.userInput();
         if (scanner.nextLine().equals("y")) {
             System.out.println("These lakes has a lot of history in them\n");
             System.out.println("There was a legend about a big fish..\n");
@@ -199,15 +205,14 @@ public class Explore {
             //todo enten tilbage til randomdialog eller menu
         } else if (scanner.nextLine().equals("n")) {
             System.out.println("No sushi today..");
-            randomDialogue();
+            user.userOptions();
         }
     }
 
-    public void dialogGirlyTrainee() {
+    public void dialogGirlyTrainee() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You meet a random PokeTrainee..");
         ui.displayMsg("do you want to approach her? y/n");
-        ui.userInput();
         if (scanner.nextLine().equals("y")) {
             System.out.println("I want to become Strong... but i can't seem to catch any pokemons.. what do i do!");
             String userInput = scanner.nextLine();
@@ -215,7 +220,7 @@ public class Explore {
             //todo enten tilbage til randomdialog eller menu
         } else if (scanner.nextLine().equals("n")) {
             System.out.println("You fled the area");
-            randomDialogue();
+            user.userOptions();
         }
 
     }
@@ -285,9 +290,8 @@ public class Explore {
             Thread.sleep(delay);
 
         }
-
-
     }
+
 
     public void showPikachu(int delay) throws InterruptedException {
         String sentencePika = ("... ... ... ...!  \n" +

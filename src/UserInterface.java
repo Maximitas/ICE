@@ -1,12 +1,12 @@
 public class UserInterface {
 
     TextUI UI = new TextUI();
-    Explore explore = new Explore();
+
     Town town = new Town();
     Player player = new Player();
 
     public void userOptions() throws InterruptedException {
-
+        Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
         UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Exit");
 
