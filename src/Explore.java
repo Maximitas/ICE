@@ -24,27 +24,21 @@ public class Explore {
 
     public void explore() throws InterruptedException {
         TextUI ui = new TextUI();
-
-        int rand = random(100);
+        int rand = random(80);
 
         if (rand < 20) {
             fishing();
-
         } else if (rand < 40) {
             findItem();
-
         } else if (rand < 60) {
             randomDialogue();
-
         } else if (rand < 80) {
             //combat();
-
         } else {
 
         }
 
     }
-
 
     public int random(int k) {
         Random random = new Random();
