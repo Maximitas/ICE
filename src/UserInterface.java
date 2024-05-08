@@ -1,12 +1,13 @@
 public class UserInterface {
 
     TextUI UI = new TextUI();
-    Explore explore = new Explore();
-    Town town = new Town();
+
+
     Player player = new Player();
 
-    public void userOptions() throws InterruptedException {
 
+    public void userOptions() throws InterruptedException {
+        Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
         UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Exit");
 
@@ -21,6 +22,7 @@ public class UserInterface {
                 whileKey = true;
                     break;
                 case "2"://Town
+                    townOrPokeCenter();
                     whileKey = true;
                     break;
                 case "3"://player
@@ -33,5 +35,24 @@ public class UserInterface {
 
             }
         }
+    }
+
+    public void townOrPokeCenter() throws InterruptedException {
+        Town town = new Town();
+        System.out.println("You are now in the town..\nWhat place do you want to visit?");
+        System.out.println("1 for PokeCenter - 2 for PokeMart - 0 to exit");
+        switch(UI.userInput()){
+            case "1":
+                town.pokeCenter(player);
+            case "2":
+                town.pokeMart(player);
+                case "0":
+                    userOptions();
+            default:
+                System.out.println("Try again");
+                break;
+
+        }
+
     }
 }

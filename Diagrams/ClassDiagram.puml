@@ -17,7 +17,8 @@ class StartMenu {
 + starterPokemon()
 }
 
-interface PokemonTemplate{
+
+class Pokemon{
 - int pokemonID
 - int attackPower
 - int defensePower
@@ -28,10 +29,6 @@ interface PokemonTemplate{
 - String typeTwo
 - String abilities
 - String rarity
-}
-
-class Pokemon{
-
 }
 
 class Combat{
@@ -51,9 +48,10 @@ class CombatInterface{
 }
 
 class Player{
+- name
+- wallet
 - Arraylist<Pokemon> pokeDex
 - Arraylist<String> bag
-- Arraylist<String> playerInfo
 
 }
 
@@ -94,7 +92,6 @@ UserInterface --> Town
 UserInterface --> Explore
 Explore --> CombatInterface
 CombatInterface --> Combat
-PokemonTemplate --> Pokemon
 Pokemon ---> Player
 Pokemon ---> Combat
 StartMenu -> FileIO
