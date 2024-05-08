@@ -36,7 +36,6 @@ public class FileIO {
 
     public void saveItemsToBag(String filePath, ArrayList<Item> items) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            writer.write("name,value\n");
 
             for (Item item : items) {
                 writer.write(item.getName() + "," + item.getPrice() + "\n");
@@ -61,7 +60,8 @@ public class FileIO {
         }
     }
 
-    public void readItemsFromBag(String filePath, ArrayList<Item> items) {
+    public ArrayList<Item> readItemsFromBag(String filePath) {
+        ArrayList<Item> items = new ArrayList<>();
         try (Scanner scanner = new Scanner(new FileReader(filePath))) {
             scanner.nextLine();
 
@@ -77,6 +77,7 @@ public class FileIO {
         } catch (NumberFormatException e) {
             System.out.println("Error parsing value: " + e.getMessage());
         }
+    return items;
     }
 
 }
