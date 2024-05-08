@@ -77,7 +77,7 @@ public class Pokemon {
         this.hp = maxHp;
         textUI.displayMsg(this.name + " has been fully healed.");
     }
-        public void levelUp () {
+    public void levelUp () {
             Random rand = new Random();
             this.lvl++;
             this.attackPower += rand.nextInt(6) + 1;
@@ -86,6 +86,6 @@ public class Pokemon {
 
             textUI.displayMsg(this.getName() + " leveled up to " + this.getLvl());
             textUI.displayMsg("New stats: Attack Power = " + this.attackPower + ", Defense Power = " + this.defensePower + ", HP = " + this.hp);
-        }
+    }
     }
 

@@ -1,0 +1,4 @@
+pokemonID,hp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
+1,45,5,49,49,Bulbasaur,Grass,Poison,Overgrow,Common
+2,60,16,62,63,Ivysaur,Grass,Poison,Overgrow,Uncommon
+3,80,32,82,83,Venusaur,Grass,Poison,Overgrow,Rare

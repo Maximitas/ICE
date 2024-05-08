@@ -8,7 +8,7 @@ public class Main {
 
         FileIO file = new FileIO();
 
-        // file.loadPokemonFromFile("Data\\Pokemon.csv", pokemons);
+        file.loadPokemonFromFile("Data\\Pokemon.csv");
 
         // file.saveItemsToBag("Data/Bag.csv", playerBag);
         // file.savePokemonToPlayerPokemons("Data/PlayerPokemons.csv", playerPokemons);
@@ -16,7 +16,12 @@ public class Main {
         // file.readItemsFromBag("Data/Bag.csv", playerBag);
         // file.readPokemonFromPlayerPokemons("Data/PlayerPokemons.csv", playerPokemons);
 
-        UserInterface  userInterface = new UserInterface();
-        userInterface.userOptions();
+        //UserInterface  userInterface = new UserInterface();
+        //userInterface.userOptions();
+        Player player = new Player();
+        Player player2 = new Player();
+
+        Combat combat = new Combat();
+        combat.battleRound(player, player2);
     }
 }

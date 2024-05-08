@@ -36,14 +36,14 @@ public class Combat {
         while (playerPokemon.getHp() > 0 && enemyPokemon.getHp() > 0) {
             if (playerTurn) {
                 textUI.displayMsg(player.getName() + "'s " + playerPokemon.getName() + " attacks " + enemyPokemon.getName() + "!");
-                damageToOpponent(playerPokemon, enemyPokemon, player);
+                damageToOpponent(playerPokemon, enemyPokemon, player, playerTurn);
 
                 if (enemyPokemon.getHp() <= 0) {
                     break;
                 }
             } else {
                 textUI.displayMsg(enemy.getName() + "'s " + enemyPokemon.getName() + " attacks " + playerPokemon.getName() + "!");
-                damageToPlayerPokemon(enemyPokemon, playerPokemon, player);
+                damageToPlayerPokemon(enemyPokemon, playerPokemon, player, playerTurn);
 
                 if (playerPokemon.getHp() <= 0) {
                     break;
@@ -60,23 +60,39 @@ public class Combat {
     }
 
 
-    public int calculateDamage(Pokemon attacker, Pokemon defender) {
+    public int calculateDamage(Pokemon playerPokemon, Pokemon enemyPokemon, boolean battleTurn) {
         double defenseScaling = 1.0;
-        if (defender.getDefensePower() >= 40 && defender.getDefensePower() < 80) {
-            defenseScaling = 0.8;
-        } else if (defender.getDefensePower() >= 80 && defender.getDefensePower() < 120) {
-            defenseScaling = 0.7;
-        } else if (defender.getDefensePower() >= 120 && defender.getDefensePower() < 160) {
-            defenseScaling = 0.6;
-        } else if (defender.getDefensePower() >= 160 && defender.getDefensePower() < 200) {
-            defenseScaling = 0.55;
-        } else if (defender.getDefensePower() > 200) {
-            defenseScaling = 0.50;
+        //If battle turn true, player deal dmg, otherwise enemy deal dmg
+        if (battleTurn) {
+            if (playerPokemon.getDefensePower() >= 40 && playerPokemon.getDefensePower() < 80) {
+                defenseScaling = 0.8;
+            } else if (playerPokemon.getDefensePower() >= 80 && playerPokemon.getDefensePower() < 120) {
+                defenseScaling = 0.7;
+            } else if (playerPokemon.getDefensePower() >= 120 && playerPokemon.getDefensePower() < 160) {
+                defenseScaling = 0.6;
+            } else if (playerPokemon.getDefensePower() >= 160 && playerPokemon.getDefensePower() < 200) {
+                defenseScaling = 0.55;
+            } else if (playerPokemon.getDefensePower() > 200) {
+                defenseScaling = 0.50;
+            }
+        } else {
+            if (enemyPokemon.getDefensePower() >= 40 && enemyPokemon.getDefensePower() < 80) {
+                defenseScaling = 0.8;
+            } else if (enemyPokemon.getDefensePower() >= 80 && enemyPokemon.getDefensePower() < 120) {
+                defenseScaling = 0.7;
+            } else if (enemyPokemon.getDefensePower() >= 120 && enemyPokemon.getDefensePower() < 160) {
+                defenseScaling = 0.6;
+            } else if (enemyPokemon.getDefensePower() >= 160 && enemyPokemon.getDefensePower() < 200) {
+                defenseScaling = 0.55;
+            } else if (enemyPokemon.getDefensePower() > 200) {
+                defenseScaling = 0.50;
+            }
         }
 
-        double typeMultiplier = typeMultiplier(attacker.getTypeOne(), defender.getTypeOne());
 
-        return (int) (attacker.getAttackPower() * defenseScaling * typeMultiplier);
+        double typeMultiplier = typeMultiplier(playerPokemon.getTypeOne(), enemyPokemon.getTypeOne());
+
+        return (int) (playerPokemon.getAttackPower() * defenseScaling * typeMultiplier);
 
     }
 
@@ -149,19 +165,20 @@ public class Combat {
         return 1.0;
     }
 
-    public void damageToOpponent(Pokemon attacker, Pokemon defender, Player attackerPlayer) {
-        int damage = calculateDamage(attacker, defender);
-        defender.setHp(Math.max(defender.getHp() - damage, 0));
-        textUI.displayMsg(defender.getName() + " took " + damage + " damage!");
 
-        if (defender.getHp() <= 0) {
-            textUI.displayMsg(defender.getName() + " fainted!");
-            enemyDefeat(attacker, attackerPlayer);
+    public void damageToOpponent(Pokemon playerPokemon, Pokemon enemyPokemon, Player player, boolean battleTurn) {
+        int damage = calculateDamage(playerPokemon, enemyPokemon, battleTurn);
+        enemyPokemon.setHp(Math.max(enemyPokemon.getHp() - damage, 0));
+        textUI.displayMsg(enemyPokemon.getName() + " took " + damage + " damage!");
+
+        if (enemyPokemon.getHp() <= 0) {
+            textUI.displayMsg(enemyPokemon.getName() + " fainted!");
+            enemyDefeat(playerPokemon, player, enemyPokemon);
         }
     }
 
-    public void damageToPlayerPokemon(Pokemon enemy, Pokemon playerPokemon, Player player) {
-        int damage = calculateDamage(enemy, playerPokemon);
+    public void damageToPlayerPokemon(Pokemon enemy, Pokemon playerPokemon, Player player, boolean battleTurn) {
+        int damage = calculateDamage(enemy, playerPokemon, battleTurn);
         playerPokemon.setHp(Math.max(playerPokemon.getHp() - damage, 0));
         textUI.displayMsg(playerPokemon.getName() + " took " + damage + " damage from " + enemy.getName() + "!");
 
@@ -171,10 +188,10 @@ public class Combat {
     }
 
 
-    private void enemyDefeat(Pokemon attacker, Player attackerPlayer) {
-        textUI.displayMsg("Enemy " + attacker.getName() + " defeated!");
-        attackerPlayer.addFunds(500);
-        attacker.levelUp();
+    private void enemyDefeat(Pokemon playerPokemon, Player player, Pokemon enemyPokemon) {
+        textUI.displayMsg("Enemy " + enemyPokemon.getName() + " defeated!");
+        player.addFunds(500);
+        playerPokemon.levelUp();
     }
 
     private void playerPokemonFaint(Player player) {
