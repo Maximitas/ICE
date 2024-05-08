@@ -101,6 +101,5 @@ public class FileIO {
         } catch (NumberFormatException e) {
             System.out.println("Error parsing value");
         }
-
     }
 }
