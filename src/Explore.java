@@ -1,10 +1,15 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Explore {
-    CombatInterface combat = new CombatInterface();
-    Random random = new Random();
-    TextUI ui = new TextUI();
+    private CombatInterface combat = new CombatInterface();
+   private Random random = new Random();
+   private TextUI ui = new TextUI();
+  private  FileIO IO = new FileIO();
+   private Player player = new Player();
+   private Item items = new Item();
+   String ItemFile = "Data/Item.csv";
 
 
     public void explore() throws InterruptedException {
@@ -51,6 +56,12 @@ public class Explore {
 
     }
 
+    public void itemInitilzer (){
+
+
+    }
+
+
     public void findItem() throws InterruptedException {
         System.out.println("Exploring the world... (for items)");
         Random random = new Random();
@@ -60,6 +71,9 @@ public class Explore {
             //todo måske en, if you want to enter, yes or no <-- right here.
             System.out.println("Entering Rock Tunnel.");
             showTreasureChest(1000);
+
+
+
 
         } else if (randy < 40) {
             System.out.println("You see a Power Plant ..");
@@ -71,10 +85,12 @@ public class Explore {
             System.out.println("Entering Safari Zone.");
             showTreasureChest(1000);
 
+
         } else if (randy < 80) {
             System.out.println("You are came near a Diglett's Cave ..");
             System.out.println("Entering Diglett's Cave.");
             showTreasureChest(1000);
+
 
         } else if (randy < 90) {
             System.out.println("You are came near a Pokemon Tower ..");
@@ -253,7 +269,7 @@ public class Explore {
                 "⠀⠀⠀⣿⣿⣿⣿⣶⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⣿⠀⣿⣿⣿⣿⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⣿⠿⠋⠀⠀⠀⠀\n" +
                 "⠀⠀⠰⣦⡄⠀⠀⠈⠉⠉⠉⠉⠛⠛⠛⠛⠻⠿⠿⠿⠿⠀⠛⢁⣀⡀⠲⠖⠀⠀\n" +
-                "YOU FOUND A TREASURE CHEST"); //+ //getItem;
+                "YOU FOUND A TREASURE CHEST");
 
         for (String s : sentenceTreasureChest.split(" ")) {
             System.out.println(s);

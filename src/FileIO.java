@@ -70,7 +70,7 @@ public class FileIO {
                 String name = parts[0];
                 int price = Integer.parseInt(parts[1]);
 
-                items.add(new Item(name, price));
+                items.add(new Item());
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
