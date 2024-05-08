@@ -24,15 +24,15 @@ public class Explore {
 
     public void explore() throws InterruptedException {
         TextUI ui = new TextUI();
-        int rand = random(80);
+        int rand = random(3);
 
-        if (rand < 20) {
+        if (rand < 1) {
             fishing();
-        } else if (rand < 40) {
+        } else if (rand < 2) {
             findItem();
-        } else if (rand < 60) {
+        } else if (rand < 3) {
             randomDialogue();
-        } else if (rand < 80) {
+        } else if (rand < 0) {
             //combat();
         } else {
 
@@ -53,10 +53,12 @@ public class Explore {
 
             showMagikarp(1000);
             //todo mangler at add pokemon i bag
+            user.userOptions();
 
         } else if (randy < 40) {
             //todo mangler at add pokemon i bag
             showPikachu(1000);
+            user.userOptions();
 
         }
 
@@ -209,8 +211,8 @@ public class Explore {
         ui.displayMsg("do you want to approach her? y/n");
         if (scanner.nextLine().equals("y")) {
             System.out.println("I want to become Strong... but i can't seem to catch any pokemons.. what do i do!");
-            String userInput = scanner.nextLine();
-            System.out.println(userInput + "Hmm.. never thought about that, I'll do my best!");
+            System.out.println("Tell her what to do:" + ui.userInput() );
+            System.out.println("Hmm.. never thought about that, I'll do my best!");
             //todo enten tilbage til randomdialog eller menu
         } else if (scanner.nextLine().equals("n")) {
             System.out.println("You fled the area");
