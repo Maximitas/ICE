@@ -4,12 +4,21 @@ import java.util.Scanner;
 
 public class Explore {
     private CombatInterface combat = new CombatInterface();
-   private Random random = new Random();
-   private TextUI ui = new TextUI();
-  private  FileIO IO = new FileIO();
-   private Player player = new Player();
-   private Item items = new Item();
-   String ItemFile = "Data/Item.csv";
+    private Random random = new Random();
+    private TextUI ui = new TextUI();
+    private FileIO io = new FileIO();
+    private Player player = new Player();
+    private ArrayList<Item> item = new ArrayList<>();
+    String itemFile = "Data/Item.csv";
+
+    public void itemList() {
+        this.item = io.readItemsFromBag(itemFile);
+
+        if (item.isEmpty()) {
+            ui.displayMsg("No item data found: " + item);
+
+        }
+    }
 
 
     public void explore() throws InterruptedException {
@@ -20,7 +29,7 @@ public class Explore {
             fishing();
 
         } else if (rand < 40) {
-           findItem();
+            findItem();
 
         } else if (rand < 60) {
             randomDialogue();
@@ -35,7 +44,6 @@ public class Explore {
     }
 
 
-
     public int random(int k) {
         return random.nextInt(k);
     }
@@ -48,7 +56,7 @@ public class Explore {
 
             showMagikarp(1000);
 
-        } else if (randy < 40 ) {
+        } else if (randy < 40) {
 
             showPikachu(1000);
 
@@ -56,21 +64,22 @@ public class Explore {
 
     }
 
-    public void itemInitilzer (){
-
-
+    public int itemInitializer() {
+        itemList();
+        return random(item.size());
     }
 
 
     public void findItem() throws InterruptedException {
         System.out.println("Exploring the world... (for items)");
-        Random random = new Random();
         int randy = random(100);
-        if (randy < 20) {
+        if (randy < 20 ) {
             System.out.println("You see a Rock Tunnel..");
             //todo måske en, if you want to enter, yes or no <-- right here.
             System.out.println("Entering Rock Tunnel.");
             showTreasureChest(1000);
+            itemInitializer();
+            System.out.println(item.get(itemInitializer()));
 
 
 
