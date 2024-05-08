@@ -1,15 +1,26 @@
 import java.util.ArrayList;
 
 public class StartMenu {
+    FileIO file = new FileIO();
+    TextUI ui = new TextUI();
+    Player player = new Player();
+    UserInterface userInterface = new UserInterface();
 
 
-    public void newGame(){
-        Player user = new Player();
-
+    public void newGame() throws InterruptedException {
+        choosePlayerName();
+        chooseStarterPokemon();
+        userInterface.userOptions();
     }
+    public void choosePlayerName(){
+        ui.displayMsg("Please type your name");
+        String name = ui.userInput();
+        player.setName(name);
+
+        ui.displayMsg("You have chosen " + player.getName());
+    }
+
     public void chooseStarterPokemon(){
-        FileIO file = new FileIO();
-        TextUI ui = new TextUI();
         ArrayList<Pokemon> allPokemons = file.loadPokemonFromFile("Data/Pokemon.csv");
         //Souts starting pokemons
         ui.displayMsg("Choose the pokemon you want.");
@@ -18,14 +29,14 @@ public class StartMenu {
         ui.displayMsg("3: " + allPokemons.get(6).getName());
         ui.displayMsg("4: " + allPokemons.get(24).getName());
 
-        int userInput = translatePokeindex(ui.userInputInt());
+        int userInput = translatePlayerChoiceToPokeindex(ui.userInputInt());
 
         Pokemon playerPokemon = allPokemons.get(userInput);
 
         file.savePokemonToPlayerPokemons("Data/PlayerPokemons.csv", playerPokemon);
 
     }
-    public int translatePokeindex(int playerChoice){
+    public int translatePlayerChoiceToPokeindex(int playerChoice){
         if(playerChoice == 1){
             playerChoice = 0;
         } else if(playerChoice == 2){

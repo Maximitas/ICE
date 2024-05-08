@@ -1,1 +1,4 @@
 pokemonID,hp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
+25,35,5,55,40,Pikachu,Electric,None,Static,Common
+7,44,5,48,65,Squirtle,Water,None,Torrent,Common
+25,35,5,55,40,Pikachu,Electric,None,Static,Common

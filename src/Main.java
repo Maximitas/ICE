@@ -16,7 +16,7 @@ public class Main {
         // file.readItemsFromBag("Data/Bag.csv", playerBag);
         // file.readPokemonFromPlayerPokemons("Data/PlayerPokemons.csv", playerPokemons);
 
-        //UserInterface  userInterface = new UserInterface();
+        UserInterface userInterface = new UserInterface();
         //userInterface.userOptions();
         Player player = new Player();
         Player player2 = new Player();
@@ -24,7 +24,6 @@ public class Main {
         //Combat combat = new Combat();
         //combat.battleRound(player, player2);
 
-        StartMenu menu = new StartMenu();
-        menu.chooseStarterPokemon();
+        userInterface.startMenu();
     }
 }
