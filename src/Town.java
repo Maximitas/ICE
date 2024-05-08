@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Town {
+   private UserInterface user = new UserInterface();
     private TextUI textUI = new TextUI();
     private String name;
     private int price;
@@ -12,7 +13,7 @@ public class Town {
         }
         textUI.displayMsg("All Pokémon have been fully healed at the PokéCenter!");
     }
-        public void pokeMart(Player player) {
+        public void pokeMart(Player player) throws InterruptedException {
             textUI.displayMsg("Welcome to the PokéMart!");
             textUI.displayMsg("Would you like to (1) Buy or (2) Sell items? Enter 0 to exit: ");
             String actionInput = textUI.userInput();
@@ -25,10 +26,12 @@ public class Town {
                     sell(player);
                 } else {
                     textUI.displayMsg("Thank you for visiting the PokéMart!");
+
                 }
             } catch (NumberFormatException e) {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
+            user.userOptions();
         }
 
         private void buy(Player player) {
@@ -54,6 +57,7 @@ public class Town {
                 if (choice == 0) {
                     textUI.displayMsg("Thank you for visiting the PokéMart!");
                     return;
+
                 }
 
                 if (choice < 1 || choice > itemsForSale.length) {
@@ -75,12 +79,12 @@ public class Town {
             }
         }
 
-        private void sell(Player player) {
+        private void sell(Player player) throws InterruptedException {
             ArrayList<Item> playerBag = player.getBag();
 
             if (playerBag.isEmpty()) {
                 textUI.displayMsg("You have no items to sell.");
-                return;
+                user.townOrPokeCenter();
             }
 
             textUI.displayMsg("Here's what you have for sale:");
@@ -114,5 +118,6 @@ public class Town {
             } catch (NumberFormatException e) {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
+            user.userOptions();
         }
     }

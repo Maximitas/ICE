@@ -22,6 +22,9 @@ public class Explore {
     }
 
 
+
+
+
     public void explore() throws InterruptedException {
         TextUI ui = new TextUI();
         int rand = random(3);
