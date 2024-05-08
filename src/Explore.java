@@ -146,13 +146,15 @@ public class Explore {
         ui.displayMsg("It seems like you need to prepare for battle");
         System.out.println("Some guy named 'Red' wants to battle you");
         ui.displayMsg("Do you want this. y/n");
-        if (scanner.nextLine().equals("y")) {
+        String input = ui.userInput();
+        if (input.equals("y")) {
             //Battle red
-        } else if (scanner.nextLine().equals("n")) {
+        } else if (input.equals("n")) {
             System.out.println("Next time, take the battle, you wont regret it..Goodluck");
             //todo enten tilbage til randomdialog eller menu
-            user.userOptions();
+
         }
+        user.userOptions();
 
     }
 
@@ -160,65 +162,73 @@ public class Explore {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You see a old man near a statue...");
         ui.displayMsg("Do you want to approach him? y/n");
-        if (scanner.nextLine().equals("y")) {
+        String input = ui.userInput();
+        if (input.equals("y")) {
             System.out.println("Soon this beast will come back alive.");
             System.out.println("i hope there is good enough poketrainers in this world..");
             System.out.println("I heard last time it came, the world was near extinction");
             System.out.println("But one unbelievable savior came, and harnest the darkness. no one knows what happend to him or the beast.. ");
             System.out.println("But that was 600 years ago, what do we do now!...");
             System.out.println("faith... faith.. thats all, faith.");
-        } else if (scanner.nextLine().equals("n")) {
+        } else if (input.equals("n")) {
             System.out.println("He looked worried..maybe i should talk to him.");
             //todo enten tilbage til randomdialog eller menu
-            user.userOptions();
+
         }
+        user.userOptions();
     }
 
 
     public void dialogIdiotKid() throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You see a kid sitting near a tree...");
         ui.displayMsg("Do you want to approach him? y/n");
-        if (scanner.nextLine().equals("y")) {
+        String input = ui.userInput();
+        if (input.equals("y")) {
             ui.displayMsg("When i think about it, you, too, are all alone in this world..");
-        } else if (scanner.nextLine().equals("n")) {
+        } else if (input.equals("n")) {
             System.out.println("Trust me, you dodged a bullet..");
             //todo enten tilbage til randomdialog eller menu
-            user.userOptions();
+
         }
+        user.userOptions();
     }
 
     public void dialogFishingMan() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You see a man fishing...");
         ui.displayMsg("do you want to approach him? y/n");
-        if (scanner.nextLine().equals("y")) {
+        String input = ui.userInput();
+        if (input.equals("y")) {
             System.out.println("These lakes has a lot of history in them\n");
             System.out.println("There was a legend about a big fish..\n");
             System.out.println("Tales says that the one, that gets the hold of it, will become a strong poketrainer");
             System.out.println("it was about this season it should appear...");
             System.out.println("So far i have only found magikarps, but one day i might see it!");
             //todo enten tilbage til randomdialog eller menu
-        } else if (scanner.nextLine().equals("n")) {
+        } else if (input.equals("n")) {
             System.out.println("No sushi today..");
-            user.userOptions();
+
         }
+        user.userOptions();
     }
 
     public void dialogGirlyTrainee() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You meet a random PokeTrainee..");
         ui.displayMsg("do you want to approach her? y/n");
-        if (scanner.nextLine().equals("y")) {
+        String input = ui.userInput();
+        if (input.equals("y")) {
             System.out.println("I want to become Strong... but i can't seem to catch any pokemons.. what do i do!");
-            System.out.println("Tell her what to do:" + ui.userInput() );
+            System.out.println("Tell her what to do:");
+            String answer = ui.userInput();
+            System.out.println("You told her: " + answer );
             System.out.println("Hmm.. never thought about that, I'll do my best!");
             //todo enten tilbage til randomdialog eller menu
-        } else if (scanner.nextLine().equals("n")) {
+        } else if(input.equals("n")) {
             System.out.println("You fled the area");
-            user.userOptions();
-        }
 
+        }
+        user.userOptions();
     }
 
     public void showMagikarp(int delay) throws InterruptedException {
@@ -251,7 +261,7 @@ public class Explore {
                 "⠀⠀⠀⠀⠈⣤⡇⠀⠀⠀⠀⠀⠀⢻⡘⣇⠀⠀⠀⠙⠻⣶⡟⠀⠀⠉⠙⠛⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠈⢧⡙⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⢰⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠑⢦⣽⣦⣄⣀⠀⠀⠀ \n" +
-                "YOU CAUGHT A POKEMON⠀");
+                "YOU CAUGHT A MAGIKARP⠀");
 
 
         for (String s : sentence.split(" ")) {
