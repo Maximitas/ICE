@@ -1,10 +1,14 @@
 import java.util.Scanner;
 
 public class TextUI {
+    Scanner scan = new Scanner(System.in);
 
     public String userInput() {
-        Scanner scan = new Scanner(System.in);
         return scan.nextLine();
+    }
+
+    public int userInputInt() {
+        return scan.nextInt();
     }
 
 

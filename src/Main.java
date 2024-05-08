@@ -21,7 +21,10 @@ public class Main {
         Player player = new Player();
         Player player2 = new Player();
 
-        Combat combat = new Combat();
-        combat.battleRound(player, player2);
+        //Combat combat = new Combat();
+        //combat.battleRound(player, player2);
+
+        StartMenu menu = new StartMenu();
+        menu.chooseStarterPokemon();
     }
 }
