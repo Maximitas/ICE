@@ -5,7 +5,8 @@ import java.io.*;
 
 public class FileIO {
 
-    public void loadPokemonFromFile(String filePath, ArrayList<Pokemon> pokemonList) {
+    public ArrayList<Pokemon> loadPokemonFromFile(String filePath) {
+        ArrayList<Pokemon> pokemonList = new ArrayList<>();
         try (Scanner scan = new Scanner(new File(filePath))) {
             scan.nextLine();
 
@@ -30,7 +31,7 @@ public class FileIO {
         } catch (NumberFormatException e) {
             System.out.println("Error parsing value");
         }
-
+        return pokemonList;
     }
 
     public void saveItemsToBag(String filePath, ArrayList<Item> items) {
@@ -49,9 +50,11 @@ public class FileIO {
         try (FileWriter writer = new FileWriter(filePath)) {
             writer.write("pokemonID,hp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity\n");
             for (Pokemon pokemon : pokemons) {
-                writer.write(pokemon.getName() + "," + pokemon.getTypeOne() + "," +
-                        pokemon.getHp() + "," + pokemon.getAttackPower() + "," +
-                        pokemon.getDefensePower() + "\n");
+                writer.write(pokemon.getPokemonID() + "," + pokemon.getHp() + "," + pokemon.getLvl() + "," +
+                        pokemon.getAttackPower() + "," + pokemon.getDefensePower() + "," +
+                        pokemon.getName() + "," + pokemon.getTypeOne() + "," + pokemon.getTypeTwo() + "," +
+                        pokemon.getAbilities() + "," + pokemon.getRarity() + "\n");
+
             }
         } catch (IOException e) {
             System.out.println("Error writing Pokémon to file: " + e.getMessage());
@@ -76,7 +79,8 @@ public class FileIO {
         }
     }
 
-    public void readPokemonFromPlayerPokemons(String filePath, ArrayList<Pokemon> pokemons) {
+    public ArrayList<Pokemon> readPokemonFromPlayerPokemons(String filePath) {
+        ArrayList<Pokemon> pokemons = new ArrayList<>();
         try (Scanner scan = new Scanner(new File(filePath))) {
             scan.nextLine();
 
@@ -101,5 +105,7 @@ public class FileIO {
         } catch (NumberFormatException e) {
             System.out.println("Error parsing value");
         }
+        return pokemons;
     }
+
 }

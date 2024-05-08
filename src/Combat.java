@@ -4,17 +4,29 @@ import java.util.Random;
 public class Combat {
     private TextUI textUI = new TextUI();
     private Town town = new Town();
-    private ArrayList<Pokemon> pokemonList = new ArrayList<>();
     private FileIO fileIO = new FileIO();
+    private ArrayList<Pokemon> enemyPokemonList = new ArrayList<>();
+    private ArrayList<Pokemon> playerPokemonList;
+    private Pokemon primaryPlayerPokemon;
 
-    public Combat(String pokemonFile) {
-        fileIO.loadPokemonFromFile(pokemonFile, pokemonList);
-        if (pokemonList.isEmpty()) {
-            System.out.println("No Pokémon data loaded. Check file path.");
+    public Combat(String playerPokemonFile, String enemyPokemonFile) {
+        this.playerPokemonList = fileIO.readPokemonFromPlayerPokemons(playerPokemonFile);
+        this.enemyPokemonList = fileIO.loadPokemonFromFile(enemyPokemonFile);
+
+        if (playerPokemonList.isEmpty()) {
+            textUI.displayMsg("No player Pokémon data loaded. Check file path: " + playerPokemonFile);
+        } else {
+            primaryPlayerPokemon = playerPokemonList.get(0);
+        }
+
+        if (enemyPokemonList.isEmpty()) {
+            textUI.displayMsg("No enemy Pokémon data loaded. Check file path: " + enemyPokemonFile);
         }
     }
 
-    public void battleRound(Pokemon playerPokemon, Player player, Player enemy) {
+
+    public void battleRound(Player player, Player enemy) {
+        Pokemon playerPokemon = primaryPlayerPokemon;
         Pokemon enemyPokemon = getRandomPokemon();
         textUI.displayMsg("A battle has begun between " + playerPokemon.getName() + " and " + enemyPokemon.getName() + "!");
         boolean playerTurn = true;
@@ -44,6 +56,7 @@ public class Combat {
             textUI.displayMsg(enemy.getName() + "'s " + enemyPokemon.getName() + " wins the battle!");
         }
     }
+
 
     public int calculateDamage(Pokemon attacker, Pokemon defender) {
         double defenseScaling = 1.0;
@@ -192,6 +205,10 @@ public class Combat {
     }
     private Pokemon getRandomPokemon() {
         Random random = new Random();
-        return pokemonList.get(random.nextInt(pokemonList.size()));
+        return enemyPokemonList.get(random.nextInt(enemyPokemonList.size()));
+    }
+
+    public Pokemon getPrimaryPlayerPokemon() {
+        return primaryPlayerPokemon;
     }
 }
