@@ -82,7 +82,7 @@ public class Pokemon {
             this.lvl++;
             this.attackPower += rand.nextInt(6) + 1;
             this.defensePower += rand.nextInt(6) + 1;
-            this.hp += rand.nextInt(4) + 1;
+            this.maxHp += rand.nextInt(4) + 1;
 
             textUI.displayMsg(this.getName() + " leveled up to " + this.getLvl());
             textUI.displayMsg("New stats: Attack Power = " + this.attackPower + ", Defense Power = " + this.defensePower + ", HP = " + this.hp);

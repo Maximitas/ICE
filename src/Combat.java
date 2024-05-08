@@ -8,9 +8,11 @@ public class Combat {
     private ArrayList<Pokemon> enemyPokemonList = new ArrayList<>();
     private ArrayList<Pokemon> playerPokemonList;
     private Pokemon primaryPlayerPokemon;
+    String playerPokemonFile = "Data/PlayerPokemons.csv";
+    String enemyPokemonFile = "Data/Pokemon.csv";
 
-    public Combat(String playerPokemonFile, String enemyPokemonFile) {
-        this.playerPokemonList = fileIO.readPokemonFromPlayerPokemons(playerPokemonFile);
+    public Combat() {
+        this.playerPokemonList = fileIO.loadPokemonFromFile(playerPokemonFile);
         this.enemyPokemonList = fileIO.loadPokemonFromFile(enemyPokemonFile);
 
         if (playerPokemonList.isEmpty()) {
@@ -34,7 +36,7 @@ public class Combat {
         while (playerPokemon.getHp() > 0 && enemyPokemon.getHp() > 0) {
             if (playerTurn) {
                 textUI.displayMsg(player.getName() + "'s " + playerPokemon.getName() + " attacks " + enemyPokemon.getName() + "!");
-                damageToOpponent(playerPokemon, enemyPokemon, player, enemy);
+                damageToOpponent(playerPokemon, enemyPokemon, player);
 
                 if (enemyPokemon.getHp() <= 0) {
                     break;
@@ -60,7 +62,7 @@ public class Combat {
 
     public int calculateDamage(Pokemon attacker, Pokemon defender) {
         double defenseScaling = 1.0;
-        if (defender.getDefensePower() <= 40 && defender.getDefensePower() < 80) {
+        if (defender.getDefensePower() >= 40 && defender.getDefensePower() < 80) {
             defenseScaling = 0.8;
         } else if (defender.getDefensePower() >= 80 && defender.getDefensePower() < 120) {
             defenseScaling = 0.7;
@@ -147,7 +149,7 @@ public class Combat {
         return 1.0;
     }
 
-    public void damageToOpponent(Pokemon attacker, Pokemon defender, Player attackerPlayer, Player defenderPlayer) {
+    public void damageToOpponent(Pokemon attacker, Pokemon defender, Player attackerPlayer) {
         int damage = calculateDamage(attacker, defender);
         defender.setHp(Math.max(defender.getHp() - damage, 0));
         textUI.displayMsg(defender.getName() + " took " + damage + " damage!");
