@@ -46,15 +46,11 @@ public class FileIO {
     }
 
     public void savePokemonToPlayerPokemons(String filePath, Pokemon playerPokemon) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            String line = writer.readLine();
-            while (line != null){
-
-            }
-                writer.write(playerPokemon.getPokemonID() + "," + playerPokemon.getHp() + "," + playerPokemon.getLvl() + "," +
-                        playerPokemon.getAttackPower() + "," + playerPokemon.getDefensePower() + "," +
-                        playerPokemon.getName() + "," + playerPokemon.getTypeOne() + "," + playerPokemon.getTypeTwo() + "," +
-                        playerPokemon.getAbilities() + "," + playerPokemon.getRarity() + "\n");
+        try (FileWriter writer = new FileWriter(filePath, true)) {
+            writer.write("\n" + playerPokemon.getPokemonID() + "," + playerPokemon.getHp() + "," + playerPokemon.getLvl() + "," +
+                    playerPokemon.getAttackPower() + "," + playerPokemon.getDefensePower() + "," +
+                    playerPokemon.getName() + "," + playerPokemon.getTypeOne() + "," + playerPokemon.getTypeTwo() + "," +
+                    playerPokemon.getAbilities() + "," + playerPokemon.getRarity());
 
         } catch (IOException e) {
             System.out.println("Error writing Pokémon to file: " + e.getMessage());
