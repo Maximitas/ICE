@@ -13,37 +13,9 @@ public class Town {
         }
         textUI.displayMsg("All Pokémon have been fully healed at the PokéCenter!");
     }
-        public void pokeMart(Player player) throws InterruptedException {
-            textUI.displayMsg("Welcome to the PokéMart!");
-            textUI.displayMsg("(1) Buy item\n(2) Sell item\n(3) to exit ");
-
-            boolean whileKey = false;
-
-            while(!whileKey){
-
-                String option = textUI.userInput();
-                switch(option) {
-                    case "1":
-                        buy(player);
-                        break;
-                    case "2":
-                        sell(player);
-                        whileKey = true;
-                        break;
-                    case "3":
-                        textUI.displayMsg("Thank you for visiting the PokéMart!");
-                        user.userOptions(player);
-                        whileKey = true;
-                        break;
-                    default:
-                        textUI.displayMsg("Invalid input, please try again");
-                }
 
 
-            }
-        }
-
-        private void buy(Player player) throws InterruptedException {
+        public void buy(Player player) throws InterruptedException {
             Item[] itemsForSale = {
                     new Item("Poké Ball", 200),
                     new Item("Potion", 100),
@@ -95,7 +67,7 @@ public class Town {
             user.townOrPokeCenter(player);
         }
 
-        private void sell(Player player) throws InterruptedException {
+        public void sell(Player player) throws InterruptedException {
             FileIO file = new FileIO();
             ArrayList<Item> playerBag = file.readItemsFromBag("Data/Bag.csv");
             file.saveItemsToBag("Data/Bag.csv", player.getBag());

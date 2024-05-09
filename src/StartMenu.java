@@ -10,7 +10,7 @@ public class StartMenu {
 
     public void newGame() throws InterruptedException {
         file.clearPlayerPokemonFile("Data/PlayerPokemons.csv");
-        //file.clearBagFile("Data/Bag.csv");
+        file.clearBagFile("Data/Bag.csv");
 
         Player player = choosePlayerName();
         chooseStarterPokemon();

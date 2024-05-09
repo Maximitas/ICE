@@ -36,17 +36,48 @@ public class UserInterface {
         }
     }
 
+    public void pokeMartOptions(Player player) throws InterruptedException {
+        Town town = new Town();
+        UI.displayMsg("Welcome to the PokéMart!");
+        UI.displayMsg("1: Buy items\n2: Sell items\n3: to exit ");
+
+        boolean whileKey = false;
+
+        while(!whileKey){
+
+            String option = UI.userInput();
+            switch(option) {
+                case "1":
+                    town.buy(player);
+                    break;
+                case "2":
+                    town.sell(player);
+                    whileKey = true;
+                    break;
+                case "3":
+                    UI.displayMsg("Thank you for visiting the PokéMart!");
+                    userOptions(player);
+                    whileKey = true;
+                    break;
+                default:
+                    UI.displayMsg("Invalid input, please try again");
+            }
+
+
+        }
+    }
+
     public void townOrPokeCenter(Player player) throws InterruptedException {
         Town town = new Town();
         System.out.println("You are now in the town..\nWhat place do you want to visit?");
-        System.out.println("1 for PokeCenter - 2 for PokeMart - 0 to exit");
+        System.out.println("1: PokeCenter\n2: PokeMart\n3: Exit");
         switch(UI.userInput()){
             case "1":
                 town.pokeCenter(player);
             case "2":
-                town.pokeMart(player);
-                case "0":
-                    userOptions(player);
+                pokeMartOptions(player);
+            case "3":
+                userOptions(player);
             default:
                 System.out.println("Try again");
                 break;
