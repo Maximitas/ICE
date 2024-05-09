@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class StartMenu {
     FileIO file = new FileIO();
     TextUI ui = new TextUI();
-    Player player = new Player();
     UserInterface userInterface = new UserInterface();
 
 
@@ -12,7 +11,9 @@ public class StartMenu {
         chooseStarterPokemon();
         userInterface.userOptions();
     }
+
     public void choosePlayerName(){
+        Player player = new Player();
         ui.displayMsg("Please type your name");
         String name = ui.userInput();
         player.setName(name);

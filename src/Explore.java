@@ -7,7 +7,6 @@ public class Explore {
 
     private TextUI ui = new TextUI();
     private FileIO io = new FileIO();
-    private Player player = new Player();
     private ArrayList<Item> item = new ArrayList<>();
     String itemFile = "Data/Item.csv";
     UserInterface user = new UserInterface();
@@ -29,7 +28,7 @@ public class Explore {
         TextUI ui = new TextUI();
         int rand = random(3);
 
-        if (rand < 1) {
+        if (rand < 4) {
             fishing();
         } else if (rand < 2) {
             findItem();
@@ -55,11 +54,12 @@ public class Explore {
         if (randy < 20) {
 
             showMagikarp(1000);
-            //todo mangler at add pokemon i bag
+
+            //Input er pokemons number - 1 for at add til player pokemon bag
+            addPokemonToPlayerPokemon(128);
             user.userOptions();
 
         } else if (randy < 40) {
-            //todo mangler at add pokemon i bag
             showPikachu(1000);
             user.userOptions();
 
@@ -324,5 +324,12 @@ public class Explore {
 
         }
 
+    }
+
+    public void addPokemonToPlayerPokemon(int input){
+
+        ArrayList<Pokemon> allPokemons = io.loadPokemonFromFile("Data/Pokemon.csv");
+        Pokemon playerPokemon = allPokemons.get(input);
+        io.savePokemonToPlayerPokemons("Data/PlayerPokemons.csv", playerPokemon);
     }
 }
