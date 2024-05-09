@@ -1,17 +1,24 @@
 import java.util.ArrayList;
 
 public class Town {
-   private UserInterface user = new UserInterface();
+    private UserInterface user = new UserInterface();
     private TextUI textUI = new TextUI();
+    private FileIO fileIO = new FileIO();
     private String name;
     private int price;
 
-    public void pokeCenter(Player player) {
+    public void pokeCenter(Player player) throws InterruptedException {
         ArrayList<Pokemon> pokemons = player.getPokemonParty();
         for (Pokemon pokemon : pokemons) {
             pokemon.restoreHP();
+
         }
+
         textUI.displayMsg("All Pokémon have been fully healed at the PokéCenter!");
+        user.townOrPokeCenter(player);
+
+        fileIO.savePokemonData("Data/PlayerPokemons.csv", pokemons);
+
     }
 
 

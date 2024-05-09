@@ -2,6 +2,7 @@ import java.util.Random;
 
 public class Pokemon {
     TextUI textUI = new TextUI();
+    FileIO fileIO = new FileIO();
 
     private int pokemonID;
     private int hp;
@@ -73,9 +74,20 @@ public class Pokemon {
         return rarity;
     }
 
+    public void setDefensePower(int defensePower) {
+        this.defensePower = defensePower;
+    }
+
+    public void setAttackPower(int attackPower) {
+        this.attackPower = attackPower;
+    }
+
+    public void setLvl(int lvl) {
+        this.lvl = lvl;
+    }
+
     public void restoreHP() {
         this.hp = maxHp;
-        textUI.displayMsg(this.name + " has been fully healed.");
     }
     public void levelUp () {
             Random rand = new Random();
@@ -87,6 +99,8 @@ public class Pokemon {
 
             textUI.displayMsg(this.getName() + " leveled up to " + this.getLvl());
             textUI.displayMsg("New stats: Attack Power = " + this.attackPower + ", Defense Power = " + this.defensePower + ", HP = " + this.hp +"\n");
+
+
     }
     }
 

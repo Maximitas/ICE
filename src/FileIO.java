@@ -104,4 +104,12 @@ public class FileIO {
     return items;
     }
 
+    public void savePokemonData(String filePath, ArrayList<Pokemon> pokemons) {
+        clearPlayerPokemonFile(filePath);
+            for (Pokemon p : pokemons) {
+                savePokemonToPlayerPokemons(filePath, p);
+            }
+
+    }
+
 }

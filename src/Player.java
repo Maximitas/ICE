@@ -47,6 +47,10 @@ public class Player {
         return pokemonParty;
     }
 
+    public ArrayList<Pokemon> getCurrentParty(){
+        return this.pokemonParty;
+    }
+
     public void setWallet(int wallet) {
         this.wallet = wallet;
     }

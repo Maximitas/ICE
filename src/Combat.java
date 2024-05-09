@@ -21,7 +21,7 @@ public class Combat {
         if (playerPokemonList.isEmpty()) {
             textUI.displayMsg("No player Pokémon data loaded. Check file path: " + playerPokemonFile);
         } else {
-            primaryPlayerPokemon = playerPokemonList.get(0);
+            primaryPlayerPokemon = playerPokemonList.getFirst();
         }
 
         if (enemyPokemonList.isEmpty()) {
@@ -41,20 +41,6 @@ public class Combat {
                 performEnemyTurn(enemyPokemon);
             }
         }
-        finalizeBattle(player, enemyPokemon);
-    }
-
-    private void executeBattle(Player player, Pokemon enemyPokemon) throws InterruptedException {
-        boolean playerTurn = true;
-        while (primaryPlayerPokemon.getHp() > 0 && enemyPokemon.getHp() > 0) {
-            if (playerTurn) {
-                performPlayerTurn(player, enemyPokemon);
-            } else {
-                performEnemyTurn(enemyPokemon);
-            }
-            playerTurn = !playerTurn;
-        }
-
         finalizeBattle(player, enemyPokemon);
     }
 
@@ -193,6 +179,8 @@ public class Combat {
         textUI.displayMsg("Enemy " + enemyPokemon.getName() + " defeated!");
         player.addFunds(500);
         playerPokemon.levelUp();
+        fileIO.savePokemonData(playerPokemonFile, playerPokemonList);
+
     }
 
     private void playerPokemonFaint(Player player) throws InterruptedException {
@@ -206,7 +194,7 @@ public class Combat {
         }
     }
     private boolean pokemonsDefeated(Player player) {
-        for (Pokemon pokemon : player.getPokemonParty()) {
+        for (Pokemon pokemon : player.getCurrentParty()) {
             if (pokemon.getHp() > 0) {
                 return false;
             }
