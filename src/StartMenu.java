@@ -9,19 +9,20 @@ public class StartMenu {
     public void newGame() throws InterruptedException {
         file.clearPlayerPokemonFile("Data/PlayerPokemons.csv");
         file.clearBagFile("Data/Bag.csv");
-        
-        choosePlayerName();
+
+        Player player = choosePlayerName();
         chooseStarterPokemon();
-        userInterface.userOptions();
+        userInterface.userOptions(player);
     }
 
-    public void choosePlayerName(){
+    public Player choosePlayerName(){
         Player player = new Player();
         ui.displayMsg("Please type your name");
         String name = ui.userInput();
         player.setName(name);
 
         ui.displayMsg("You have chosen " + player.getName());
+        return player;
     }
 
     public void chooseStarterPokemon(){

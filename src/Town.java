@@ -31,7 +31,7 @@ public class Town {
             } catch (NumberFormatException e) {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
-            user.userOptions();
+            user.userOptions(player);
         }
 
         private void buy(Player player) throws InterruptedException {
@@ -77,7 +77,7 @@ public class Town {
             } catch (NumberFormatException e) {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
-            user.townOrPokeCenter();
+            user.townOrPokeCenter(player);
         }
 
         private void sell(Player player) throws InterruptedException {
@@ -85,7 +85,7 @@ public class Town {
 
             if (playerBag.isEmpty()) {
                 textUI.displayMsg("You have no items to sell.");
-                user.townOrPokeCenter();
+                user.townOrPokeCenter(player);
             }
 
             textUI.displayMsg("Here's what you have for sale:");
@@ -119,6 +119,6 @@ public class Town {
             } catch (NumberFormatException e) {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
-            user.userOptions();
+            user.userOptions(player);
         }
     }

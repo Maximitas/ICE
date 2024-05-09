@@ -21,16 +21,16 @@ public class Explore {
     }
 
 
-    public void explore() throws InterruptedException {
+    public void explore(Player player) throws InterruptedException {
         TextUI ui = new TextUI();
         int rand = random(3);
 
         if (rand < 0) {
-            fishing();
+            fishing(player);
         } else if (rand < 4) {
-            findItem();
+            findItem(player);
         } else if (rand < 3) {
-            randomDialogue();
+            randomDialogue(player);
         } else if (rand < 0) {
             //combat();
         } else {
@@ -44,7 +44,7 @@ public class Explore {
         return random.nextInt(k);
     }
 
-    public void fishing() throws InterruptedException {
+    public void fishing(Player player) throws InterruptedException {
         ui.displayMsg("You entered Route 12 (Fishing area)");
         ui.displayMsg("You are now fishing..");
         int randy = random(40);
@@ -54,11 +54,11 @@ public class Explore {
 
             //Input er pokemons number - 1 for at add til player pokemon bag
             addPokemonToPlayerPokemon(128);
-            user.userOptions();
+            user.userOptions(player);
 
         } else if (randy < 40) {
             showPikachu(1000);
-            user.userOptions();
+            user.userOptions(player);
 
         }
 
@@ -70,7 +70,7 @@ public class Explore {
     }
 
 
-    public void findItem() throws InterruptedException {
+    public void findItem(Player player) throws InterruptedException {
         ui.displayMsg("Exploring the world... (for items)");
         int randy = random(100);
         if (randy < 20) {
@@ -81,7 +81,7 @@ public class Explore {
             System.out.println("You found: " + item.get(number));
             io.saveItemsToBag("Data/Bag.csv", item.get(number));
             //todo husk at add item to bagpack.
-            user.userOptions();
+            user.userOptions(player);
 
         } else if (randy < 40) {
             ui.displayMsg("You see a Power Plant ..");
@@ -90,7 +90,7 @@ public class Explore {
             int number = itemInitializer();
             System.out.println("You found: " + item.get(number));
             io.saveItemsToBag("Data/Bag.csv", item.get(number));
-            user.userOptions();
+            user.userOptions(player);
 
         } else if (randy < 60) {
             ui.displayMsg("You are visiting Safari Zone ..");
@@ -99,7 +99,7 @@ public class Explore {
             int number = itemInitializer();
             System.out.println("You found: " + item.get(number));
             io.saveItemsToBag("Data/Bag.csv", item.get(number));
-            user.userOptions();
+            user.userOptions(player);
 
         } else if (randy < 80) {
             ui.displayMsg("You are came near a Diglett's Cave ..");
@@ -108,7 +108,7 @@ public class Explore {
             addPokemonToPlayerPokemon(49);
             ui.displayMsg("You found: " + "Diglett ding, diglett ding - DIGLETT");
             ui.displayMsg("⊂(◉‿◉)つ");
-            user.userOptions();
+            user.userOptions(player);
 
         } else if (randy < 100) {
             ui.displayMsg("You are came near a Pokemon Tower ..");
@@ -117,34 +117,34 @@ public class Explore {
             int number = itemInitializer();
             System.out.println("You found: " + item.get(number));
             io.saveItemsToBag("Data/Bag.csv", item.get(number));
-            user.userOptions();
+            user.userOptions(player);
 
         } else {
             ui.displayMsg("You got lost and found your way back..");
-            user.userOptions();
+            user.userOptions(player);
         }
     }
 
-    public void randomDialogue() throws InterruptedException {
+    public void randomDialogue(Player player) throws InterruptedException {
         ui.displayMsg("Exploring the area... (for knowledge)");
 
         int randy = random(100);
 
         if (randy < 20) {
-            dialogGirlyTrainee();
+            dialogGirlyTrainee(player);
         } else if (randy < 40) {
-            dialogFishingMan();
+            dialogFishingMan(player);
         } else if (randy < 60) {
-            dialogIdiotKid();
+            dialogIdiotKid(player);
         } else if (randy < 80) {
-            dialogOldman();
+            dialogOldman(player);
         } else if (randy < 95) {
-            dialogLegendary();
+            dialogLegendary(player);
         }
 
     }
 
-    public void dialogLegendary() throws InterruptedException {
+    public void dialogLegendary(Player player) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You are enjoying yourself and see a group of people storming at you!");
         ui.displayMsg("It seems like you need to prepare for battle");
@@ -158,11 +158,11 @@ public class Explore {
             //todo enten tilbage til randomdialog eller menu
 
         }
-        user.userOptions();
+        user.userOptions(player);
 
     }
 
-    public void dialogOldman() throws InterruptedException {
+    public void dialogOldman(Player player) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You see a old man near a statue...");
         ui.displayMsg("Do you want to approach him? y/n");
@@ -174,11 +174,11 @@ public class Explore {
             //todo enten tilbage til randomdialog eller menu
 
         }
-        user.userOptions();
+        user.userOptions(player);
     }
 
 
-    public void dialogIdiotKid() throws InterruptedException {
+    public void dialogIdiotKid(Player player) throws InterruptedException {
         ui.displayMsg("You see a kid sitting near a tree...");
         ui.displayMsg("Do you want to approach him? y/n");
         String input = ui.userInput();
@@ -189,12 +189,12 @@ public class Explore {
             //todo enten tilbage til randomdialog eller menu
 
         }
-        user.userOptions();
+        user.userOptions(player);
 
     }
 
 
-    public void dialogFishingMan() throws InterruptedException {
+    public void dialogFishingMan(Player player) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You see a man fishing...");
         ui.displayMsg("do you want to approach him? y/n");
@@ -206,10 +206,10 @@ public class Explore {
             ui.displayMsg("No sushi today..");
 
         }
-        user.userOptions();
+        user.userOptions(player);
     }
 
-    public void dialogGirlyTrainee() throws InterruptedException {
+    public void dialogGirlyTrainee(Player player) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You meet a random PokeTrainee..");
         ui.displayMsg("do you want to approach her? y/n");
@@ -225,7 +225,7 @@ public class Explore {
             ui.displayMsg("You fled the area");
 
         }
-        user.userOptions();
+        user.userOptions(player);
     }
 
     public void showMagikarp(int delay) throws InterruptedException {
