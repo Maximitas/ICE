@@ -3,10 +3,8 @@ public class UserInterface {
     TextUI UI = new TextUI();
 
 
-    Player player = new Player();
-
-
-    public void userOptions() throws InterruptedException {
+    public void userOptions(Player player) throws InterruptedException {
+        CombatInterface combat = new CombatInterface();
         Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
         UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Exit");
@@ -18,14 +16,15 @@ public class UserInterface {
             String option = UI.userInput();
             switch(option){
                 case "1":
-                    explore.explore();
+                    explore.explore(player);
                 whileKey = true;
                     break;
                 case "2"://Town
-                    townOrPokeCenter();
+                    townOrPokeCenter(player);
                     whileKey = true;
                     break;
                 case "3"://player
+                    combat.combatOptions(player);
                     whileKey = true;
                     break;
                 case "4": //exit
@@ -37,7 +36,7 @@ public class UserInterface {
         }
     }
 
-    public void townOrPokeCenter() throws InterruptedException {
+    public void townOrPokeCenter(Player player) throws InterruptedException {
         Town town = new Town();
         System.out.println("You are now in the town..\nWhat place do you want to visit?");
         System.out.println("1 for PokeCenter - 2 for PokeMart - 0 to exit");
@@ -47,7 +46,7 @@ public class UserInterface {
             case "2":
                 town.pokeMart(player);
                 case "0":
-                    userOptions();
+                    userOptions(player);
             default:
                 System.out.println("Try again");
                 break;
@@ -55,4 +54,30 @@ public class UserInterface {
         }
 
     }
+
+    public void startMenu() throws InterruptedException {
+        TextUI ui = new TextUI();
+        ui.displayMsg("Welcome to Packetman\n\n");
+        ui.displayMsg("Choose \n'1' Continue game\n'2' New game\n'3' Exit");
+
+        startMenuOptions();
+    }
+    public void startMenuOptions() throws InterruptedException {
+        StartMenu menu = new StartMenu();
+        switch(UI.userInput()){
+            case "1":
+                //userOptions(Player player);
+                break;
+            case "2":
+                menu.newGame();
+                break;
+            case "3":
+                break;
+            default: UI.displayMsg("Invalid input, please try again");
+            startMenuOptions();
+
+        }
+    }
+
+
 }

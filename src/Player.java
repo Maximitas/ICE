@@ -8,7 +8,7 @@ public class Player {
     private ArrayList<Item> bag;
     private ArrayList<String> playerInfo;
     private ArrayList<Pokemon> pokemonParty;
-    private int wallet=5000;
+    private int wallet = 1000;
     private String name;
 
 
@@ -42,6 +42,8 @@ public class Player {
     }
 
     public ArrayList<Pokemon> getPokemonParty() {
+        FileIO file = new FileIO();
+        this.pokemonParty = file.loadPokemonFromFile("Data/PlayerPokemons.csv");
         return pokemonParty;
     }
 
@@ -50,7 +52,10 @@ public class Player {
     }
 
     public void addItemToBag(Item item) {
+        FileIO file = new FileIO();
+        file.saveItemToBag("Data/Bag.csv", item);
         bag.add(item);
+
         textUI.displayMsg(item.getName() + " has been added to your bag.");
     }
 

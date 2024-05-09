@@ -32,7 +32,7 @@ public class Town {
                         break;
                     case "3":
                         textUI.displayMsg("Thank you for visiting the PokéMart!");
-                        user.userOptions();
+                        user.userOptions(player);
                         whileKey = true;
                         break;
                     default:
@@ -50,6 +50,11 @@ public class Town {
                     new Item("Super Potion", 500),
                     new Item("Revive", 1500)
             };
+
+            FileIO file = new FileIO();
+
+            ArrayList<Item> playerBag = file.readItemsFromBag("Data/Bag.csv");
+            file.saveItemsToBag("Data/Bag.csv", playerBag);
 
             textUI.displayMsg("Here's what we have for sale:");
             int index = 1;
@@ -87,21 +92,26 @@ public class Town {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
             buy(player);
-            user.townOrPokeCenter();
+            user.townOrPokeCenter(player);
         }
 
         private void sell(Player player) throws InterruptedException {
-            ArrayList<Item> playerBag = player.getBag();
+            FileIO file = new FileIO();
+            ArrayList<Item> playerBag = file.readItemsFromBag("Data/Bag.csv");
+            file.saveItemsToBag("Data/Bag.csv", player.getBag());
+
+
+            System.out.println(playerBag);
 
             if (playerBag.isEmpty()) {
                 textUI.displayMsg("You have no items to sell.");
-                user.townOrPokeCenter();
+                user.townOrPokeCenter(player);
             }
 
             textUI.displayMsg("Here's what you have for sale:");
             int index = 1;
             for (Item item : playerBag) {
-                textUI.displayMsg(index++ + ". " + item.getName());
+                textUI.displayMsg(index++ + ". " + item.getName() + " - P$" + (item.getPrice()/2));
             }
             textUI.displayMsg("Enter the number of the item you want to sell, or 0 to exit: ");
 
@@ -124,11 +134,12 @@ public class Town {
 
                 player.removeItemFromBag(selectedItem);
                 player.addFunds(sellPrice);
+                file.saveItemsToBag("Data/Bag.csv", playerBag);
                 textUI.displayMsg("You have sold a " + selectedItem.getName() + " for P$" + sellPrice + ".");
                 textUI.displayMsg("Remaining balance: P$" + player.getWallet());
             } catch (NumberFormatException e) {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
-            user.userOptions();
+            user.userOptions(player);
         }
     }

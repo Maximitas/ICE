@@ -52,12 +52,23 @@ public class FileIO {
         }
     }
 
-    public void saveItemsToBag(String filePath, Item item) {
+    public void saveItemToBag(String filePath, Item item) {
         try (FileWriter writer = new FileWriter(filePath, true)) {
-                writer.write(item.getName() + "," + item.getPrice() + "\n");
+                writer.write("\n" + item.getName() + "," + item.getPrice());
 
         } catch (IOException e) {
             System.out.println("Error writing items to file: " + e.getMessage());
+        }
+    }
+
+    public void saveItemsToBag(String filepath, ArrayList<Item> items) {
+        try (FileWriter writer = new FileWriter(filepath, false)) {
+            writer.write("name,price");
+            for (Item item : items) {
+                writer.write("\n" + item.getName() + "," + item.getPrice());
+            }
+        } catch (IOException e) {
+            e.getMessage();
         }
     }
 

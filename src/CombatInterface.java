@@ -8,7 +8,7 @@ public class CombatInterface {
     private Combat combat = new Combat();
     private Player player = new Player();
 
-    public void combatOptions() throws InterruptedException {
+    public void combatOptions(Player player) throws InterruptedException {
 
         ui.displayMsg("Select your option below:");
         ui.displayMsg("1: Fight\n2: Run\n3: Switch Pokémon\n4: Bag");
@@ -20,19 +20,19 @@ public class CombatInterface {
             String option = ui.userInput();
             switch (option) {
                 case "1":
-                    fight();
+                    fight(player);
                     whileKey = true;
                     break;
                 case "2":
-                    run();
+                    run(player);
                     whileKey = true;
                     break;
                 case "3":
-                    switchPokemon();
+                    switchPokemon(player);
                     whileKey = true;
                     break;
                 case "4":
-                    bag();
+                    bag(player);
                     whileKey = true;
                     break;
                 default:
@@ -43,30 +43,30 @@ public class CombatInterface {
     }
 
 
-    public void run() throws InterruptedException {
+    public void run(Player player) throws InterruptedException {
         double rand = random(1);
         if (rand < 0.7) {
             ui.displayMsg("You successfully ran away!");
-            user.userOptions();
+            user.userOptions(player);
         } else {
             ui.displayMsg("What the dog doing?!");
-            combatOptions();
+            combatOptions(player);
 
         }
     }
 
-    public void fight() {
-        Player playerOne = new Player();
+    public void fight(Player playerOne) {
+        //Player playerOne = new Player();
         Player playerTwo = new Player();
         combat.battleRound(playerOne, playerTwo);
 
     }
 
-    public void bag() {
+    public void bag(Player player) throws InterruptedException {
 
     }
 
-    public void switchPokemon() {
+    public void switchPokemon(Player player) {
 
     }
 
