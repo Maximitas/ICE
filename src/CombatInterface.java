@@ -3,51 +3,60 @@ import java.util.Random;
 public class CombatInterface {
 
     private TextUI ui = new TextUI();
-    private FileIO io = new FileIO();
-    private UserInterface user = new UserInterface();
     private Combat combat = new Combat();
-    private Player player = new Player();
+    private UserInterface userInterface = new UserInterface();
 
     public void combatOptions(Player player) throws InterruptedException {
+        Pokemon enemyPokemon = combat.getRandomPokemon();
+        if (enemyPokemon == null) {
+            ui.displayMsg("No enemy Pokémon available.");
+            return;
+        }
 
-        ui.displayMsg("Select your option below:");
-        ui.displayMsg("1: Fight\n2: Run\n3: Switch Pokémon\n4: Bag");
-
-        boolean whileKey = false;
-
-        while (!whileKey) {
+        ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
+        boolean battleActive = true;
+        while (battleActive) {
+            ui.displayMsg("Select your option below:");
+            ui.displayMsg("1: Fight\n2: Run\n3: Switch Pokémon\n4: Bag");
 
             String option = ui.userInput();
             switch (option) {
                 case "1":
-                    fight(player);
-                    whileKey = true;
+                    fight(player, enemyPokemon);
+                    if (enemyPokemon.getHp() > 0 && combat.getPrimaryPlayerPokemon().getHp() > 0) {
+                        continue;
+                    }
+                    battleActive = false;
                     break;
                 case "2":
                     run(player);
-                    whileKey = true;
+                    battleActive = false;
                     break;
                 case "3":
-                    switchPokemon(player);
-                    whileKey = true;
+                    switchPokemon();
                     break;
                 case "4":
-                    bag(player);
-                    whileKey = true;
+                    bag();
                     break;
                 default:
-                    ui.displayMsg("Invalid input, please try again");
-
+                    ui.displayMsg("Invalid input, please try again.");
             }
         }
     }
+
+
+    public void fight(Player player, Pokemon enemyPokemon) throws InterruptedException {
+        combat.battleRound(player, enemyPokemon);
+    }
+
+
 
 
     public void run(Player player) throws InterruptedException {
         double rand = random(1);
         if (rand < 0.7) {
             ui.displayMsg("You successfully ran away!");
-            user.userOptions(player);
+            userInterface.userOptions(player);
         } else {
             ui.displayMsg("What the dog doing?!");
             combatOptions(player);
@@ -55,18 +64,11 @@ public class CombatInterface {
         }
     }
 
-    public void fight(Player playerOne) {
-        //Player playerOne = new Player();
-        Player playerTwo = new Player();
-        combat.battleRound(playerOne, playerTwo);
+    public void bag() {
 
     }
 
-    public void bag(Player player) throws InterruptedException {
-
-    }
-
-    public void switchPokemon(Player player) {
+    public void switchPokemon() {
 
     }
 
