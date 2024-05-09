@@ -222,6 +222,7 @@ public class Combat {
             textUI.displayMsg("You don't have enough currency to pay the penalty.");
         }
     }
+
     private Pokemon getRandomPokemon() {
         Random random = new Random();
         return enemyPokemonList.get(random.nextInt(enemyPokemonList.size()));

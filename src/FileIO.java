@@ -34,11 +34,10 @@ public class FileIO {
         return pokemonList;
     }
 
-    public void saveItemsToBag(String filePath, ArrayList<Item> items) {
+    public void saveItemsToBag(String filePath, Item item) {
         try (FileWriter writer = new FileWriter(filePath, true)) {
-            for (Item item : items) {
                 writer.write(item.getName() + "," + item.getPrice() + "\n");
-            }
+
         } catch (IOException e) {
             System.out.println("Error writing items to file: " + e.getMessage());
         }
