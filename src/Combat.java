@@ -13,7 +13,6 @@ public class Combat {
     String enemyPokemonFile = "Data/Pokemon.csv";
 
 
-
     public Combat() {
         this.playerPokemonList = fileIO.loadPokemonFromFile(playerPokemonFile);
         this.enemyPokemonList = fileIO.loadPokemonFromFile(enemyPokemonFile);
@@ -68,11 +67,13 @@ public class Combat {
             user.userOptions(player);
         }
     }
+
     private void displayPlayerPokemonStatus(Pokemon playerPokemon) {
         textUI.displayMsg("Status:");
         textUI.displayMsg(playerPokemon.getName() + " (Lvl " + playerPokemon.getLvl() + "): HP " + playerPokemon.getHp());
 
     }
+
     private void displayEnemyPokemonStatus(Pokemon enemyPokemon) {
         textUI.displayMsg("Status:");
         textUI.displayMsg(enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + "): HP " + enemyPokemon.getHp());
@@ -82,6 +83,8 @@ public class Combat {
         int damage = calculateDamage(attacker, defender);
         defender.setHp(Math.max(defender.getHp() - damage, 0));
         textUI.displayMsg(defender.getName() + " took " + damage + " damage!");
+
+        fileIO.savePokemonData(playerPokemonFile, playerPokemonList);
     }
 
     public int calculateDamage(Pokemon attacker, Pokemon defender) {
@@ -112,43 +115,56 @@ public class Combat {
                 if (defenderType.equals("Rock") || defenderType.equals("Ghost")) return 0.0;
                 break;
             case "Fire":
-                if (defenderType.equals("Fire") || defenderType.equals("Water") || defenderType.equals("Rock") || defenderType.equals("Dragon")) return 0.5;
-                if (defenderType.equals("Grass") || defenderType.equals("Ice") || defenderType.equals("Bug")) return 2.0;
+                if (defenderType.equals("Fire") || defenderType.equals("Water") || defenderType.equals("Rock") || defenderType.equals("Dragon"))
+                    return 0.5;
+                if (defenderType.equals("Grass") || defenderType.equals("Ice") || defenderType.equals("Bug"))
+                    return 2.0;
                 break;
             case "Water":
-                if (defenderType.equals("Water") || defenderType.equals("Grass") || defenderType.equals("Dragon")) return 0.5;
-                if (defenderType.equals("Fire") || defenderType.equals("Ground") || defenderType.equals("Rock")) return 2.0;
+                if (defenderType.equals("Water") || defenderType.equals("Grass") || defenderType.equals("Dragon"))
+                    return 0.5;
+                if (defenderType.equals("Fire") || defenderType.equals("Ground") || defenderType.equals("Rock"))
+                    return 2.0;
                 break;
             case "Electric":
-                if (defenderType.equals("Electric") || defenderType.equals("Grass") || defenderType.equals("Dragon")) return 0.5;
+                if (defenderType.equals("Electric") || defenderType.equals("Grass") || defenderType.equals("Dragon"))
+                    return 0.5;
                 if (defenderType.equals("Water") || defenderType.equals("Flying")) return 2.0;
                 if (defenderType.equals("Ground")) return 0.0;
                 break;
             case "Grass":
-                if (defenderType.equals("Fire") || defenderType.equals("Grass") || defenderType.equals("Poison") || defenderType.equals("Flying") || defenderType.equals("Bug") || defenderType.equals("Dragon")) return 0.5;
-                if (defenderType.equals("Water") || defenderType.equals("Ground") || defenderType.equals("Rock")) return 2.0;
+                if (defenderType.equals("Fire") || defenderType.equals("Grass") || defenderType.equals("Poison") || defenderType.equals("Flying") || defenderType.equals("Bug") || defenderType.equals("Dragon"))
+                    return 0.5;
+                if (defenderType.equals("Water") || defenderType.equals("Ground") || defenderType.equals("Rock"))
+                    return 2.0;
                 break;
             case "Ice":
                 if (defenderType.equals("Water") || defenderType.equals("Ice")) return 0.5;
-                if (defenderType.equals("Grass") || defenderType.equals("Ground") || defenderType.equals("Flying") || defenderType.equals("Dragon")) return 2.0;
+                if (defenderType.equals("Grass") || defenderType.equals("Ground") || defenderType.equals("Flying") || defenderType.equals("Dragon"))
+                    return 2.0;
                 break;
             case "Fighting":
-                if (defenderType.equals("Poison") || defenderType.equals("Flying") || defenderType.equals("Psychic") || defenderType.equals("Bug")) return 0.5;
-                if (defenderType.equals("Normal") || defenderType.equals("Ice") || defenderType.equals("Rock")) return 2.0;
+                if (defenderType.equals("Poison") || defenderType.equals("Flying") || defenderType.equals("Psychic") || defenderType.equals("Bug"))
+                    return 0.5;
+                if (defenderType.equals("Normal") || defenderType.equals("Ice") || defenderType.equals("Rock"))
+                    return 2.0;
                 if (defenderType.equals("Ghost")) return 0.0;
                 break;
             case "Poison":
-                if (defenderType.equals("Poison") || defenderType.equals("Ground") || defenderType.equals("Rock") || defenderType.equals("Ghost")) return 0.5;
+                if (defenderType.equals("Poison") || defenderType.equals("Ground") || defenderType.equals("Rock") || defenderType.equals("Ghost"))
+                    return 0.5;
                 if (defenderType.equals("Grass")) return 2.0;
                 break;
             case "Ground":
                 if (defenderType.equals("Grass") || defenderType.equals("Bug")) return 0.5;
-                if (defenderType.equals("Fire") || defenderType.equals("Electric") || defenderType.equals("Poison") || defenderType.equals("Rock")) return 2.0;
+                if (defenderType.equals("Fire") || defenderType.equals("Electric") || defenderType.equals("Poison") || defenderType.equals("Rock"))
+                    return 2.0;
                 if (defenderType.equals("Flying")) return 0.0;
                 break;
             case "Flying":
                 if (defenderType.equals("Electric") || defenderType.equals("Rock")) return 0.5;
-                if (defenderType.equals("Grass") || defenderType.equals("Fighting") || defenderType.equals("Bug")) return 2.0;
+                if (defenderType.equals("Grass") || defenderType.equals("Fighting") || defenderType.equals("Bug"))
+                    return 2.0;
                 break;
             case "Psychic":
                 if (defenderType.equals("Psychic")) return 0.5;
@@ -156,12 +172,14 @@ public class Combat {
                 if (defenderType.equals("Ghost")) return 0.0;
                 break;
             case "Bug":
-                if (defenderType.equals("Fire") || defenderType.equals("Fighting") || defenderType.equals("Poison") || defenderType.equals("Flying") || defenderType.equals("Ghost")) return 0.5;
+                if (defenderType.equals("Fire") || defenderType.equals("Fighting") || defenderType.equals("Poison") || defenderType.equals("Flying") || defenderType.equals("Ghost"))
+                    return 0.5;
                 if (defenderType.equals("Grass") || defenderType.equals("Psychic")) return 2.0;
                 break;
             case "Rock":
                 if (defenderType.equals("Fighting") || defenderType.equals("Ground")) return 0.5;
-                if (defenderType.equals("Fire") || defenderType.equals("Ice") || defenderType.equals("Flying") || defenderType.equals("Bug")) return 2.0;
+                if (defenderType.equals("Fire") || defenderType.equals("Ice") || defenderType.equals("Flying") || defenderType.equals("Bug"))
+                    return 2.0;
                 break;
             case "Ghost":
                 if (defenderType.equals("Normal")) return 0.0;
@@ -193,6 +211,7 @@ public class Combat {
             user.userOptions(player);
         }
     }
+
     private boolean pokemonsDefeated(Player player) {
         for (Pokemon pokemon : player.getCurrentParty()) {
             if (pokemon.getHp() > 0) {
@@ -219,6 +238,6 @@ public class Combat {
 
     public Pokemon getPrimaryPlayerPokemon() {
         return primaryPlayerPokemon;
-    }
 
+    }
 }
