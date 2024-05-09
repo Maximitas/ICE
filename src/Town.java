@@ -34,7 +34,7 @@ public class Town {
             user.userOptions();
         }
 
-        private void buy(Player player) throws InterruptedException {
+        private void buy(Player player) {
             Item[] itemsForSale = {
                     new Item("Poké Ball", 200),
                     new Item("Potion", 100),
@@ -77,7 +77,6 @@ public class Town {
             } catch (NumberFormatException e) {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
-            user.townOrPokeCenter();
         }
 
         private void sell(Player player) throws InterruptedException {
