@@ -6,7 +6,6 @@ public class CombatInterface {
     private FileIO io = new FileIO();
     private UserInterface user = new UserInterface();
     private Combat combat = new Combat();
-    private Player player = new Player();
 
     public void combatOptions() throws InterruptedException {
 
@@ -55,8 +54,9 @@ public class CombatInterface {
         }
     }
 
-    public void fight() {
+    public void fight() throws InterruptedException {
         Player playerOne = new Player();
+
         Player playerTwo = new Player();
         combat.battleRound(playerOne, playerTwo);
 

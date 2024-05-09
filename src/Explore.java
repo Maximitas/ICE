@@ -28,9 +28,9 @@ public class Explore {
         TextUI ui = new TextUI();
         int rand = random(3);
 
-        if (rand < 4) {
+        if (rand < 0) {
             fishing();
-        } else if (rand < 2) {
+        } else if (rand < 4) {
             findItem();
         } else if (rand < 3) {
             randomDialogue();
@@ -76,12 +76,13 @@ public class Explore {
     public void findItem() throws InterruptedException {
         System.out.println("Exploring the world... (for items)");
         int randy = random(100);
-        if (randy < 20) {
+        if (randy < 100) {
             System.out.println("You see a Rock Tunnel..");
             System.out.println("Entering Rock Tunnel.");
             showTreasureChest(1000);
-            itemInitializer();
-            System.out.println("You found: " + item.get(itemInitializer()));
+            int number = itemInitializer();
+            System.out.println("You found: " + item.get(number));
+            io.saveItemsToBag("Data/Bag.csv", item.get(number));
             //todo husk at add item to bagpack.
             user.userOptions();
 
