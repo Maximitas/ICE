@@ -34,6 +34,24 @@ public class FileIO {
         return pokemonList;
     }
 
+    public void clearPlayerPokemonFile(String filePath){
+        try (FileWriter writer = new FileWriter(filePath, false)){
+            writer.write("pokemonID,hp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity");
+
+        } catch (IOException e) {
+            e.getMessage();
+        }
+    }
+
+    public void clearBagFile(String filePath){
+        try (FileWriter writer = new FileWriter(filePath, false)){
+            writer.write("name,price");
+
+        } catch (IOException e) {
+            e.getMessage();
+        }
+    }
+
     public void saveItemsToBag(String filePath, Item item) {
         try (FileWriter writer = new FileWriter(filePath, true)) {
                 writer.write(item.getName() + "," + item.getPrice() + "\n");
