@@ -76,7 +76,7 @@ public class Explore {
     public void findItem() throws InterruptedException {
         System.out.println("Exploring the world... (for items)");
         int randy = random(100);
-        if (randy < 100) {
+        if (randy < 20){
             System.out.println("You see a Rock Tunnel..");
             System.out.println("Entering Rock Tunnel.");
             showTreasureChest(1000);
@@ -90,23 +90,25 @@ public class Explore {
             System.out.println("You see a Power Plant ..");
             System.out.println("Entering Power Plant.");
             showTreasureChest(1000);
-            itemInitializer();
-            System.out.println("You found: " + item.get(itemInitializer()));
+            int number = itemInitializer();
+            System.out.println("You found: " + item.get(number));
+            io.saveItemsToBag("Data/Bag.csv", item.get(number));
             user.userOptions();
 
         } else if (randy < 60) {
             System.out.println("You are visiting Safari Zone ..");
             System.out.println("Entering Safari Zone.");
             showTreasureChest(1000);
-            itemInitializer();
-            System.out.println("You found: " + item.get(itemInitializer()));
+            int number = itemInitializer();
+            System.out.println("You found: " + item.get(number));
+            io.saveItemsToBag("Data/Bag.csv", item.get(number));
             user.userOptions();
 
         } else if (randy < 80) {
             System.out.println("You are came near a Diglett's Cave ..");
             System.out.println("Entering Diglett's Cave.");
             showTreasureChest(1000);
-            itemInitializer();
+            addPokemonToPlayerPokemon(49);
             System.out.println("You found: " + "Diglett ding, diglett ding - DIGLETT");
             System.out.println("⊂(◉‿◉)つ");
             user.userOptions();
@@ -115,8 +117,9 @@ public class Explore {
             System.out.println("You are came near a Pokemon Tower ..");
             System.out.println("Entering Pokemon Tower.");
             showTreasureChest(1000);
-            itemInitializer();
-            System.out.println("You found: " + item.get(itemInitializer()));
+            int number = itemInitializer();
+            System.out.println("You found: " + item.get(number));
+            io.saveItemsToBag("Data/Bag.csv", item.get(number));
             user.userOptions();
 
         } else {
