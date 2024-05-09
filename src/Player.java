@@ -8,7 +8,7 @@ public class Player {
     private ArrayList<Item> bag;
     private ArrayList<String> playerInfo;
     private ArrayList<Pokemon> pokemonParty;
-    private int wallet;
+    private int wallet=5000;
     private String name;
 
 

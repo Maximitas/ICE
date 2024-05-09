@@ -15,26 +15,35 @@ public class Town {
     }
         public void pokeMart(Player player) throws InterruptedException {
             textUI.displayMsg("Welcome to the PokéMart!");
-            textUI.displayMsg("Would you like to (1) Buy or (2) Sell items? Enter 0 to exit: ");
-            String actionInput = textUI.userInput();
+            textUI.displayMsg("(1) Buy item\n(2) Sell item\n(3) to exit ");
 
-            try {
-                int action = Integer.parseInt(actionInput);
-                if (action == 1) {
-                    buy(player);
-                } else if (action == 2) {
-                    sell(player);
-                } else {
-                    textUI.displayMsg("Thank you for visiting the PokéMart!");
+            boolean whileKey = false;
 
+            while(!whileKey){
+
+                String option = textUI.userInput();
+                switch(option) {
+                    case "1":
+                        buy(player);
+                        break;
+                    case "2":
+                        sell(player);
+                        whileKey = true;
+                        break;
+                    case "3":
+                        textUI.displayMsg("Thank you for visiting the PokéMart!");
+                        user.userOptions();
+                        whileKey = true;
+                        break;
+                    default:
+                        textUI.displayMsg("Invalid input, please try again");
                 }
-            } catch (NumberFormatException e) {
-                textUI.displayMsg("Invalid input. Please enter a valid number.");
+
+
             }
-            user.userOptions();
         }
 
-        private void buy(Player player) {
+        private void buy(Player player) throws InterruptedException {
             Item[] itemsForSale = {
                     new Item("Poké Ball", 200),
                     new Item("Potion", 100),
@@ -77,6 +86,8 @@ public class Town {
             } catch (NumberFormatException e) {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
+            buy(player);
+            user.townOrPokeCenter();
         }
 
         private void sell(Player player) throws InterruptedException {
