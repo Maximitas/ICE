@@ -9,7 +9,7 @@ public class UserInterface {
         CombatInterface combat = new CombatInterface();
         Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
-        UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Save\n5: Exit");
+        UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Find Pokémon\n5: Save\n6: Exit Game");
 
         boolean whileKey = false;
 
@@ -25,15 +25,19 @@ public class UserInterface {
                     townOrPokeCenter(player);
                     whileKey = true;
                     break;
-                case "3"://player
+                case "3"://player //todo Player info
                     combat.combatOptions(player);
                     whileKey = true;
                     break;
-                case "4": //Save game
+                    case "4":
+                    combat.combatOptions(player);
+                    whileKey = true;
+                    break;
+                case "5": //Save game
                     whileKey = true;
                     startMenu.savePlayer(player);
                     break;
-                case "5": //Exit game
+                case "6": //Exit game
                     whileKey = true;
                 default: UI.displayMsg("Invalid input, please try again");
 

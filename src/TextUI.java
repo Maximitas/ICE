@@ -31,6 +31,11 @@ public class TextUI {
         System.out.println("But one unbelievable savior came, and harnest the darkness. no one knows what happend to him or the beast.. ");
         System.out.println("But that was 600 years ago, what do we do now!...");
         System.out.println("faith... faith.. thats all, faith.");
+        System.out.println("I haven't slept for years..");
+        System.out.println("... , ... , ..., ..., ");
+        System.out.println("... What is happening!");
+        System.out.println("Why is everything black!");
+        System.out.println("...'Shadow figure appearing'...");
     }
 
 }

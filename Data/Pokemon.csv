@@ -150,3 +150,4 @@ pokemonID,hp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
 149,91,55,134,95,Dragonite,Dragon,Flying,Multiscale,Legendary
 150,106,70,110,90,Mewtwo,Psychic,None,Pressure,Legendary
 151,100,70,100,100,Mew,Psychic,None,Synchronize,Mythical
+70,90,90,135,125,Darkrai,Dark,None,Bad Dreams,Mythical

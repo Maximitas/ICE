@@ -241,4 +241,20 @@ public class Combat {
         return primaryPlayerPokemon;
 
     }
+
+    Pokemon getSpecificPokemonMewTo() {
+        Random random = new Random();
+       random.nextInt(enemyPokemonList.size());
+        return enemyPokemonList.get(149);
+    }
+    Pokemon getSpecificPokemonDarkcry() {
+        Random random = new Random();
+        random.nextInt(enemyPokemonList.size());
+        return enemyPokemonList.get(151);
+    }
+    Pokemon getSpecificPokemonGyarados() {
+        Random random = new Random();
+        random.nextInt(enemyPokemonList.size());
+        return enemyPokemonList.get(129);
+    }
 }

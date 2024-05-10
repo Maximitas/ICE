@@ -1,2 +1,2 @@
 pokemonID,hp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
-25,0,5,55,40,Pikachu,Electric,None,Static,Common
+1,0,5,49,49,Bulbasaur,Grass,Poison,Overgrow,Common

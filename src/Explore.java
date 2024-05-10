@@ -23,19 +23,19 @@ public class Explore {
 
     public void explore(Player player) throws InterruptedException {
         TextUI ui = new TextUI();
-        int rand = random(3);
+        int rand = random(1);
 
-        if (rand < 0) {
+        if (rand < 1) {
             fishing(player);
-        } else if (rand < 4) {
+        } else if (rand < 0) {
             findItem(player);
-        } else if (rand < 3) {
+        } else if (rand <0 ) {
             randomDialogue(player);
         } else if (rand < 0) {
-            //combat();
-        } else {
-
+            combat.combatOptions(player);
         }
+
+
 
     }
 
@@ -47,8 +47,8 @@ public class Explore {
     public void fishing(Player player) throws InterruptedException {
         ui.displayMsg("You entered Route 12 (Fishing area)");
         ui.displayMsg("You are now fishing..");
-        int randy = random(40);
-        if (randy < 20) {
+        int randy = random(150);
+        if (randy < 50) {
 
             showMagikarp(1000);
 
@@ -56,9 +56,13 @@ public class Explore {
             addPokemonToPlayerPokemon(128);
             user.userOptions(player);
 
-        } else if (randy < 40) {
+        } else if (randy < 100) {
             showPikachu(1000);
             user.userOptions(player);
+
+        } else if (randy < 150) {
+            showGyarados(1000);
+            combat.combatOptionsGyarados(player);
 
         }
 
@@ -128,34 +132,33 @@ public class Explore {
     public void randomDialogue(Player player) throws InterruptedException {
         ui.displayMsg("Exploring the area... (for knowledge)");
 
-        int randy = random(100);
+        int randy = random(1);
 
-        if (randy < 20) {
+        if (randy < 0) {
             dialogGirlyTrainee(player);
-        } else if (randy < 40) {
+        } else if (randy < 0) {
             dialogFishingMan(player);
-        } else if (randy < 60) {
+        } else if (randy <0) {
             dialogIdiotKid(player);
-        } else if (randy < 80) {
+        } else if (randy <1) {
             dialogOldman(player);
-        } else if (randy < 95) {
+        } else if (randy < 0) {
             dialogLegendary(player);
         }
 
     }
 
     public void dialogLegendary(Player player) throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You are enjoying yourself and see a group of people storming at you!");
         ui.displayMsg("It seems like you need to prepare for battle");
         ui.displayMsg("Some guy named 'Red' wants to battle you");
         ui.displayMsg("Do you want this. y/n");
         String input = ui.userInput();
         if (input.equals("y")) {
-            //Battle red
+            ui.displayMsg("You are now battling Red!");
+            combat.combatOptionsRed(player);
         } else if (input.equals("n")) {
             ui.displayMsg("Next time, take the battle, you wont regret it..Goodluck");
-            //todo enten tilbage til randomdialog eller menu
 
         }
         user.userOptions(player);
@@ -163,12 +166,12 @@ public class Explore {
     }
 
     public void dialogOldman(Player player) throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
         ui.displayMsg("You see a old man near a statue...");
         ui.displayMsg("Do you want to approach him? y/n");
         String input = ui.userInput();
         if (input.equals("y")) {
             ui.oldManTalk();
+            combat.combatOptionsDarkry(player);
         } else if (input.equals("n")) {
             ui.displayMsg("He looked worried..maybe i should talk to him.");
             //todo enten tilbage til randomdialog eller menu
@@ -195,7 +198,7 @@ public class Explore {
 
 
     public void dialogFishingMan(Player player) throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
+
         ui.displayMsg("You see a man fishing...");
         ui.displayMsg("do you want to approach him? y/n");
         String input = ui.userInput();
@@ -319,6 +322,36 @@ public class Explore {
         }
 
     }
+    public void showGyarados(int delay) throws InterruptedException {
+        String sentencePika = ("... ... ... ...!  \n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣼⡏⢹⣧⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀\n" +
+                "⣾⡟⠻⠷⣶⣤⣀⣀⣠⣶⣿⣿⣿⣿⠇⠸⣿⣿⣿⣿⣶⣄⣀⣀⣤⣶⠾⠟⢻⣷\n" +
+                "⠙⠿⣶⣄⡀⠉⠛⠻⢿⣿⣿⣿⣿⣿⠀⠀⣿⣿⣿⣿⣿⡿⠟⠛⠉⢀⣠⣶⠿⠋\n" +
+                "⠀⠀⠈⠙⢻⣷⣦⣀⠀⠀⠉⠛⠻⠟⠀⠀⠻⠟⠛⠉⠀⠀⣀⣴⣾⡟⠋⠁⠀⠀\n" +
+                "⠀⢀⣀⣤⣿⣿⡏⠛⠿⣶⣄⡀⠀⠀⠀⠀⠀⠀⢀⣠⣶⠿⠛⢹⣿⣿⣤⣀⡀⠀\n" +
+                "⣾⣿⣿⣿⣿⣿⡇⠀⠐⠟⠙⢻⣷⣦⣤⣤⣴⣾⡟⠋⠻⠀⠀⢸⣿⣿⣿⣿⣿⣷\n" +
+                "⢿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣿⣿⣿⣿⣿⣿⡿\n" +
+                "⠀⠈⠙⠛⠿⣿⣿⣿⣿⣿⣿⡟⢿⣿⠿⠿⣿⡿⢻⣿⣿⣿⣿⣿⣿⠿⠛⠋⠁⠀\n" +
+                "⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⡇⠸⡟⠀⠀⢻⠇⢸⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⡷⢶⣶⣦⣴⣶⠶⢾⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠈⠉⠛⠿⣿⡇⠀⠀⠀⠀⠀⠀⢸⣿⠿⠛⠉⠁⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢰⣧⠀⠀⣼⡆⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣷⣾⣿⣶⣶⣿⣷⣾⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                 "YOU FOUND GYARADOS! PREPARE FOR BATTLE⠀");
+
+        for (String s : sentencePika.split(" ")) {
+            System.out.println(s);
+            Thread.sleep(delay);
+
+        }
+
+    }
+
+
+
 
     public void addPokemonToPlayerPokemon(int input) {
 
