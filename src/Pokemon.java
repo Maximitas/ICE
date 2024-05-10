@@ -91,6 +91,7 @@ public class Pokemon {
     }
 
     public void restoreHP() {
+        
         this.hp = maxHp;
     }
     public void levelUp () {

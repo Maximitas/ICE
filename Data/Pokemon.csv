@@ -1,153 +1,153 @@
-pokemonID,hp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
-1,45,5,49,49,Bulbasaur,Grass,Poison,Overgrow,Common
-2,60,16,62,63,Ivysaur,Grass,Poison,Overgrow,Uncommon
-3,80,32,82,83,Venusaur,Grass,Poison,Overgrow,Rare
-4,39,5,52,43,Charmander,Fire,None,Blaze,Common
-5,58,16,64,58,Charmeleon,Fire,None,Blaze,Uncommon
-6,78,36,84,78,Charizard,Fire,Flying,Blaze,Rare
-7,44,5,48,65,Squirtle,Water,None,Torrent,Common
-8,59,16,63,80,Wartortle,Water,None,Torrent,Uncommon
-9,79,36,83,100,Blastoise,Water,None,Torrent,Rare
-10,50,5,20,20,Caterpie,Bug,None,Shield Dust,Common
-11,55,7,25,25,Metapod,Bug,None,Shed Skin,Common
-12,60,10,45,50,Butterfree,Bug,Flying,Compound Eyes,Uncommon
-13,40,5,35,30,Weedle,Bug,Poison,Shield Dust,Common
-14,45,7,25,50,Kakuna,Bug,Poison,Shed Skin,Common
-15,65,10,90,40,Beedrill,Bug,Poison,Swarm,Uncommon
-16,40,5,45,40,Pidgey,Normal,Flying,Keen Eye,Common
-17,63,18,60,55,Pidgeotto,Normal,Flying,Keen Eye,Uncommon
-18,83,36,80,75,Pidgeot,Normal,Flying,Keen Eye,Rare
-19,30,5,56,35,Rattata,Normal,None,Run Away,Common
-20,55,20,81,60,Raticate,Normal,None,Hustle,Uncommon
-21,40,5,60,30,Spearow,Normal,Flying,Keen Eye,Common
-22,65,20,90,65,Fearow,Normal,Flying,Keen Eye,Uncommon
-23,35,5,60,44,Ekans,Poison,None,Intimidate,Common
-24,60,22,85,69,Arbok,Poison,None,Intimidate,Uncommon
-25,35,5,55,40,Pikachu,Electric,None,Static,Common
-26,60,20,90,55,Raichu,Electric,None,Static,Uncommon
-27,50,5,75,85,Sandshrew,Ground,None,Sand Veil,Common
-28,75,22,100,110,Sandslash,Ground,None,Sand Veil,Uncommon
-29,55,5,47,52,Nidoran♀,Poison,None,Poison Point,Common
-30,70,16,62,67,Nidorina,Poison,None,Poison Point,Uncommon
-31,90,36,82,87,Nidoqueen,Poison,Ground,Poison Point,Rare
-32,46,5,57,40,Nidoran♂,Poison,None,Poison Point,Common
-33,61,16,72,57,Nidorino,Poison,None,Poison Point,Uncommon
-34,81,36,92,77,Nidoking,Poison,Ground,Poison Point,Rare
-35,70,5,45,48,Clefairy,Fairy,None,Cute Charm,Common
-36,95,18,70,73,Clefable,Fairy,None,Cute Charm,Uncommon
-37,38,5,41,40,Vulpix,Fire,None,Flash Fire,Common
-38,73,22,76,75,Ninetales,Fire,None,Flash Fire,Uncommon
-39,115,5,45,20,Jigglypuff,Normal,Fairy,Cute Charm,Common
-40,140,18,70,45,Wigglytuff,Normal,Fairy,Cute Charm,Uncommon
-41,40,5,45,35,Zubat,Poison,Flying,Inner Focus,Common
-42,75,22,80,70,Golbat,Poison,Flying,Inner Focus,Uncommon
-43,45,5,50,55,Oddish,Grass,Poison,Chlorophyll,Common
-44,60,21,65,70,Gloom,Grass,Poison,Chlorophyll,Uncommon
-45,75,36,80,85,Vileplume,Grass,Poison,Chlorophyll,Rare
-46,35,5,70,55,Paras,Bug,Grass,Effect Spore,Common
-47,60,24,95,80,Parasect,Bug,Grass,Effect Spore,Uncommon
-48,60,5,55,50,Venonat,Bug,Poison,Compound Eyes,Common
-49,70,31,65,60,Venomoth,Bug,Poison,Shield Dust,Uncommon
-50,10,5,55,25,Diglett,Ground,None,Sand Veil,Common
-51,35,26,80,50,Dugtrio,Ground,None,Sand Veil,Uncommon
-52,40,5,45,35,Meowth,Normal,None,Pickup,Common
-53,65,28,70,60,Persian,Normal,None,Limber,Uncommon
-54,50,5,52,48,Psyduck,Water,None,Cloud Nine,Common
-55,80,33,82,78,Golduck,Water,None,Cloud Nine,Uncommon
-56,40,5,80,35,Mankey,Fighting,None,Vital Spirit,Common
-57,65,28,105,60,Primeape,Fighting,None,Vital Spirit,Uncommon
-58,55,5,70,45,Growlithe,Fire,None,Intimidate,Common
-59,90,28,110,80,Arcanine,Fire,None,Intimidate,Uncommon
-60,40,5,50,40,Poliwag,Water,None,Water Absorb,Common
-61,65,25,65,65,Poliwhirl,Water,None,Water Absorb,Uncommon
-62,90,37,85,95,Poliwrath,Water,Fighting,Water Absorb,Rare
-63,25,5,20,15,Abra,Psychic,None,Synchronize,Common
-64,40,16,35,30,Kadabra,Psychic,None,Synchronize,Uncommon
-65,55,36,50,45,Alakazam,Psychic,None,Synchronize,Rare
-66,70,5,80,50,Machop,Fighting,None,Guts,Common
-67,80,28,100,70,Machoke,Fighting,None,Guts,Uncommon
-68,90,45,130,80,Machamp,Fighting,None,Guts,Rare
-69,50,5,75,35,Bellsprout,Grass,Poison,Chlorophyll,Common
-70,65,21,90,50,Weepinbell,Grass,Poison,Chlorophyll,Uncommon
-71,80,36,105,65,Victreebel,Grass,Poison,Chlorophyll,Rare
-72,40,5,40,35,Tentacool,Water,Poison,Clear Body,Common
-73,80,30,70,65,Tentacruel,Water,Poison,Clear Body,Uncommon
-74,40,5,80,100,Geodude,Rock,Ground,Sturdy,Common
-75,55,25,95,115,Graveler,Rock,Ground,Sturdy,Uncommon
-76,80,36,110,130,Golem,Rock,Ground,Sturdy,Rare
-77,50,5,85,55,Ponyta,Fire,None,Run Away,Common
-78,65,40,100,70,Rapidash,Fire,None,Run Away,Uncommon
-79,90,5,65,65,Slowpoke,Water,Psychic,Oblivious,Common
-80,95,37,75,110,Slowbro,Water,Psychic,Oblivious,Uncommon
-81,25,5,35,70,Magnemite,Electric,Steel,Magnet Pull,Common
-82,50,30,60,95,Magneton,Electric,Steel,Magnet Pull,Uncommon
-83,52,5,65,55,Farfetch'd,Normal,Flying,Keen Eye,Uncommon
-84,35,5,85,45,Doduo,Normal,Flying,Run Away,Common
-85,60,31,110,70,Dodrio,Normal,Flying,Run Away,Uncommon
-86,65,5,45,55,Seel,Water,None,Thick Fat,Common
-87,90,34,70,80,Dewgong,Water,Ice,Thick Fat,Uncommon
-88,80,5,65,50,Grimer,Poison,None,Stench,Common
-89,105,38,90,75,Muk,Poison,None,Stench,Uncommon
-90,30,5,65,100,Shellder,Water,None,Shell Armor,Common
-91,50,33,95,180,Cloyster,Water,Ice,Shell Armor,Uncommon
-92,30,5,35,30,Gastly,Ghost,Poison,Levitate,Common
-93,45,25,50,45,Haunter,Ghost,Poison,Levitate,Uncommon
-94,60,38,65,60,Gengar,Ghost,Poison,Levitate,Rare
-95,35,5,45,160,Onix,Rock,Ground,Sturdy,Uncommon
-96,60,5,48,45,Drowzee,Psychic,None,Insomnia,Common
-97,85,26,73,70,Hypno,Psychic,None,Insomnia,Uncommon
-98,30,5,105,90,Krabby,Water,None,Hyper Cutter,Common
-99,55,28,130,115,Kingler,Water,None,Hyper Cutter,Uncommon
-100,40,5,30,50,Voltorb,Electric,None,Soundproof,Common
-101,60,30,50,70,Electrode,Electric,None,Soundproof,Uncommon
-102,60,5,40,80,Exeggcute,Grass,Psychic,Chlorophyll,Common
-103,95,37,95,85,Exeggutor,Grass,Psychic,Chlorophyll,Uncommon
-104,50,5,50,95,Cubone,Ground,None,Rock Head,Common
-105,60,28,80,110,Marowak,Ground,None,Rock Head,Uncommon
-106,50,5,120,53,Hitmonlee,Fighting,None,Reckless,Uncommon
-107,50,5,105,79,Hitmonchan,Fighting,None,Iron Fist,Uncommon
-108,90,5,55,75,Lickitung,Normal,None,Own Tempo,Uncommon
-109,40,5,65,95,Koffing,Poison,None,Levitate,Common
-110,65,35,90,120,Weezing,Poison,None,Levitate,Uncommon
-111,80,5,85,95,Rhyhorn,Ground,Rock,Lightning Rod,Common
-112,105,42,130,120,Rhydon,Ground,Rock,Lightning Rod,Uncommon
-113,250,5,5,5,Chansey,Normal,None,Natural Cure,Rare
-114,65,5,55,115,Tangela,Grass,None,Chlorophyll,Uncommon
-115,105,5,95,80,Kangaskhan,Normal,None,Early Bird,Uncommon
-116,30,5,40,70,Horsea,Water,None,Swift Swim,Common
-117,55,25,65,95,Seadra,Water,None,Poison Point,Uncommon
-118,45,5,67,60,Goldeen,Water,None,Swift Swim,Common
-119,80,33,92,65,Seaking,Water,None,Swift Swim,Uncommon
-120,30,5,45,55,Staryu,Water,None,Illuminate,Common
-121,60,37,75,85,Starmie,Water,Psychic,Natural Cure,Uncommon
-122,40,5,45,65,Mr. Mime,Psychic,Fairy,Filter,Uncommon
-123,70,5,110,80,Scyther,Bug,Flying,Technician,Uncommon
-124,65,5,50,35,Jynx,Ice,Psychic,Dry Skin,Uncommon
-125,65,5,83,57,Electabuzz,Electric,None,Static,Uncommon
-126,65,5,95,57,Magmar,Fire,None,Flame Body,Uncommon
-127,65,5,125,100,Pinsir,Bug,None,Mold Breaker,Uncommon
-128,75,5,100,95,Tauros,Normal,None,Intimidate,Uncommon
-129,20,5,10,55,Magikarp,Water,None,Swift Swim,Common
-130,95,33,125,79,Gyarados,Water,Flying,Intimidate,Rare
-131,130,5,85,80,Lapras,Water,Ice,Shell Armor,Rare
-132,48,5,48,48,Ditto,Normal,None,Imposter,Rare
-133,55,5,55,50,Eevee,Normal,None,Run Away,Common
-134,130,37,65,60,Vaporeon,Water,None,Water Absorb,Rare
-135,65,37,65,60,Jolteon,Electric,None,Volt Absorb,Rare
-136,65,37,65,60,Flareon,Fire,None,Flash Fire,Rare
-137,65,5,60,70,Porygon,Normal,None,Download,Rare
-138,35,5,40,100,Omanyte,Rock,Water,Swift Swim,Rare
-139,70,40,60,125,Omastar,Rock,Water,Swift Swim,Rare
-140,30,5,80,90,Kabuto,Rock,Water,Battle Armor,Rare
-141,60,40,115,105,Kabutops,Rock,Water,Battle Armor,Rare
-142,80,5,105,65,Aerodactyl,Rock,Flying,Pressure,Rare
-143,160,5,110,65,Snorlax,Normal,None,Immunity,Rare
-144,90,50,85,100,Articuno,Ice,Flying,Pressure,Legendary
-145,90,50,90,85,Zapdos,Electric,Flying,Pressure,Legendary
-146,90,50,100,90,Moltres,Fire,Flying,Pressure,Legendary
-147,41,5,64,45,Dratini,Dragon,None,Shed Skin,Rare
-148,61,30,84,65,Dragonair,Dragon,None,Shed Skin,Rare
-149,91,55,134,95,Dragonite,Dragon,Flying,Multiscale,Legendary
-150,106,70,110,90,Mewtwo,Psychic,None,Pressure,Legendary
-151,100,70,100,100,Mew,Psychic,None,Synchronize,Mythical
-70,90,90,135,125,Darkrai,Dark,None,Bad Dreams,Mythical
+pokemonID,hp,maxhp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
+1,45,45,5,49,49,Bulbasaur,Grass,Poison,Overgrow,Common
+2,60,60,16,62,63,Ivysaur,Grass,Poison,Overgrow,Uncommon
+3,80,80,32,82,83,Venusaur,Grass,Poison,Overgrow,Rare
+4,39,39,5,52,43,Charmander,Fire,None,Blaze,Common
+5,58,58,16,64,58,Charmeleon,Fire,None,Blaze,Uncommon
+6,78,78,36,84,78,Charizard,Fire,Flying,Blaze,Rare
+7,44,44,5,48,65,Squirtle,Water,None,Torrent,Common
+8,59,59,16,63,80,Wartortle,Water,None,Torrent,Uncommon
+9,79,79,36,83,100,Blastoise,Water,None,Torrent,Rare
+10,50,50,5,20,20,Caterpie,Bug,None,Shield Dust,Common
+11,55,55,7,25,25,Metapod,Bug,None,Shed Skin,Common
+12,60,60,10,45,50,Butterfree,Bug,Flying,Compound Eyes,Uncommon
+13,40,40,5,35,30,Weedle,Bug,Poison,Shield Dust,Common
+14,45,45,7,25,50,Kakuna,Bug,Poison,Shed Skin,Common
+15,65,65,10,90,40,Beedrill,Bug,Poison,Swarm,Uncommon
+16,40,40,5,45,40,Pidgey,Normal,Flying,Keen Eye,Common
+17,63,63,18,60,55,Pidgeotto,Normal,Flying,Keen Eye,Uncommon
+18,83,83,36,80,75,Pidgeot,Normal,Flying,Keen Eye,Rare
+19,30,30,5,56,35,Rattata,Normal,None,Run Away,Common
+20,55,55,20,81,60,Raticate,Normal,None,Hustle,Uncommon
+21,40,40,5,60,30,Spearow,Normal,Flying,Keen Eye,Common
+22,65,65,20,90,65,Fearow,Normal,Flying,Keen Eye,Uncommon
+23,35,35,5,60,44,Ekans,Poison,None,Intimidate,Common
+24,60,60,22,85,69,Arbok,Poison,None,Intimidate,Uncommon
+25,35,35,5,55,40,Pikachu,Electric,None,Static,Common
+26,60,60,20,90,55,Raichu,Electric,None,Static,Uncommon
+27,50,50,5,75,85,Sandshrew,Ground,None,Sand Veil,Common
+28,75,75,22,100,110,Sandslash,Ground,None,Sand Veil,Uncommon
+29,55,55,5,47,52,Nidoran♀,Poison,None,Poison Point,Common
+30,70,70,16,62,67,Nidorina,Poison,None,Poison Point,Uncommon
+31,90,90,36,82,87,Nidoqueen,Poison,Ground,Poison Point,Rare
+32,46,46,5,57,40,Nidoran♂,Poison,None,Poison Point,Common
+33,61,61,16,72,57,Nidorino,Poison,None,Poison Point,Uncommon
+34,81,81,36,92,77,Nidoking,Poison,Ground,Poison Point,Rare
+35,70,70,5,45,48,Clefairy,Fairy,None,Cute Charm,Common
+36,95,95,18,70,73,Clefable,Fairy,None,Cute Charm,Uncommon
+37,38,38,5,41,40,Vulpix,Fire,None,Flash Fire,Common
+38,73,73,22,76,75,Ninetales,Fire,None,Flash Fire,Uncommon
+39,115,115,5,45,20,Jigglypuff,Normal,Fairy,Cute Charm,Common
+40,140,140,18,70,45,Wigglytuff,Normal,Fairy,Cute Charm,Uncommon
+41,40,40,5,45,35,Zubat,Poison,Flying,Inner Focus,Common
+42,75,75,22,80,70,Golbat,Poison,Flying,Inner Focus,Uncommon
+43,45,45,5,50,55,Oddish,Grass,Poison,Chlorophyll,Common
+44,60,60,21,65,70,Gloom,Grass,Poison,Chlorophyll,Uncommon
+45,75,75,36,80,85,Vileplume,Grass,Poison,Chlorophyll,Rare
+46,35,35,5,70,55,Paras,Bug,Grass,Effect Spore,Common
+47,60,60,24,95,80,Parasect,Bug,Grass,Effect Spore,Uncommon
+48,60,60,5,55,50,Venonat,Bug,Poison,Compound Eyes,Common
+49,70,70,31,65,60,Venomoth,Bug,Poison,Shield Dust,Uncommon
+50,10,10,5,55,25,Diglett,Ground,None,Sand Veil,Common
+51,35,35,26,80,50,Dugtrio,Ground,None,Sand Veil,Uncommon
+52,40,40,5,45,35,Meowth,Normal,None,Pickup,Common
+53,65,65,28,70,60,Persian,Normal,None,Limber,Uncommon
+54,50,50,5,52,48,Psyduck,Water,None,Cloud Nine,Common
+55,80,80,33,82,78,Golduck,Water,None,Cloud Nine,Uncommon
+56,40,40,5,80,35,Mankey,Fighting,None,Vital Spirit,Common
+57,65,65,28,105,60,Primeape,Fighting,None,Vital Spirit,Uncommon
+58,55,55,5,70,45,Growlithe,Fire,None,Intimidate,Common
+59,90,90,28,110,80,Arcanine,Fire,None,Intimidate,Uncommon
+60,40,40,5,50,40,Poliwag,Water,None,Water Absorb,Common
+61,65,65,25,65,65,Poliwhirl,Water,None,Water Absorb,Uncommon
+62,90,90,37,85,95,Poliwrath,Water,Fighting,Water Absorb,Rare
+63,25,25,5,20,15,Abra,Psychic,None,Synchronize,Common
+64,40,40,16,35,30,Kadabra,Psychic,None,Synchronize,Uncommon
+65,55,55,36,50,45,Alakazam,Psychic,None,Synchronize,Rare
+66,70,70,5,80,50,Machop,Fighting,None,Guts,Common
+67,80,80,28,100,70,Machoke,Fighting,None,Guts,Uncommon
+68,90,90,45,130,80,Machamp,Fighting,None,Guts,Rare
+69,50,50,5,75,35,Bellsprout,Grass,Poison,Chlorophyll,Common
+70,65,65,21,90,50,Weepinbell,Grass,Poison,Chlorophyll,Uncommon
+71,80,80,36,105,65,Victreebel,Grass,Poison,Chlorophyll,Rare
+72,40,40,5,40,35,Tentacool,Water,Poison,Clear Body,Common
+73,80,80,30,70,65,Tentacruel,Water,Poison,Clear Body,Uncommon
+74,40,40,5,80,100,Geodude,Rock,Ground,Sturdy,Common
+75,55,55,25,95,115,Graveler,Rock,Ground,Sturdy,Uncommon
+76,80,80,36,110,130,Golem,Rock,Ground,Sturdy,Rare
+77,50,50,5,85,55,Ponyta,Fire,None,Run Away,Common
+78,65,65,40,100,70,Rapidash,Fire,None,Run Away,Uncommon
+79,90,90,5,65,65,Slowpoke,Water,Psychic,Own Tempo,Common
+80,95,95,37,75,110,Slowbro,Water,Psychic,Own Tempo,Uncommon
+81,25,25,5,35,70,Magnemite,Electric,None,Magnet Pull,Common
+82,50,50,30,60,95,Magneton,Electric,None,Magnet Pull,Uncommon
+83,52,52,5,65,55,Farfetched,Normal,Flying,Super Luck,Uncommon
+84,35,35,5,85,45,Doduo,Normal,Flying,Run Away,Common
+85,60,60,31,110,70,Dodrio,Normal,Flying,Run Away,Uncommon
+86,65,65,5,45,55,Seel,Water,None,Thick Fat,Common
+87,90,90,34,70,80,Dewgong,Water,Ice,Thick Fat,Uncommon
+88,80,80,5,80,50,Grimer,Poison,None,Sticky Hold,Common
+89,105,105,38,105,75,Muk,Poison,None,Sticky Hold,Uncommon
+90,30,30,5,65,100,Shellder,Water,None,Shell Armor,Common
+91,50,50,36,95,180,Cloyster,Water,Ice,Shell Armor,Uncommon
+92,30,30,5,35,30,Gastly,Ghost,Poison,Levitate,Common
+93,45,45,25,50,45,Haunter,Ghost,Poison,Levitate,Uncommon
+94,60,60,38,65,60,Gengar,Ghost,Poison,Levitate,Rare
+95,35,35,5,45,160,Onix,Rock,Ground,Rock Head,Uncommon
+96,60,60,5,48,45,Drowzee,Psychic,None,Insomnia,Common
+97,85,85,26,73,70,Hypno,Psychic,None,Insomnia,Uncommon
+98,30,30,5,105,90,Krabby,Water,None,Hyper Cutter,Common
+99,55,55,28,130,115,Kingler,Water,None,Hyper Cutter,Uncommon
+100,40,40,5,30,50,Voltorb,Electric,None,Soundproof,Common
+101,60,60,31,50,70,Electrode,Electric,None,Soundproof,Uncommon
+102,60,60,5,40,80,Exeggcute,Grass,Psychic,Chlorophyll,Common
+103,95,95,28,95,85,Exeggutor,Grass,Psychic,Chlorophyll,Uncommon
+104,50,50,5,50,95,Cubone,Ground,None,Rock Head,Common
+105,60,60,28,80,110,Marowak,Ground,None,Rock Head,Uncommon
+106,50,50,5,120,53,Hitmonlee,Fighting,None,Limber,Uncommon
+107,50,50,5,105,79,Hitmonchan,Fighting,None,Iron Fist,Uncommon
+108,90,90,5,55,75,Lickitung,Normal,None,Own Tempo,Common
+109,40,40,5,65,95,Koffing,Poison,None,Levitate,Common
+110,65,65,35,90,120,Weezing,Poison,None,Levitate,Uncommon
+111,80,80,5,85,95,Rhyhorn,Ground,Rock,Rock Head,Common
+112,105,105,42,130,120,Rhydon,Ground,Rock,Rock Head,Uncommon
+113,250,250,5,5,5,Chansey,Normal,None,Natural Cure,Rare
+114,65,65,5,80,65,Tangela,Grass,None,Chlorophyll,Uncommon
+115,90,90,5,95,80,Kangaskhan,Normal,None,Early Bird,Uncommon
+116,30,30,5,40,70,Horsea,Water,None,Swift Swim,Common
+117,55,55,32,65,95,Seadra,Water,None,Poison Point,Uncommon
+118,45,45,5,67,60,Goldeen,Water,None,Swift Swim,Common
+119,80,80,33,92,65,Seaking,Water,None,Swift Swim,Uncommon
+120,30,30,5,45,55,Staryu,Water,None,Natural Cure,Common
+121,60,60,33,75,85,Starmie,Water,Psychic,Natural Cure,Uncommon
+122,40,40,5,45,65,Mr. Mime,Psychic,Fairy,Soundproof,Uncommon
+123,70,70,5,110,80,Scyther,Bug,Flying,Swarm,Uncommon
+124,65,65,5,50,35,Jynx,Ice,Psychic,Oblivious,Uncommon
+125,65,65,5,83,57,Electabuzz,Electric,None,Static,Uncommon
+126,65,65,5,95,57,Magmar,Fire,None,Flame Body,Uncommon
+127,65,65,5,125,100,Pinsir,Bug,None,Mold Breaker,Uncommon
+128,75,75,5,100,95,Tauros,Normal,None,Intimidate,Uncommon
+129,20,20,5,10,55,Magikarp,Water,None,Swift Swim,Common
+130,95,95,20,125,79,Gyarados,Water,Flying,Intimidate,Rare
+131,130,130,5,85,80,Lapras,Water,Ice,Shell Armor,Uncommon
+132,48,48,5,48,48,Ditto,Normal,None,Limber,Common
+133,55,55,5,55,50,Eevee,Normal,None,Run Away,Common
+134,130,130,20,65,60,Vaporeon,Water,None,Water Absorb,Uncommon
+135,65,65,20,65,60,Jolteon,Electric,None,Volt Absorb,Uncommon
+136,65,65,20,130,110,Flareon,Fire,None,Flash Fire,Uncommon
+137,65,65,5,85,80,Porygon,Normal,None,Download,Uncommon
+138,35,35,5,40,100,Omanyte,Rock,Water,Shell Armor,Common
+139,70,70,40,60,125,Omastar,Rock,Water,Shell Armor,Uncommon
+140,30,30,5,80,65,Kabuto,Rock,Water,Battle Armor,Common
+141,60,60,40,115,105,Kabutops,Rock,Water,Battle Armor,Uncommon
+142,80,80,5,105,65,Aerodactyl,Rock,Flying,Pressure,Uncommon
+143,160,160,5,110,65,Snorlax,Normal,None,Thick Fat,Rare
+144,90,90,50,85,100,Articuno,Ice,Flying,Pressure,Legendary
+145,90,90,50,90,85,Zapdos,Electric,Flying,Pressure,Legendary
+146,90,90,50,100,90,Moltres,Fire,Flying,Pressure,Legendary
+147,41,41,5,64,45,Dratini,Dragon,None,Shed Skin,Uncommon
+148,61,61,30,84,65,Dragonair,Dragon,None,Shed Skin,Uncommon
+149,91,91,55,134,95,Dragonite,Dragon,Flying,Inner Focus,Rare
+150,106,106,70,154,100,Mewtwo,Psychic,None,Pressure,Legendary
+151,100,100,5,100,100,Mew,Psychic,None,Synchronize,Legendary
+152,90,90,70,135,125,Darkrai,Dark,None,Bad Dreams,Mythical

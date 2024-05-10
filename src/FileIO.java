@@ -91,6 +91,7 @@ public class FileIO {
         } catch (IOException e) {
             System.out.println("Error writing Pokémon to file: " + e.getMessage());
         }
+
     }
 
     public ArrayList<Item> readItemsFromBag(String filePath) {
