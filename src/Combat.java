@@ -197,6 +197,7 @@ public class Combat {
     private void enemyDefeat(Pokemon playerPokemon, Player player, Pokemon enemyPokemon) {
         textUI.displayMsg("Enemy " + enemyPokemon.getName() + " defeated!");
         player.addFunds(500);
+        textUI.displayMsg("You receive P$ 500");
         playerPokemon.levelUp();
         fileIO.savePokemonData(playerPokemonFile, playerPokemonList);
 
@@ -257,4 +258,5 @@ public class Combat {
         random.nextInt(enemyPokemonList.size());
         return enemyPokemonList.get(129);
     }
+
 }

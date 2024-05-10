@@ -11,13 +11,13 @@ public class Town {
         ArrayList<Pokemon> pokemons = player.getPokemonParty();
         for (Pokemon pokemon : pokemons) {
             pokemon.restoreHP();
+            fileIO.savePokemonData("Data/PlayerPokemons.csv", pokemons);
 
         }
 
         textUI.displayMsg("All Pokémon have been fully healed at the PokéCenter!");
-        user.townOrPokeCenter(player);
+        user.userOptions(player);
 
-        fileIO.savePokemonData("Data/PlayerPokemons.csv", pokemons);
 
     }
 

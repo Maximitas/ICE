@@ -16,10 +16,10 @@ public class Pokemon {
     private String abilities;
     private String rarity;
 
-    public Pokemon(int pokemonID, int hp, int lvl, int attackPower, int defensePower, String name, String typeOne, String typeTwo, String abilities, String rarity) {
+    public Pokemon(int pokemonID, int hp, int maxHp, int lvl, int attackPower, int defensePower, String name, String typeOne, String typeTwo, String abilities, String rarity) {
         this.pokemonID = pokemonID;
         this.hp = hp;
-        this.maxHp = hp;
+        this.maxHp = maxHp;
         this.lvl = lvl;
         this.attackPower = attackPower;
         this.defensePower = defensePower;
@@ -28,6 +28,10 @@ public class Pokemon {
         this.typeTwo = typeTwo;
         this.abilities = abilities;
         this.rarity = rarity;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
     }
 
     public int getPokemonID() {

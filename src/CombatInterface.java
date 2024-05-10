@@ -36,7 +36,7 @@ public class CombatInterface {
                     switchPokemon();
                     break;
                 case "4":
-                    bag();
+                    bag(player);
                     break;
                 default:
                     ui.displayMsg("Invalid input, please try again.");
@@ -64,15 +64,25 @@ public class CombatInterface {
         }
     }
 
-    public void bag() {
+    public void bag(Player player) {
+        ui.displayMsg("Select an item:");
+        ui.displayMsg("Poké Balls\n2Potions");
 
+        String option = ui.userInput();
+        switch (option) {
+            case "1":
+
+                break;
+            case "2":
+
+            default:
+                ui.displayMsg("Invalid input, please try again.");
+                bag(player);
+                break;
+        }
     }
 
     public void switchPokemon() {
-
-    }
-
-    public void catchPokemon() {
 
     }
 
@@ -108,7 +118,7 @@ public class CombatInterface {
                     switchPokemon();
                     break;
                 case "3":
-                    bag();
+                    bag(player);
                     break;
                 default:
                     ui.displayMsg("Invalid input, please try again.");
@@ -141,7 +151,7 @@ public class CombatInterface {
                     switchPokemon();
                     break;
                 case "3":
-                    bag();
+                    bag(player);
                     break;
                 default:
                     ui.displayMsg("Invalid input, please try again.");
@@ -174,7 +184,7 @@ public class CombatInterface {
                     switchPokemon();
                     break;
                 case "3":
-                    bag();
+                    bag(player);
                     break;
                 default:
                     ui.displayMsg("Invalid input, please try again.");

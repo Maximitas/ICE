@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.io.*;
 
 public class FileIO {
-
     public ArrayList<Pokemon> loadPokemonFromFile(String filePath) {
         ArrayList<Pokemon> pokemonList = new ArrayList<>();
         try (Scanner scan = new Scanner(new File(filePath))) {
@@ -15,16 +14,17 @@ public class FileIO {
 
                 int id = Integer.parseInt(line[0]);
                 int hp = Integer.parseInt(line[1]);
-                int lvl = Integer.parseInt(line[2]);
-                int attackPower = Integer.parseInt(line[3]);
-                int defensePower = Integer.parseInt(line[4]);
-                String name = line[5];
-                String typeOne = line[6];
-                String typeTwo = line[7];
-                String abilities = line[8];
-                String rarity = line[9];
+                int maxHp = Integer.parseInt(line[2]);  // Adjust index as necessary based on your file structure
+                int lvl = Integer.parseInt(line[3]);
+                int attackPower = Integer.parseInt(line[4]);
+                int defensePower = Integer.parseInt(line[5]);
+                String name = line[6];
+                String typeOne = line[7];
+                String typeTwo = line[8];
+                String abilities = line[9];
+                String rarity = line[10];
 
-                pokemonList.add(new Pokemon(id, hp, lvl, attackPower, defensePower, name, typeOne, typeTwo, abilities, rarity));
+                pokemonList.add(new Pokemon(id, hp, maxHp, lvl, attackPower, defensePower, name, typeOne, typeTwo, abilities, rarity));
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
@@ -36,7 +36,7 @@ public class FileIO {
 
     public void clearPlayerPokemonFile(String filePath){
         try (FileWriter writer = new FileWriter(filePath, false)){
-            writer.write("pokemonID,hp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity");
+            writer.write("pokemonID,hp,maxHp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity");
 
         } catch (IOException e) {
             e.getMessage();
@@ -83,7 +83,7 @@ public class FileIO {
 
     public void savePokemonToPlayerPokemons(String filePath, Pokemon playerPokemon) {
         try (FileWriter writer = new FileWriter(filePath, true)) {
-            writer.write("\n" + playerPokemon.getPokemonID() + "," + playerPokemon.getHp() + "," + playerPokemon.getLvl() + "," +
+            writer.write("\n" + playerPokemon.getPokemonID() + "," + playerPokemon.getHp() + "," + playerPokemon.getMaxHp() + "," +playerPokemon.getLvl() + "," +
                     playerPokemon.getAttackPower() + "," + playerPokemon.getDefensePower() + "," +
                     playerPokemon.getName() + "," + playerPokemon.getTypeOne() + "," + playerPokemon.getTypeTwo() + "," +
                     playerPokemon.getAbilities() + "," + playerPokemon.getRarity());
