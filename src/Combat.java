@@ -210,7 +210,7 @@ public class Combat {
             textUI.displayMsg("All of " + player.getName() + "'s Pokémon have fainted! Sending to the PokéCenter...");
             town.pokeCenter(player);
             playerDefeatPenalty(player);
-            user.userOptions(player);
+
         }
     }
 
