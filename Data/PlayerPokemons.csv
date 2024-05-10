@@ -1,2 +1,2 @@
 pokemonID,hp,maxHp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
-7,44,44,5,48,65,Squirtle,Water,None,Torrent,Common
+1,45,45,5,49,49,Bulbasaur,Grass,Poison,Overgrow,Common

@@ -4,6 +4,7 @@ public class UserInterface {
     TextUI UI = new TextUI();
 
 
+
     public void userOptions(Player player) throws InterruptedException {
         StartMenu startMenu = new StartMenu();
         CombatInterface combat = new CombatInterface();
@@ -50,6 +51,7 @@ public class UserInterface {
 
     public void pokeMartOptions(Player player) throws InterruptedException {
         Town town = new Town();
+        UserInterface user = new UserInterface();
         UI.displayMsg("Welcome to the PokéMart!");
         UI.displayMsg("1: Buy items\n2: Sell items\n3: to exit ");
 
@@ -75,7 +77,7 @@ public class UserInterface {
                     UI.displayMsg("Invalid input, please try again");
             }
 
-
+            user.townOrPokeCenter(player);
         }
     }
 

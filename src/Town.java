@@ -84,7 +84,7 @@ public class Town {
 
             if (playerBag.isEmpty()) {
                 textUI.displayMsg("You have no items to sell.");
-                user.townOrPokeCenter(player);
+                user.pokeMartOptions(player);
             }
 
             textUI.displayMsg("Here's what you have for sale:");
@@ -100,13 +100,14 @@ public class Town {
                 int choice = Integer.parseInt(choiceInput);
                 if (choice == 0) {
                     textUI.displayMsg("Thank you for visiting the PokéMart!");
-                    return;
+                   return;
                 }
 
                 if (choice < 1 || choice > playerBag.size()) {
                     textUI.displayMsg("Invalid selection.");
                     return;
                 }
+
 
                 Item selectedItem = playerBag.get(choice - 1);
                 int sellPrice = selectedItem.getPrice() / 2;
@@ -119,6 +120,6 @@ public class Town {
             } catch (NumberFormatException e) {
                 textUI.displayMsg("Invalid input. Please enter a valid number.");
             }
-            user.userOptions(player);
+           user.userOptions(player);
         }
     }
