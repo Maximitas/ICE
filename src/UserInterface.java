@@ -36,9 +36,12 @@ public class UserInterface {
                 case "5": //Save game
                     whileKey = true;
                     startMenu.savePlayer(player);
+                    UI.displayMsg("Your game has been saved!");
+                    userOptions(player);
                     break;
                 case "6": //Exit game
                     whileKey = true;
+                    break;
                 default: UI.displayMsg("Invalid input, please try again");
 
             }

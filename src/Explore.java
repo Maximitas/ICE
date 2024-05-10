@@ -23,15 +23,15 @@ public class Explore {
 
     public void explore(Player player) throws InterruptedException {
         TextUI ui = new TextUI();
-        int rand = random(1);
+        int rand = random(4);
 
         if (rand < 1) {
             fishing(player);
-        } else if (rand < 0) {
+        } else if (rand < 2) {
             findItem(player);
-        } else if (rand <0 ) {
+        } else if (rand <3 ) {
             randomDialogue(player);
-        } else if (rand < 0) {
+        } else if (rand < 4) {
             combat.combatOptions(player);
         }
 
@@ -132,17 +132,17 @@ public class Explore {
     public void randomDialogue(Player player) throws InterruptedException {
         ui.displayMsg("Exploring the area... (for knowledge)");
 
-        int randy = random(1);
+        int randy = random(5);
 
-        if (randy < 0) {
+        if (randy < 1) {
             dialogGirlyTrainee(player);
-        } else if (randy < 0) {
+        } else if (randy < 2) {
             dialogFishingMan(player);
-        } else if (randy <0) {
+        } else if (randy <3) {
             dialogIdiotKid(player);
-        } else if (randy <1) {
+        } else if (randy <4) {
             dialogOldman(player);
-        } else if (randy < 0) {
+        } else if (randy < 5) {
             dialogLegendary(player);
         }
 
