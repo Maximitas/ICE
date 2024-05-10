@@ -1,13 +1,15 @@
-public class UserInterface {
+import java.io.File;
 
+public class UserInterface {
     TextUI UI = new TextUI();
 
 
     public void userOptions(Player player) throws InterruptedException {
+        StartMenu startMenu = new StartMenu();
         CombatInterface combat = new CombatInterface();
         Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
-        UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Exit");
+        UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Save\n5: Exit");
 
         boolean whileKey = false;
 
@@ -27,9 +29,12 @@ public class UserInterface {
                     combat.combatOptions(player);
                     whileKey = true;
                     break;
-                case "4": //exit
+                case "4": //Save game
                     whileKey = true;
+                    startMenu.savePlayer(player);
                     break;
+                case "5": //Exit game
+                    whileKey = true;
                 default: UI.displayMsg("Invalid input, please try again");
 
             }
@@ -97,7 +102,7 @@ public class UserInterface {
         StartMenu menu = new StartMenu();
         switch(UI.userInput()){
             case "1":
-                //userOptions(Player player);
+                menu.continueGame();
                 break;
             case "2":
                 menu.newGame();

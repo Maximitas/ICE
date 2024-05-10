@@ -52,6 +52,15 @@ public class FileIO {
         }
     }
 
+    public void clearPlayerFile(String filePath){
+        try (FileWriter writer = new FileWriter(filePath, false)){
+            writer.write("name,balance");
+
+        } catch (IOException e) {
+            e.getMessage();
+        }
+    }
+
     public void saveItemToBag(String filePath, Item item) {
         try (FileWriter writer = new FileWriter(filePath, true)) {
                 writer.write("\n" + item.getName() + "," + item.getPrice());
@@ -109,6 +118,35 @@ public class FileIO {
             for (Pokemon p : pokemons) {
                 savePokemonToPlayerPokemons(filePath, p);
             }
+
+    }
+
+    public ArrayList<String> readPlayerData(String filePath) {
+        ArrayList<String> playerData = new ArrayList<>();
+        try (Scanner scan = new Scanner(new File(filePath))) {
+            scan.nextLine();
+
+                String[] parts = scan.nextLine().split(",");
+                String name = parts[0];
+                String balance = parts[1];
+
+                playerData.add(name);
+                playerData.add(balance);
+
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return playerData;
+    }
+
+    public void savePlayerData(String filePath, String name, int balance) {
+        try (FileWriter writer = new FileWriter(filePath, true)) {
+            writer.write("\n" + name + "," + balance);
+
+        } catch (IOException e) {
+            System.out.println("Error writing items to file: " + e.getMessage());
+        }
 
     }
 

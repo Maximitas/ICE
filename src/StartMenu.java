@@ -3,14 +3,31 @@ import java.util.ArrayList;
 public class StartMenu {
     FileIO file = new FileIO();
     TextUI ui = new TextUI();
-    UserInterface userInterface = new UserInterface();
 
 
+    public void continueGame() throws InterruptedException {
+        UserInterface userInterface = new UserInterface();
+        ArrayList<String> playerData = file.readPlayerData("Data/PlayerData.csv");
+        Player player = new Player();
 
+        player.setName(playerData.get(0));
+        player.setWallet(Integer.parseInt(playerData.get(1)));
+
+        userInterface.userOptions(player);
+    }
+
+    public void savePlayer(Player player) {
+        int balance = player.getWallet();
+        String name = player.getName();
+
+        file.savePlayerData("Data/PlayerData.csv", name, balance);
+    }
 
     public void newGame() throws InterruptedException {
+        UserInterface userInterface = new UserInterface();
         file.clearPlayerPokemonFile("Data/PlayerPokemons.csv");
         file.clearBagFile("Data/Bag.csv");
+        file.clearPlayerFile("Data/PlayerData.csv");
 
         Player player = choosePlayerName();
         chooseStarterPokemon();
