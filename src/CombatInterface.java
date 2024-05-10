@@ -29,7 +29,7 @@ public class CombatInterface {
                     battleActive = false;
                     break;
                 case "2":
-                    run(player);
+                    run(player, enemyPokemon);
                     battleActive = false;
                     break;
                 case "3":
@@ -52,14 +52,14 @@ public class CombatInterface {
 
 
 
-    public void run(Player player) throws InterruptedException {
-        double rand = random(1);
-        if (rand < 0.7) {
+    public void run(Player player, Pokemon enemyPokemon) throws InterruptedException {
+        double rand = random(10);
+        if (rand < 7) {
             ui.displayMsg("You successfully ran away!");
             userInterface.userOptions(player);
         } else {
             ui.displayMsg("What the dog doing?!");
-            combatOptions(player);
+            fight(player, enemyPokemon);
 
         }
     }

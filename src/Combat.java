@@ -36,10 +36,11 @@ public class Combat {
 
         if (primaryPlayerPokemon.getHp() > 0 && enemyPokemon.getHp() > 0) {
             performPlayerTurn(player, enemyPokemon);
-            if (enemyPokemon.getHp() > 0) {
-                performEnemyTurn(enemyPokemon);
-            }
         }
+        if (enemyPokemon.getHp() > 0) {
+                performEnemyTurn(enemyPokemon);
+        }
+
         finalizeBattle(player, enemyPokemon);
     }
 
