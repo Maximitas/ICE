@@ -99,7 +99,7 @@ public class CombatInterface {
             return;
         }
 
-        ui.displayMsg("Red sent out " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
+        ui.displayMsg("Red sent out " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ")!");
         boolean battleActive = true;
         while (battleActive) {
             ui.displayMsg("Select your option below:");
@@ -125,18 +125,18 @@ public class CombatInterface {
             }
         }
     }
-    public void combatOptionsDarkry(Player player) throws InterruptedException {
+    public void combatOptionsDarkrai(Player player) throws InterruptedException {
         Pokemon enemyPokemon = combat.getSpecificPokemonDarkcry();
         if (enemyPokemon == null) {
             ui.displayMsg("No enemy Pokémon available.");
             return;
         }
 
-        ui.displayMsg(" " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
+        ui.displayMsg(enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
         boolean battleActive = true;
         while (battleActive) {
             ui.displayMsg("Select your option below:");
-            ui.displayMsg("1: Fight\n2: Switch Pokémon\n3: Bag");
+            ui.displayMsg("1: Fight\n2: Run\n3: Switch Pokémon\n4: Bag");
 
             String option = ui.userInput();
             switch (option) {
@@ -148,9 +148,13 @@ public class CombatInterface {
                     battleActive = false;
                     break;
                 case "2":
-                    switchPokemon();
+                    run(player, enemyPokemon);
+                    battleActive = false;
                     break;
                 case "3":
+                    switchPokemon();
+                    break;
+                case "4":
                     bag(player);
                     break;
                 default:
@@ -158,6 +162,7 @@ public class CombatInterface {
             }
         }
     }
+
     public void combatOptionsGyarados(Player player) throws InterruptedException {
         Pokemon enemyPokemon = combat.getSpecificPokemonGyarados();
         if (enemyPokemon == null) {
@@ -169,7 +174,7 @@ public class CombatInterface {
         boolean battleActive = true;
         while (battleActive) {
             ui.displayMsg("Select your option below:");
-            ui.displayMsg("1: Fight\n2: Switch Pokémon\n3: Bag");
+            ui.displayMsg("1: Fight\n2: Run\n3: Switch Pokémon\n4: Bag");
 
             String option = ui.userInput();
             switch (option) {
@@ -181,9 +186,13 @@ public class CombatInterface {
                     battleActive = false;
                     break;
                 case "2":
-                    switchPokemon();
+                    run(player, enemyPokemon);
+                    battleActive = false;
                     break;
                 case "3":
+                    switchPokemon();
+                    break;
+                case "4":
                     bag(player);
                     break;
                 default:

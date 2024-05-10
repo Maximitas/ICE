@@ -171,9 +171,9 @@ public class Explore {
         String input = ui.userInput();
         if (input.equals("y")) {
             ui.oldManTalk();
-            combat.combatOptionsDarkry(player);
+            combat.combatOptionsDarkrai(player);
         } else if (input.equals("n")) {
-            ui.displayMsg("He looked worried..maybe i should talk to him.");
+            ui.displayMsg("He looked worried.. maybe i should talk to him.");
             //todo enten tilbage til randomdialog eller menu
 
         }
