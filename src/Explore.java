@@ -20,10 +20,15 @@ public class Explore {
         }
     }
 
-
     public void explore(Player player) throws InterruptedException {
         TextUI ui = new TextUI();
         int rand = random(4);
+        int delay = 1000;
+        String sentence = ("Exploring. .. ... ...!\n");
+        for (String s : sentence.split(" ")) {
+            System.out.println(s);
+            Thread.sleep(delay);
+        }
 
         if (rand < 1) {
             fishing(player);
@@ -108,10 +113,10 @@ public class Explore {
         } else if (randy < 80) {
             ui.displayMsg("You are came near a Diglett's Cave ..");
             ui.displayMsg("Entering Diglett's Cave.");
-            showTreasureChest(1000);
+           showDigglet(1000);
             addPokemonToPlayerPokemon(49);
             ui.displayMsg("You found: " + "Diglett ding, diglett ding - DIGLETT");
-            ui.displayMsg("⊂(◉‿◉)つ");
+
             user.userOptions(player);
 
         } else if (randy < 100) {
@@ -341,6 +346,33 @@ public class Explore {
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢰⣧⠀⠀⣼⡆⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣷⣾⣿⣶⣶⣿⣷⣾⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                  "YOU FOUND GYARADOS! PREPARE FOR BATTLE⠀");
+
+        for (String s : sentencePika.split(" ")) {
+            System.out.println(s);
+            Thread.sleep(delay);
+
+        }
+
+    }
+    public void showDigglet(int delay) throws InterruptedException {
+        String sentencePika = ("... ... ... ...!  \n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣾⣿⣿⣿⣶⣦⡀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡏⠈⣿⣿⣿⣿⠀⣿⣿⣇⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠿⣿⣿⣷⣶⣿⣿⣿⣿⣶⣿⣿⣿⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⢀⣠⣶⣾⣿⣿⣿⣶⣤⡈⠙⢿⣿⠉⠀⠀⠙⣿⣿⣿⣿⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠈⢿⣷⣶⣶⣾⣿⣿⣿⣿⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⢠⣿⣿⣿⡇⠈⣿⣿⣿⡏⠀⣿⣿⡆⠈⠋⢉⣀⣀⣀⣈⠉⠉⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⢸⣿⣿⣿⣷⣶⣿⣿⣿⣿⣶⣿⡟⠁⣠⣾⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀\n" +
+                "⠀⠀⢸⣿⣿⣿⣿⣿⠁⠀⠀⢹⣿⡟⢀⣾⣿⣿⡿⢿⣿⣿⣿⡿⢿⣿⣧⠀⠀⠀\n" +
+                "⠀⠀⢸⣿⣿⣿⣿⣿⣷⣶⣶⣿⣿⠁⢸⣿⣿⣿⡇⢸⣿⣿⣿⡇⢀⣿⣿⡆⠀⠀\n" +
+                "⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⢸⣿⣿⣿⣿⣿⠿⠿⠿⣿⣿⣿⣿⡇⠀⠀\n" +
+                "⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⢸⣿⣿⣿⣿⣧⡀⠀⢀⣼⣿⣿⣿⡇⠀⠀\n" +
+                "⠀⠀⠘⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠀⠸⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠃⠀⠀⠀\n" +
+                "⠀⣠⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣄⠀\n" +
+                "⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷\n" +
+                "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n" +
+                "YOU FOUND DIGGLET!");
 
         for (String s : sentencePika.split(" ")) {
             System.out.println(s);
