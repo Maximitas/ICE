@@ -16,7 +16,7 @@ public class Town {
         }
 
         textUI.displayMsg("All Pokémon have been fully healed at the PokéCenter!");
-        user.townOrPokeCenter(player);
+        user.userOptions(player);
 
 
     }

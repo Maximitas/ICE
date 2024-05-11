@@ -208,8 +208,8 @@ public class Combat {
 
         if (pokemonsDefeated(player)) {
             textUI.displayMsg("All of " + player.getName() + "'s Pokémon have fainted! Sending to the PokéCenter...");
-            town.pokeCenter(player);
             playerDefeatPenalty(player);
+            town.pokeCenter(player);
 
         }
     }
@@ -241,6 +241,11 @@ public class Combat {
     public Pokemon getPrimaryPlayerPokemon() {
         return primaryPlayerPokemon;
 
+    }
+
+    public void setPrimaryPlayerPokemon(Pokemon primaryPlayerPokemon) {
+        this.primaryPlayerPokemon = primaryPlayerPokemon;
+        textUI.displayMsg("Now battling with " + primaryPlayerPokemon.getName() + " (Lvl " + primaryPlayerPokemon.getLvl() + ")");
     }
 
     Pokemon getSpecificPokemonMewTo() {
