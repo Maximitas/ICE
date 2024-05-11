@@ -41,7 +41,7 @@ public class StartMenu {
         String name = ui.userInput();
         player.setName(name);
 
-        ui.displayMsg("Welcome to Pokéworld " + player.getName() "!");
+        ui.displayMsg("Welcome to Pokéworld " + player.getName() + "!");
         return player;
     }
 
