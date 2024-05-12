@@ -1,2 +1,6 @@
 pokemonID,hp,maxHp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
-1,45,45,5,49,49,Bulbasaur,Grass,Poison,Overgrow,Common
+4,43,43,6,56,48,Charmander,Fire,None,Blaze,Common
+8,59,59,16,63,80,Wartortle,Water,None,Torrent,Uncommon
+8,60,60,17,67,81,Wartortle,Water,None,Torrent,Uncommon
+8,59,59,16,63,80,Wartortle,Water,None,Torrent,Uncommon
+8,59,59,16,63,80,Wartortle,Water,None,Torrent,Uncommon

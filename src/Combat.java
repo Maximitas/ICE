@@ -63,7 +63,7 @@ public class Combat {
     private void finalizeBattle(Player player, Pokemon enemyPokemon) throws InterruptedException {
         if (primaryPlayerPokemon.getHp() <= 0) {
             textUI.displayMsg(player.getName() + "'s " + primaryPlayerPokemon.getName() + " has fainted!");
-            playerPokemonFaint(player);
+            playerPokemonFaint(player, enemyPokemon);
         } else if (enemyPokemon.getHp() <= 0) {
             user.userOptions(player);
         }
@@ -203,19 +203,20 @@ public class Combat {
 
     }
 
-    private void playerPokemonFaint(Player player) throws InterruptedException {
-        textUI.displayMsg("One of " + player.getName() + "'s Pokémon has fainted.");
-
+    private void playerPokemonFaint(Player player, Pokemon enemyPokemon) throws InterruptedException {
+        CombatInterface combat = new CombatInterface();
         if (pokemonsDefeated(player)) {
             textUI.displayMsg("All of " + player.getName() + "'s Pokémon have fainted! Sending to the PokéCenter...");
             playerDefeatPenalty(player);
             town.pokeCenter(player);
-
+        } else {
+            textUI.displayMsg("You must switch your Pokémon.");
+            combat.switchPokemon(player);
+            combat.combatOptions(player, enemyPokemon);
         }
     }
-
     private boolean pokemonsDefeated(Player player) {
-        for (Pokemon pokemon : player.getCurrentParty()) {
+        for (Pokemon pokemon : playerPokemonList) {
             if (pokemon.getHp() > 0) {
                 return false;
             }
@@ -249,12 +250,12 @@ public class Combat {
         textUI.displayMsg("Now battling with " + primaryPlayerPokemon.getName() + " (Lvl " + primaryPlayerPokemon.getLvl() + ")");
     }
 
-    Pokemon getSpecificPokemonMewTo() {
+    Pokemon getSpecificPokemonMewto() {
         Random random = new Random();
        random.nextInt(enemyPokemonList.size());
         return enemyPokemonList.get(149);
     }
-    Pokemon getSpecificPokemonDarkcry() {
+    Pokemon getSpecificPokemonDarkrai() {
         Random random = new Random();
         random.nextInt(enemyPokemonList.size());
         return enemyPokemonList.get(151);
@@ -265,4 +266,7 @@ public class Combat {
         return enemyPokemonList.get(129);
     }
 
+    public ArrayList<Pokemon> getPlayerPokemonList() {
+        return playerPokemonList;
+    }
 }

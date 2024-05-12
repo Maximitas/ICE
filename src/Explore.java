@@ -38,7 +38,7 @@ public class Explore {
         } else if (rand <3 ) {
             randomDialogue(player);
         } else if (rand < 4) {
-            combat.combatOptions(player);
+            combat.combatRandom(player);
         }
 
     }
@@ -52,7 +52,7 @@ public class Explore {
         } else if (rand <3 ) {
             randomDialogue(player);
         } else if (rand < 4) {
-            combat.combatOptions(player);
+            combat.combatRandom(player);
         }
     }
 
@@ -157,7 +157,6 @@ public class Explore {
             int number = itemInitializer();
             System.out.println("You found: " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
-            //todo husk at add item to bagpack.
             exploreInterface(player);
 
         } else if (randy < 40) {
@@ -416,7 +415,7 @@ public class Explore {
                 "⠀⠀⠀⠀⠀⠀⠈⠉⠛⠿⣿⡇⠀⠀⠀⠀⠀⠀⢸⣿⠿⠛⠉⠁⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢰⣧⠀⠀⣼⡆⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣷⣾⣿⣶⣶⣿⣷⣾⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
-                 "YOU FOUND GYARADOS! PREPARE FOR BATTLE!⠀");
+                 "YOU FOUND A GYARADOS! PREPARE FOR BATTLE!⠀");
 
         for (String s : sentencePika.split(" ")) {
             System.out.println(s);
@@ -443,7 +442,7 @@ public class Explore {
                 "⠀⣠⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣄⠀\n" +
                 "⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷\n" +
                 "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n" +
-                "YOU FOUND DIGGLET!");
+                "YOU FOUND A DIGGLET!");
 
         for (String s : sentencePika.split(" ")) {
             System.out.println(s);

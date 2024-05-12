@@ -1,8 +1,5 @@
-import java.io.File;
-
 public class UserInterface {
     TextUI UI = new TextUI();
-
 
 
     public void userOptions(Player player) throws InterruptedException {
@@ -10,7 +7,7 @@ public class UserInterface {
         CombatInterface combat = new CombatInterface();
         Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
-        UI.displayMsg("1: Explore\n2: Town\n3: Player bag\n4: Find Pokémon\n5: Save\n6: Exit Game");
+        UI.displayMsg("1: Pokémon\n2: Bag\n3: Town\n4: Explore\n5: Find Pokémon\n6: Save\n7: Exit Game");
 // //UI.displayMsg("  __________________________\n" +
 //        "   |                          |\n" +
 //        "   | .----------------------. |\n" +
@@ -34,42 +31,50 @@ public class UserInterface {
 //        "   '-----------------------`");
         boolean whileKey = false;
 
-        while(!whileKey){
+        while (!whileKey) {
 
             String option = UI.userInput();
-            switch(option){
+            switch (option) {
                 case "1":
-                    explore.exploreInterface(player);
-                whileKey = true;
-                    break;
-                case "2"://Town
-                    townOrPokeCenter(player);
+                    combat.changePokemonInParty(player);
                     whileKey = true;
                     break;
-                case "3"://player //todo Player info
+                case "2"://Bag
                     explore.playerInfo(player);
                     whileKey = true;
                     break;
-                    case "4": //find pokemon battle
-                        int delay = 1000;
-                        String sentence = ("Searching.. .. ... ...!\n");
-                        for (String s : sentence.split(" ")) {
-                            System.out.println(s);
-                            Thread.sleep(delay);
-                        }
-                    combat.combatOptions(player);
+
+                case "3"://Town
+                    townOrPokeCenter(player);
                     whileKey = true;
                     break;
-                case "5": //Save game
+
+                case "4": //explore
+                    explore.exploreInterface(player);
+                    whileKey = true;
+                    break;
+
+                case "5": //random encounter
+                    int delay = 1000;
+                    String sentence = ("Searching.. .. ... ...!\n");
+                    for (String s : sentence.split(" ")) {
+                        System.out.println(s);
+                        Thread.sleep(delay);
+                    }
+                    combat.combatRandom(player);
+                    whileKey = true;
+                    break;
+                case "6": //Save game
                     whileKey = true;
                     startMenu.savePlayer(player);
                     UI.displayMsg("Your game has been saved!");
                     userOptions(player);
                     break;
-                case "6": //Exit game
+                case "7": //Exit game
                     whileKey = true;
                     break;
-                default: UI.displayMsg("Invalid input, please try again");
+                default:
+                    UI.displayMsg("Invalid input, please try again");
 
             }
         }
@@ -98,10 +103,10 @@ public class UserInterface {
 
         boolean whileKey = false;
 
-        while(!whileKey){
+        while (!whileKey) {
 
             String option = UI.userInput();
-            switch(option) {
+            switch (option) {
                 case "1":
                     town.buy(player);
                     break;
@@ -149,13 +154,16 @@ public class UserInterface {
                 "___|_______|__[ == ==]/.::::::;;;:::::::::::::::;;;:::::::.\\[=  == ]___|_____");
         UI.displayMsg("You are now in the town..\nWhat place do you want to visit?");
         UI.displayMsg("1: PokéCenter\n2: PokéMart\n3: Leave town");
-        switch(UI.userInput()){
+        switch (UI.userInput()) {
             case "1":
                 town.pokeCenter(player);
+                break;
             case "2":
                 pokeMartOptions(player);
+                break;
             case "3":
                 userOptions(player);
+                break;
             default:
                 System.out.println("Try again..");
                 break;
@@ -182,9 +190,10 @@ public class UserInterface {
 
         startMenuOptions();
     }
+
     public void startMenuOptions() throws InterruptedException {
         StartMenu menu = new StartMenu();
-        switch(UI.userInput()){
+        switch (UI.userInput()) {
             case "1":
                 menu.continueGame();
                 break;
@@ -193,8 +202,9 @@ public class UserInterface {
                 break;
             case "3":
                 break;
-            default: UI.displayMsg("Invalid input, please try again");
-            startMenuOptions();
+            default:
+                UI.displayMsg("Invalid input, please try again");
+                startMenuOptions();
 
         }
     }
