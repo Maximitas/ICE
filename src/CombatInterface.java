@@ -91,7 +91,6 @@ public class CombatInterface {
         return random.nextInt(k);
     }
 
-
     public void combatOptionsRed(Player player) throws InterruptedException {
         Pokemon enemyPokemon = combat.getSpecificPokemonMewTo();
         if (enemyPokemon == null) {
@@ -104,7 +103,7 @@ public class CombatInterface {
         while (battleActive) {
             ui.displayMsg("Select your option below:");
             ui.displayMsg("1: Fight\n2: Switch Pokémon\n3: Bag");
-
+            Explore explore = new Explore();
             String option = ui.userInput();
             switch (option) {
                 case "1":
@@ -113,6 +112,7 @@ public class CombatInterface {
                         continue;
                     }
                     battleActive = false;
+                   // explore.respawn(player);
                     break;
                 case "2":
                     switchPokemon();

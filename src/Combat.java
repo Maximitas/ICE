@@ -223,13 +223,14 @@ public class Combat {
         return true;
     }
 
-    private void playerDefeatPenalty(Player player) {
-        int penalty = 500;
+    private void playerDefeatPenalty(Player player) throws InterruptedException {
+        int penalty = 200;
         if (player.getWallet() >= penalty) {
             player.removeFunds(penalty);
             textUI.displayMsg("You lost " + penalty + " currency as a penalty.");
         } else {
             textUI.displayMsg("You don't have enough currency to pay the penalty.");
+            town.pokeCenter(player);
         }
     }
 

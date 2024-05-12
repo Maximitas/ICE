@@ -6,6 +6,7 @@ public class Music {
     public static void main(String[] args) {
         playMusic("src/Pokémon-Theme-Song.wav"); // Replace with the path to your sound file
     }
+
     public static void playMusic(String filePath) {
         try {
             File soundFile = new File(filePath);

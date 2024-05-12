@@ -22,6 +22,7 @@ public class Explore {
 
     public void explore(Player player) throws InterruptedException {
         TextUI ui = new TextUI();
+
         int rand = random(4);
         int delay = 1000;
         String sentence = ("Exploring. .. ... ...!\n");
@@ -40,9 +41,69 @@ public class Explore {
             combat.combatOptions(player);
         }
 
-
-
     }
+
+    public void randomSelect(Player player) throws InterruptedException {
+        int rand = random(4);
+        if (rand < 1) {
+            fishing(player);
+        } else if (rand < 2) {
+            findItem(player);
+        } else if (rand <3 ) {
+            randomDialogue(player);
+        } else if (rand < 4) {
+            combat.combatOptions(player);
+        }
+    }
+
+    public void exploreInterface(Player player) throws InterruptedException {
+
+        int delay = 1000;
+        ui.displayMsg("     .               *             .       __      .            .-.   .         \n" +
+                " *            .           .   *      . __.'  `.         *   .    ) )         *  \n" +
+                "   ..     *         .           _____.'        `-----.___       `-'    *    .   \n" +
+                "  /  \\           /\\    /\\     .'  ·   ·   ·   ·   ·   ·  `._____         /\\   .'\n" +
+                "-'    `'`'`..'`.'  `..'  `'`./ · ·   ·   ·   · ·   ·   · ·   · ·`.-'`-'`'  `.'··\n" +
+                "  ·  .-------.    ·  .------'   · · ·   ·   · ·   · ·   ·   · · · \\  ·   · /· · \n" +
+                "     !-------!      /· · · ·   ·   · · ·   · ·   · ·   · · ·   _ · `.__   /··· ·\n" +
+                "·   ·| POKÉ  | ·   ;· · · · · · · · _ · · · · · · · · · · · ·_|-| ·    `./·:· · \n" +
+                "     | World |   .'··_ ··· ··· ··· |-|_··· ··· ··· ··· ··· ·|-|:|· · ·   \\_···:·\n" +
+                "-----|[=] [=]| _::·_|-|_:.------.:_|:|-|_:··_:_·_·: _:_ ··: |:|:| ····=· |-|:.--\n" +
+                "-----|[=] [=]||-|_|-|:|-|!------!|-|:|:|-|_|-|-|-|_|-|-|.------------|¨|---.|!--\n" +
+                "[][][|[=] [=]||:_ .------|[][][]||:_:___:_-_:_:_:_-_:_: ||_|_|_|_/\\|_!_!_|_|:|[]\n" +
+                "[][][|[=] [=]|:|-|!------|[][][]|:|-¡++/\\++++/\\++++/\\++¡|_|_|_|_//\\\\|_|_|_||:|[]\n" +
+                "[][][|[=] [=]|:|:||[][][]|[][][]|:|:|+/__\\++/__\\++/__\\+|||_|_|_//__\\\\|_|_|_|:|[]\n" +
+                "[][][|[=] [=]|·=·:|[][][]|[][][]|·=·|/ HH \\/ HH \\/ H·=·||_|_|_//||||\\\\|_|_||:|[]");
+
+        System.out.println("1: Fishing\n2: Search areas for items\n3: Missions\n4: Random select\n5: Back");
+        boolean z = true;
+        while(z){
+            String user = ui.userInput();
+            switch (user){
+                case "1":
+                    fishing(player);
+                    z = false;
+                case "2":
+                    findItem(player);
+                    z = false;
+                    case "3":
+                        randomDialogue(player);
+                        z = false;
+                        case "4":
+                            explore(player);
+                            randomSelect(player);
+                case "5":
+                    UserInterface ui2 = new UserInterface();
+                    ui2.userOptions(player);
+
+                default:
+                    System.out.println("Try again.");
+                    break;
+
+            }
+        }
+    }
+
 
     public int random(int k) {
         Random random = new Random();
@@ -59,11 +120,11 @@ public class Explore {
 
             //Input er pokemons number - 1 for at add til player pokemon bag
             addPokemonToPlayerPokemon(128);
-            user.userOptions(player);
+            exploreInterface(player);
 
         } else if (randy < 100) {
             showPikachu(1000);
-            user.userOptions(player);
+           exploreInterface(player);
 
         } else if (randy < 150) {
             showGyarados(1000);
@@ -90,7 +151,7 @@ public class Explore {
             System.out.println("You found: " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
             //todo husk at add item to bagpack.
-            user.userOptions(player);
+            exploreInterface(player);
 
         } else if (randy < 40) {
             ui.displayMsg("You see a Power Plant ..");
@@ -99,7 +160,7 @@ public class Explore {
             int number = itemInitializer();
             System.out.println("You found: " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
-            user.userOptions(player);
+            exploreInterface(player);
 
         } else if (randy < 60) {
             ui.displayMsg("You are visiting Safari Zone ..");
@@ -108,7 +169,7 @@ public class Explore {
             int number = itemInitializer();
             System.out.println("You found: " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
-            user.userOptions(player);
+            exploreInterface(player);
 
         } else if (randy < 80) {
             ui.displayMsg("You are came near a Diglett's Cave ..");
@@ -117,7 +178,7 @@ public class Explore {
             addPokemonToPlayerPokemon(49);
             ui.displayMsg("You found: " + "Diglett ding, diglett ding - DIGLETT");
 
-            user.userOptions(player);
+            exploreInterface(player);
 
         } else if (randy < 100) {
             ui.displayMsg("You are came near a Pokemon Tower ..");
@@ -126,11 +187,7 @@ public class Explore {
             int number = itemInitializer();
             System.out.println("You found: " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
-            user.userOptions(player);
-
-        } else {
-            ui.displayMsg("You got lost and found your way back..");
-            user.userOptions(player);
+           exploreInterface(player);
         }
     }
 
@@ -152,6 +209,12 @@ public class Explore {
         }
 
     }
+    public void respawn(Player player) throws InterruptedException {
+        Town town = new Town();
+        if (player.getPokemonParty().isEmpty()){
+            town.pokeCenter(player);
+        }
+    }
 
     public void dialogLegendary(Player player) throws InterruptedException {
         ui.displayMsg("You are enjoying yourself and see a group of people storming at you!");
@@ -166,7 +229,8 @@ public class Explore {
             ui.displayMsg("Next time, take the battle, you wont regret it..Goodluck");
 
         }
-        user.userOptions(player);
+
+        exploreInterface(player);
 
     }
 
@@ -182,7 +246,7 @@ public class Explore {
             //todo enten tilbage til randomdialog eller menu
 
         }
-        user.userOptions(player);
+        exploreInterface(player);
     }
 
 
@@ -197,7 +261,7 @@ public class Explore {
             //todo enten tilbage til randomdialog eller menu
 
         }
-        user.userOptions(player);
+        exploreInterface(player);
 
     }
 
@@ -214,7 +278,7 @@ public class Explore {
             ui.displayMsg("No sushi today..");
 
         }
-        user.userOptions(player);
+        exploreInterface(player);
     }
 
     public void dialogGirlyTrainee(Player player) throws InterruptedException {
@@ -233,7 +297,7 @@ public class Explore {
             ui.displayMsg("You fled the area");
 
         }
-        user.userOptions(player);
+        exploreInterface(player);
     }
 
     public void showMagikarp(int delay) throws InterruptedException {
@@ -280,7 +344,7 @@ public class Explore {
 
     public void showTreasureChest(int delay) throws InterruptedException {
 
-        String sentenceTreasureChest = ("... ... ... ...!\n " + "⠀\n" +
+        String sentenceTreasureChest = ("... ... ... ...!\n " +
                 "⠀⠀⠀⠀⠀⠰⠿⠿⠿⢿⣿⣷⣶⣶⣶⣦⣤⣤⣤⣤⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⢰⣶⣦⠀⣶⣤⣤⣤⣤⣍⣉⣉⣉⡙⠛⠛⠛⠛⠏⣰⣿⡆⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⢿⡿⢠⣿⣿⣿⣿⣿⣿⣿⣿⠻⣿⣿⣿⣿⣿⣆⠸⣿⡇⠀⠀⠀\n" +
@@ -305,7 +369,7 @@ public class Explore {
 
 
     public void showPikachu(int delay) throws InterruptedException {
-        String sentencePika = ("... ... ... ...!  \n" +
+        String sentencePika = ("... ... ... ...!\n"+
                 "⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶\n" +
                 "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿\n" +
                 "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣀⣾⣿⣿⣿⣿\n" +

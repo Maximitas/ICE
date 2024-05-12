@@ -10,8 +10,28 @@ public class UserInterface {
         CombatInterface combat = new CombatInterface();
         Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
-        UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Find Pokémon\n5: Save\n6: Exit Game");
-
+      //  UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Find Pokémon\n5: Save\n6: Exit Game");
+UI.displayMsg("  __________________________\n" +
+        "   |                          |\n" +
+        "   | .----------------------. |\n" +
+        "   | |  .----------------.  | |\n" +
+        "   | |  | 1: Explore     |  | |\n" +
+        "   | |))| 2: Town        |  | |\n" +
+        "   | |  | 3: Player Bag  |  | |\n" +
+        "   | |  | 4: Find Pokémon|  | |\n" +
+        "   | |  | 5: Save        |  | |\n" +
+        "   | |  | 6: Exit Game   |  | |\n" +
+        "   | |  |                |  | |\n" +
+        "   | |  '----------------'  | |\n" +
+        "   | |__GAME BOY____________/ |\n" +
+        "   |          ________        |\n" +
+        "   |    .    (Nintendo)       |\n" +
+        "   |  _| |_   \"\"\"\"\"\"\"\"   .-.  |\n" +
+        "   |-[_   _]-       .-. (   ) |\n" +
+        "   |   |_|         (   ) '-'  |\n" +
+        "   |    '           '-'   A   |\n" +
+        "   |                 B        |\n" +
+        "   '-----------------------`");
         boolean whileKey = false;
 
         while(!whileKey){
@@ -19,7 +39,7 @@ public class UserInterface {
             String option = UI.userInput();
             switch(option){
                 case "1":
-                    explore.explore(player);
+                    explore.exploreInterface(player);
                 whileKey = true;
                     break;
                 case "2"://Town
@@ -58,6 +78,21 @@ public class UserInterface {
     public void pokeMartOptions(Player player) throws InterruptedException {
         Town town = new Town();
         UserInterface user = new UserInterface();
+        UI.displayMsg(".  .  .  .  .  .  .  .  .  .  .  .  .  _N_.  .  .  .  .  .  .  .  .  .  .  .  . \n" +
+                " : . : . : . : . : . : . : . : . : . : |=|. : . : . : . : . : . : .__ . : . : . \n" +
+                ":.:.:.:.:.:.:.:.:.:.' '________________|=|_________________________||_______  _.\n" +
+                "::::::::::::'''__..--==-=-=-=-=-=-=-=- |=| -=-=-=-=-=-=-=-=-=-=-=-[!!]=-__.--~-=\n" +
+                "::::'''__..--===-=-=-=-=-=-=-=-=-=-=-=-  /-=-=-=-=-=-=-=-=-=-=-=-=__.--~=-=-=-=-\n" +
+                "'..--==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-/-=-=-=-=-=-=-=-=-=-__.--~-=-=-=-=-=-=-=\n" +
+                " [=====================================/-=-=-=-=-=-=-=-=.--~=-=-=-=-=-=-=-=-=-=-\n" +
+                ":.. | _ .  .  .   _______ .  .  .  _  /-=-=-=-=-=-=-=-= [=======================\n" +
+                "::: |[_]_________| POKÉMART |________[_][====================| .  ·--·-------·--· .\n" +
+                "::: | | ||_____|__¯¯¯¯¯¯¯__|____|| | |/ ║__║__║__║__║ ||  |    |::| | | | |::|  \n" +
+                "::: |   ||_____|_____|_____|____||   |  ║__║__║__║__║ ||__|  . |::|-+-+-+-|::|  \n" +
+                "::: | . ||_____|_____|_____|____|| .{@} ║__║__║__║__║ | __|    |::|_|_|_|_|::| .\n" +
+                "::: |   ||_____|_____|_____|____|| _\\|/_____________  |___| .  |__|=======|__|  \n" +
+                "----|___||_____|_____|_____|____||[=================]'----| adl  .   {@}   .  {@\n" +
+                ",',',',/ , ' , ' , ' . ` . ` . ` .\\`  ` ` ~ ~ ' ' '/ - = -| \\|/      \\|/      \\|");
         UI.displayMsg("Welcome to the PokéMart!");
         UI.displayMsg("1: Buy items\n2: Sell items\n3: to exit ");
 
@@ -89,7 +124,7 @@ public class UserInterface {
 
     public void townOrPokeCenter(Player player) throws InterruptedException {
         Town town = new Town();
-        System.out.println("You are now in the town..\nWhat place do you want to visit?");
+
         System.out.println("                                                          |>>>\n" +
                 "                   _                      _                |\n" +
                 "    ____________ .' '.    _____/----/-\\ .' './========\\   / \\\n" +
@@ -98,7 +133,7 @@ public class UserInterface {
                 " ///////-\\////====\\==|:::::::::::::::::::::::::::::::::::|u u| U U U U U\n" +
                 " |----/\\u |--|++++|..|'''''''''''::::::::::::::''''''''''|+++|+-+-+-+-+-+\n" +
                 " |u u|u | |u ||||||..|              '::::::::'           |===|>=== _ _ ==\n" +
-                " |===|  |u|==|++++|==|              .::::::::.           | T |....| V |..\n" +
+                " |===|  |u|==|++++|==| pokécenter   .::::::::.    pokémart    | T |....| V |..\n" +
                 " |u u|u | |u ||HH||         \\|/    .::::::::::.\n" +
                 " |===|_.|u|_.|+HH+|_              .::::::::::::.              _\n" +
                 "                __(_)___         .::::::::::::::.         ___(_)__\n" +
@@ -112,7 +147,8 @@ public class UserInterface {
                 "_|_______|____[=  == ]/ |.::::::;;:::::::::::::;;;::::::.| \\[  === ]______|_\n" +
                 "   |       |  [ === =] /.::::::;;::::::::::::::;;;:::::::.\\ [===  =]   |\n" +
                 "___|_______|__[ == ==]/.::::::;;;:::::::::::::::;;;:::::::.\\[=  == ]___|_____");
-        System.out.println("1: PokeCenter\n2: PokeMart\n3: Exit");
+        UI.displayMsg("You are now in the town..\nWhat place do you want to visit?");
+        UI.displayMsg("1: PokeCenter\n2: PokeMart\n3: Exit");
         switch(UI.userInput()){
             case "1":
                 town.pokeCenter(player);
@@ -121,7 +157,7 @@ public class UserInterface {
             case "3":
                 userOptions(player);
             default:
-                System.out.println("Try again");
+                System.out.println("Try again..");
                 break;
 
         }
