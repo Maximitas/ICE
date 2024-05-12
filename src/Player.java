@@ -44,6 +44,7 @@ public class Player {
     public ArrayList<Pokemon> getPokemonParty() {
         FileIO file = new FileIO();
         this.pokemonParty = file.loadPokemonFromFile("Data/PlayerPokemons.csv");
+
         return pokemonParty;
     }
 
@@ -77,4 +78,6 @@ public class Player {
     public boolean removeItemFromBag(Item item) {
         return bag.remove(item);
     }
+
+
 }

@@ -10,28 +10,28 @@ public class UserInterface {
         CombatInterface combat = new CombatInterface();
         Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
-      //  UI.displayMsg("1: Explore\n2: Town\n3: Player\n4: Find Pokémon\n5: Save\n6: Exit Game");
-UI.displayMsg("  __________________________\n" +
-        "   |                          |\n" +
-        "   | .----------------------. |\n" +
-        "   | |  .----------------.  | |\n" +
-        "   | |  | 1: Explore     |  | |\n" +
-        "   | |))| 2: Town        |  | |\n" +
-        "   | |  | 3: Player Bag  |  | |\n" +
-        "   | |  | 4: Find Pokémon|  | |\n" +
-        "   | |  | 5: Save        |  | |\n" +
-        "   | |  | 6: Exit Game   |  | |\n" +
-        "   | |  |                |  | |\n" +
-        "   | |  '----------------'  | |\n" +
-        "   | |__GAME BOY____________/ |\n" +
-        "   |          ________        |\n" +
-        "   |    .    (Nintendo)       |\n" +
-        "   |  _| |_   \"\"\"\"\"\"\"\"   .-.  |\n" +
-        "   |-[_   _]-       .-. (   ) |\n" +
-        "   |   |_|         (   ) '-'  |\n" +
-        "   |    '           '-'   A   |\n" +
-        "   |                 B        |\n" +
-        "   '-----------------------`");
+        UI.displayMsg("1: Explore\n2: Town\n3: Player bag\n4: Find Pokémon\n5: Save\n6: Exit Game");
+// //UI.displayMsg("  __________________________\n" +
+//        "   |                          |\n" +
+//        "   | .----------------------. |\n" +
+//        "   | |  .----------------.  | |\n" +
+//        "   | |  | 1: Explore     |  | |\n" +
+//        "   | |))| 2: Town        |  | |\n" +
+//        "   | |  | 3: Player Bag  |  | |\n" +
+//        "   | |  | 4: Find Pokémon|  | |\n" +
+//        "   | |  | 5: Save        |  | |\n" +
+//        "   | |  | 6: Exit Game   |  | |\n" +
+//        "   | |  |                |  | |\n" +
+//        "   | |  '----------------'  | |\n" +
+//        "   | |__GAME BOY____________/ |\n" +
+//        "   |          ________        |\n" +
+//        "   |    .    (Nintendo)       |\n" +
+//        "   |  _| |_   \"\"\"\"\"\"\"\"   .-.  |\n" +
+//        "   |-[_   _]-       .-. (   ) |\n" +
+//        "   |   |_|         (   ) '-'  |\n" +
+//        "   |    '           '-'   A   |\n" +
+//        "   |                 B        |\n" +
+//        "   '-----------------------`");
         boolean whileKey = false;
 
         while(!whileKey){
@@ -47,7 +47,7 @@ UI.displayMsg("  __________________________\n" +
                     whileKey = true;
                     break;
                 case "3"://player //todo Player info
-                    combat.combatOptions(player);
+                    explore.playerInfo(player);
                     whileKey = true;
                     break;
                     case "4": //find pokemon battle

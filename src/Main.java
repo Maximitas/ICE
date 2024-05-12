@@ -6,14 +6,14 @@ Explore explore = new Explore();
 Player player = new Player();
 CombatInterface combatInterface = new CombatInterface();
 //combatInterface.combatOptionsDarkrai(new Player());
-        explore.dialogOldman(player);
+       // explore.dialogOldman(player);
 
       //  Music music = new Music();
        // Music.playMusic("""
         //        src/Pokémon-Theme-Song.wav""");
 
-        //UserInterface userInterface = new UserInterface();
-       // userInterface.startMenu();
+        UserInterface userInterface = new UserInterface();
+        userInterface.startMenu();
 
     }
 

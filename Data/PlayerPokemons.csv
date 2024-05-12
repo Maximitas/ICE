@@ -1,4 +1,2 @@
 pokemonID,hp,maxHp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
 1,45,45,5,49,49,Bulbasaur,Grass,Poison,Overgrow,Common
-129,20,20,5,10,55,Magikarp,Water,None,Swift Swim,Common
-50,10,10,5,55,25,Diglett,Ground,None,Sand Veil,Common

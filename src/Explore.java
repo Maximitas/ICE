@@ -138,6 +138,13 @@ public class Explore {
         itemList();
         return random(item.size());
     }
+    public void playerInfo(Player player) throws InterruptedException {
+        System.out.println("Pokemon Party: " + player.getPokemonParty().size());
+       System.out.println("Player: " + player.getName());
+       System.out.println("Player currency: " + player.getWallet());
+       System.out.println("Player bag: " + player.getBag());
+        user.userOptions(player);
+    }
 
 
     public void findItem(Player player) throws InterruptedException {
