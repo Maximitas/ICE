@@ -94,7 +94,7 @@ public class UserInterface {
                 "----|___||_____|_____|_____|____||[=================]'----| adl  .   {@}   .  {@\n" +
                 ",',',',/ , ' , ' , ' . ` . ` . ` .\\`  ` ` ~ ~ ' ' '/ - = -| \\|/      \\|/      \\|");
         UI.displayMsg("Welcome to the PokéMart!");
-        UI.displayMsg("1: Buy items\n2: Sell items\n3: to exit ");
+        UI.displayMsg("1: Buy items\n2: Sell items\n3: Leave shop");
 
         boolean whileKey = false;
 
@@ -148,7 +148,7 @@ public class UserInterface {
                 "   |       |  [ === =] /.::::::;;::::::::::::::;;;:::::::.\\ [===  =]   |\n" +
                 "___|_______|__[ == ==]/.::::::;;;:::::::::::::::;;;:::::::.\\[=  == ]___|_____");
         UI.displayMsg("You are now in the town..\nWhat place do you want to visit?");
-        UI.displayMsg("1: PokeCenter\n2: PokeMart\n3: Exit");
+        UI.displayMsg("1: PokéCenter\n2: PokéMart\n3: Leave town");
         switch(UI.userInput()){
             case "1":
                 town.pokeCenter(player);

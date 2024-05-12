@@ -75,7 +75,7 @@ public class Explore {
                 "[][][|[=] [=]|:|:||[][][]|[][][]|:|:|+/__\\++/__\\++/__\\+|||_|_|_//__\\\\|_|_|_|:|[]\n" +
                 "[][][|[=] [=]|·=·:|[][][]|[][][]|·=·|/ HH \\/ HH \\/ H·=·||_|_|_//||||\\\\|_|_||:|[]");
 
-        System.out.println("1: Fishing\n2: Search areas for items\n3: Missions\n4: Random select\n5: Back");
+        System.out.println("1: Fishing\n2: Search for items\n3: Enter the wilderness\n4: Random\n5: Back");
         boolean z = true;
         while(z){
             String user = ui.userInput();
@@ -416,7 +416,7 @@ public class Explore {
                 "⠀⠀⠀⠀⠀⠀⠈⠉⠛⠿⣿⡇⠀⠀⠀⠀⠀⠀⢸⣿⠿⠛⠉⠁⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢰⣧⠀⠀⣼⡆⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣷⣾⣿⣶⣶⣿⣷⣾⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
-                 "YOU FOUND GYARADOS! PREPARE FOR BATTLE⠀");
+                 "YOU FOUND GYARADOS! PREPARE FOR BATTLE!⠀");
 
         for (String s : sentencePika.split(" ")) {
             System.out.println(s);
