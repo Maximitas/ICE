@@ -166,7 +166,8 @@ public class UserInterface {
                 userOptions(player);
                 break;
             default:
-                System.out.println("Try again..");
+                System.out.println("Invalid input. Try again!");
+                townOrPokeCenter(player);
                 break;
 
         }
