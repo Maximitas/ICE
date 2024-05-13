@@ -95,11 +95,13 @@ public class CombatInterface {
                 ui.displayMsg(playerPokemonList.indexOf(pokemon) + 1 + ": " + pokemon.getName() + " (Lvl " + pokemon.getLvl() + ") - HP: " + pokemon.getHp());
             }
 
+
+
         }
-        int option = ui.userInputInt() - 1;
+        try{
+            int option = Integer.parseInt(ui.userInput())-1;
         if(option < 0 || option >= playerPokemonList.size()){
-         ui.displayMsg("Invalid input");
-         changePokemonInParty(player);
+
         }
 
         Collections.swap(playerPokemonList, 0, option);
@@ -107,6 +109,13 @@ public class CombatInterface {
         combat.setPrimaryPlayerPokemon(playerPokemonList.getFirst());
         ui.displayMsg(combat.getPrimaryPlayerPokemon().getName() + " has been switched out with " + playerPokemonList.get(option).getName());
         user.userOptions(player);
+    }
+
+        catch(Exception e){
+            ui.displayMsg("Invalid input, please try again.");
+            changePokemonInParty(player);
+
+        }
     }
 
     public void switchPokemon(Player player) {
