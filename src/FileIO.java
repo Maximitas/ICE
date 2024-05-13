@@ -134,7 +134,7 @@ public class FileIO {
             playerData.add(name);
             playerData.add(balance);
         } else {
-                System.out.println("There is no save");
+                System.out.println("There is no saved game, please start a new game.");
             }
 
         } catch (FileNotFoundException e) {
