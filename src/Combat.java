@@ -271,14 +271,5 @@ public class Combat {
         return playerPokemonList;
     }
 
-    public void switchPokemon() {
-        if(primaryPlayerPokemon.getHp()==0 ){
-            int pokemonChoice = Integer.parseInt(textUI.userInput());
-            System.out.println("hej");
-            playerPokemonList.get(pokemonChoice-1);
 
-        }
-
-        }
-
-    }
+}

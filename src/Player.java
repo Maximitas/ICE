@@ -33,10 +33,6 @@ public class Player {
         return wallet;
     }
 
-    public void addPokemon(Pokemon pokemon) {
-        pokeDex.add(pokemon);
-    }
-
     public ArrayList<Pokemon> getPokemonList() {
         return pokeDex;
     }
@@ -46,10 +42,6 @@ public class Player {
         this.pokemonParty = file.loadPokemonFromFile("Data/PlayerPokemons.csv");
 
         return pokemonParty;
-    }
-
-    public ArrayList<Pokemon> getCurrentParty(){
-        return this.pokemonParty;
     }
 
     public void setWallet(int wallet) {
