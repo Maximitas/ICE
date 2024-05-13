@@ -14,11 +14,12 @@ CombatInterface combatInterface = new CombatInterface();
        // Music.playMusic("src/pokemon-battle.wav");
         Music.playMusicStart("src/vN8GiDHbO4.wav");
 
-        FileIO file = new FileIO();
-        file.loadPokemonFromFile("Data\\Pokemon.csv");
+       // FileIO file = new FileIO();
+       // file.loadPokemonFromFile("Data\\Pokemon.csv");
 
         UserInterface userInterface = new UserInterface();
         userInterface.startMenu();
+      //  explore.gatesOfPokemon(player);
     }
 
 

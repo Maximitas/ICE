@@ -18,6 +18,49 @@ public class CombatInterface {
         ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
         combatOptions(player, enemyPokemon);
     }
+    public void combat5to10(Player player) throws InterruptedException {
+        int minLvl = 5;
+        int maxLvl = 10;
+
+        int randomLevel = (int) (Math.random() * (maxLvl - minLvl + 1));
+
+        Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
+
+        if (enemyPokemon == null) {
+            ui.displayMsg("No enemy Pokémon available in the specified level range.");
+            return;
+        }
+
+        ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
+        combatOptions(player, enemyPokemon);
+    }
+    public void combat10to25(Player player) throws InterruptedException {
+        int minLvl = 10;
+        int maxLvl = 25;
+        int randomLevel = (int) (Math.random() * (maxLvl - minLvl + 1));
+        Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
+
+        if (enemyPokemon == null) {
+            ui.displayMsg("No enemy Pokémon available in the specified level range.");
+            return;
+        }
+
+        ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
+        combatOptions(player, enemyPokemon);
+    }
+    public void combat25to50(Player player) throws InterruptedException {
+        int minLvl = 25;
+        int maxLvl = 50;
+        int randomLevel = (int) (Math.random() * (maxLvl - minLvl + 1));
+        Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
+
+        if (enemyPokemon == null) {
+            ui.displayMsg("No enemy Pokémon available in the specified level range.");
+            return;
+        }
+        ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
+        combatOptions(player, enemyPokemon);
+    }
 
     public void combatOptions(Player player, Pokemon enemyPokemon) throws InterruptedException {
         Music.playMusic("src/pokemon-battle.wav");

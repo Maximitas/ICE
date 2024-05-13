@@ -42,6 +42,35 @@ public class Explore {
 
     }
 
+    public void gatesOfPokemon(Player player) throws InterruptedException {
+        TextUI ui = new TextUI();
+        CombatInterface combat = new CombatInterface();
+
+        boolean key = true;
+        System.out.println("Gates Of Pokémons");
+        System.out.println("1: Lvl 1-10\n2: Lvl 10-25\n3: Lvl 25-70");
+        while (key){
+            switch(ui.userInput()){
+                case "1": //lvl 5-10;
+                    combat.combat5to10(player);
+                    key = false;
+                    break;
+                case "2": //lvl 10-25
+                    combat.combat10to25(player);
+                    key = false;
+                    break;
+                    case "3": //25-70
+                        combat.combat25to50(player);
+                        key = false;
+                        break;
+                default:
+                    System.out.println("Professor Oak: Try again..");
+                    break;
+
+            }
+        }
+
+    }
     public void randomSelect(Player player) throws InterruptedException {
         int rand = random(4);
         if (rand < 1) {
@@ -72,8 +101,8 @@ public class Explore {
                 "[][][|[=] [=]|:|-|!------|[][][]|:|-¡++/\\++++/\\++++/\\++¡|_|_|_|_//\\\\|_|_|_||:|[]\n" +
                 "[][][|[=] [=]|:|:||[][][]|[][][]|:|:|+/__\\++/__\\++/__\\+|||_|_|_//__\\\\|_|_|_|:|[]\n" +
                 "[][][|[=] [=]|·=·:|[][][]|[][][]|·=·|/ HH \\/ HH \\/ H·=·||_|_|_//||||\\\\|_|_||:|[]");
-
-        System.out.println("1: Fishing\n2: Search for items\n3: NPC Interaction\n4: Enter the wilderness\n5: Random\n6: Back");
+        System.out.println("Choose an option! ");
+        System.out.println("1: Fishing\n2: Items Searching\n3: Gates Of Pokémon \n4: NPC Dialogue\n5: Find Random Pokémons\n6: Random events\n7: Stop Exploring");
         boolean z = true;
         while(z){
             String user = ui.userInput();
@@ -82,20 +111,23 @@ public class Explore {
                     fishing(player);
                 case "2":
                     findItem(player);
-                    case "3":
+                case "3":
+                    gatesOfPokemon(player);
+                    z = false;
+                    case "4":
                         randomDialogue(player);
                         z = false;
-                case "4":
+                case "5":
                     String sentence = ("Searching.. .. ... ...!\n");
                     for (String s : sentence.split(" ")) {
                         System.out.println(s);
                         Thread.sleep(delay);
                     }
                     combat.combatRandom(player);
-                        case "5":
+                        case "6":
                             explore(player);
                             randomSelect(player);
-                case "6":
+                case "7":
                     UserInterface ui2 = new UserInterface();
                     ui2.userOptions(player);
 

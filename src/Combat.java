@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Combat {
     private TextUI textUI = new TextUI();
@@ -237,6 +236,10 @@ public class Combat {
     }
 
     Pokemon getRandomPokemon() {
+        Random random = new Random();
+        return enemyPokemonList.get(random.nextInt(enemyPokemonList.size()));
+    }
+    Pokemon getRandomPokemonList(int randomLevel) {
         Random random = new Random();
         return enemyPokemonList.get(random.nextInt(enemyPokemonList.size()));
     }
