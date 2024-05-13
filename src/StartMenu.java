@@ -31,6 +31,7 @@ public class StartMenu {
 
         Player player = choosePlayerName();
         chooseStarterPokemon();
+        chooseStarterPokemon();
 
         userInterface.userOptions(player);
     }

@@ -97,6 +97,11 @@ public class CombatInterface {
 
         }
         int option = ui.userInputInt() - 1;
+        if(option < 0 || option >= playerPokemonList.size()){
+         ui.displayMsg("Invalid input");
+         changePokemonInParty(player);
+        }
+
         Collections.swap(playerPokemonList, 0, option);
         fileIO.savePokemonData("Data/PlayerPokemons.csv", playerPokemonList);
         combat.setPrimaryPlayerPokemon(playerPokemonList.getFirst());
