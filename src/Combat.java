@@ -206,7 +206,7 @@ public class Combat {
 
     private void playerPokemonFaint(Player player, Pokemon enemyPokemon) throws InterruptedException {
         CombatInterface combat = new CombatInterface();
-        if (!pokemonsDefeated(player)) {
+        if (pokemonsDefeated(player)) {
             textUI.displayMsg("All of " + player.getName() + "'s Pokémon have fainted! Sending to the PokéCenter...");
             playerDefeatPenalty(player);
             town.pokeCenter(player);
