@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -42,7 +43,10 @@ public class CombatInterface {
                     switchPokemon(player);
                     break;
                 case "4":
-                    bag(player);
+                    battleActive = bag(enemyPokemon);
+                    if(!battleActive) {
+                        caughtPokemon(player, enemyPokemon);
+                    }
                     break;
                 default:
                     ui.displayMsg("Invalid input, please try again.");
@@ -53,6 +57,11 @@ public class CombatInterface {
 
     public void fight(Player player, Pokemon enemyPokemon) throws InterruptedException {
         combat.battleRound(player, enemyPokemon);
+    }
+
+    public void caughtPokemon(Player player,Pokemon enemyPokemon) throws InterruptedException {
+        ui.displayMsg("You caught a " + enemyPokemon.getName());
+        userInterface.userOptions(player);
     }
 
 
@@ -68,23 +77,87 @@ public class CombatInterface {
         }
     }
 
-    public void bag(Player player) {
-        ui.displayMsg("Select an item:");
-        ui.displayMsg("Poké Balls\n2Potions");
+    public boolean bag(Pokemon enemyPokemon) {
+        FileIO file = new FileIO();
+        ArrayList<Item> items = file.readItemsFromBag("Data/Bag.csv");
 
+        displayBag(items);
+        boolean pokemonCaught = usePokeball(items, enemyPokemon);
+        if (!pokemonCaught) {
+            file.savePokemonToPlayerPokemons("Data/PlayerPokemons.csv", enemyPokemon);
+        }
+        return pokemonCaught;
+    }
+
+    public boolean usePokeball(ArrayList<Item> items, Pokemon enemyPokemon) {
+        FileIO file = new FileIO();
         String option = ui.userInput();
-        switch (option) {
-            case "1":
+        boolean pokemonCaught = true;
+        try {
+            Item item = items.get(Integer.parseInt(option) - 1);
 
-                break;
-            case "2":
+            if (item.getName().equals("Poke Ball") || item.getName().equals("Master Ball") || item.getName().equals("Ultra Ball") || item.getName().equals("Great Ball")) {
+                for (int i = 0; i < items.size(); i++) {
+                    if (items.get(i).equals(item)) {
+                        items.remove(i);
+                    }
+                }
+            } else {
+                ui.displayMsg("That's not a Poke ball");
+            }
 
-            default:
-                ui.displayMsg("Invalid input, please try again.");
-                bag(player);
-                break;
+            switch (item.getName()) {
+                case "Poke Ball":
+                    if (random(100) < 40){
+                        pokemonCaught = false;
+                    } else {
+                        ui.displayMsg("You failed to catch " + enemyPokemon.getName() + " using a Poke ball");
+                    }
+                    break;
+                case "Great Ball":
+                    if (random(100) < 60){
+                        pokemonCaught = false;
+                    } else {
+                        ui.displayMsg("You failed to catch " + enemyPokemon.getName() + " using a Great ball");
+                    }
+                    break;
+                case "Ultra Ball":
+                    if (random(100) < 80){
+                        pokemonCaught = false;
+                    } else {
+                        ui.displayMsg("You failed to catch " + enemyPokemon.getName() + " using a Ultra ball");
+                    }
+                    break;
+                case "Master Ball":
+                    pokemonCaught = false;
+                    break;
+            }
+
+        } catch (Exception e) {
+            ui.displayMsg("Invalid input");
+            usePokeball(items, enemyPokemon);
+        }
+        file.saveItemsToBag("Data/Bag.csv", items);
+        return pokemonCaught;
+    }
+
+    public void viewBag() {
+        FileIO file = new FileIO();
+        ArrayList<Item> items = file.readItemsFromBag("Data/Bag.csv");
+        for (Item item : items) {
+            ui.displayMsg(item.getName() + ", " + item.getPrice());
+        }
+        ui.displayMsg("\n");
+    }
+
+    public void displayBag(ArrayList<Item> items) {
+
+        ui.displayMsg("Choose an item");
+        for (int i = 0; i < items.size(); i++) {
+            ui.displayMsg(i+1 + ": " + items.get(i));
         }
     }
+
     public void changePokemonInParty(Player player) throws InterruptedException {
         FileIO fileIO = new FileIO();
         UserInterface user = new UserInterface();

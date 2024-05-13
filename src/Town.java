@@ -25,7 +25,7 @@ public class Town {
 
         public void buy(Player player) throws InterruptedException {
             Item[] itemsForSale = {
-                    new Item("Poké Ball", 200),
+                    new Item("Poke Ball", 200),
                     new Item("Potion", 100),
                     new Item("Super Potion", 500),
                     new Item("Revive", 1500)

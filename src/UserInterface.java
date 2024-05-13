@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class UserInterface {
     TextUI UI = new TextUI();
 
@@ -40,7 +42,10 @@ public class UserInterface {
                     whileKey = true;
                     break;
                 case "2"://Bag
-                    explore.playerInfo(player);
+
+                    combat.viewBag();
+                    userOptions(player);
+
                     whileKey = true;
                     break;
 
