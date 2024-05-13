@@ -72,6 +72,7 @@ public class UserInterface {
                     break;
                 case "7": //Exit game
                     whileKey = true;
+                    UI.displayMsg("You have exited the game.");
                     break;
                 default:
                     UI.displayMsg("Invalid input, please try again");
@@ -186,7 +187,8 @@ public class UserInterface {
                 "                          ▀                                               ███    ███ ▀                    ");
         System.out.println("*****************************************************************************************************");
         System.out.println("START YOUR ADVENTURE!");
-        ui.displayMsg("\n1: Continue game\n2: New game\n3: Exit Game");
+        System.out.println("\nSelect an option below:");
+        ui.displayMsg("\n1: New game\n2: Continue game\n3: Exit Game");
 
         startMenuOptions();
     }
@@ -195,10 +197,10 @@ public class UserInterface {
         StartMenu menu = new StartMenu();
         switch (UI.userInput()) {
             case "1":
-                menu.continueGame();
+                menu.newGame();
                 break;
             case "2":
-                menu.newGame();
+                menu.continueGame();
                 break;
             case "3":
                 break;

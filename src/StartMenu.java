@@ -31,7 +31,6 @@ public class StartMenu {
 
         Player player = choosePlayerName();
         chooseStarterPokemon();
-        chooseStarterPokemon();
 
         userInterface.userOptions(player);
     }
@@ -42,7 +41,7 @@ public class StartMenu {
         String name = ui.userInput();
         player.setName(name);
 
-        ui.displayMsg("Welcome to Pokéworld " + player.getName() + "!");
+        ui.displayMsg("You have chosen " + player.getName());
         return player;
     }
 
@@ -50,7 +49,7 @@ public class StartMenu {
         ArrayList<Pokemon> allPokemons = file.loadPokemonFromFile("Data/Pokemon.csv");
 
         //Souts starting pokemons
-        ui.displayMsg("Choose your starter pokémon");
+        ui.displayMsg("Choose the pokemon you want.");
         ui.displayMsg("1: " + allPokemons.get(0).getName());
         ui.displayMsg("2: " + allPokemons.get(3).getName());
         ui.displayMsg("3: " + allPokemons.get(6).getName());
