@@ -69,17 +69,16 @@ public class StartMenu {
     }
 
     public int translatePlayerChoiceToPokeindex() {
-        int playerChoice;
         do {
-            playerChoice = ui.userInputInt();
+            String playerChoice = String.valueOf(ui.userInput());
             switch (playerChoice) {
-                case 1:
+                case "1":
                     return 0;
-                case 2:
+                case "2":
                     return 3;
-                case 3:
+                case "3":
                     return 6;
-                case 4:
+                case "4":
                     return 24;
                 default:
                     ui.displayMsg("Invalid input. Please choose again.");

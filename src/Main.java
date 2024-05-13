@@ -5,7 +5,7 @@ public class Main {
 Explore explore = new Explore();
 Player player = new Player();
 CombatInterface combatInterface = new CombatInterface();
-//combatInterface.combatOptionsDarkrai(new Player());
+//combatInterface.combatOptionsDarkrai(new Player());2
        // explore.dialogOldman(player);
 
         Music music = new Music();
