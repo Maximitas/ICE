@@ -204,7 +204,9 @@ public class UserInterface {
                 menu.newGame();
                 break;
             case "3":
+                UI.displayMsg("You have exited the game.");
                 break;
+
             default:
                 UI.displayMsg("Invalid input, please try again");
                 startMenuOptions();

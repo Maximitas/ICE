@@ -1,2 +1,1 @@
 pokemonID,hp,maxHp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
-25,35,35,5,55,40,Pikachu,Electric,None,Static,Common
