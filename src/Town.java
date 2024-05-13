@@ -55,7 +55,7 @@ public class Town {
 
                 if (choice < 1 || choice > itemsForSale.length) {
                     textUI.displayMsg("Invalid selection.");
-                    return;
+                    buy(player);
                 }
 
                 Item selectedItem = itemsForSale[choice - 1];
