@@ -126,14 +126,16 @@ public class FileIO {
         ArrayList<String> playerData = new ArrayList<>();
         try (Scanner scan = new Scanner(new File(filePath))) {
             scan.nextLine();
-
+            if (scan.hasNextLine()) {
                 String[] parts = scan.nextLine().split(",");
-                String name = parts[0];
-                String balance = parts[1];
+            String name = parts[0];
+            String balance = parts[1];
 
-                playerData.add(name);
-                playerData.add(balance);
-
+            playerData.add(name);
+            playerData.add(balance);
+        } else {
+                System.out.println("There is no save");
+            }
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

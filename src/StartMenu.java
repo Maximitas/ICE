@@ -10,10 +10,15 @@ public class StartMenu {
         ArrayList<String> playerData = file.readPlayerData("Data/PlayerData.csv");
         Player player = new Player();
 
+        if (!playerData.isEmpty()) {
         player.setName(playerData.get(0));
         player.setWallet(Integer.parseInt(playerData.get(1)));
 
         userInterface.userOptions(player);
+        } else {
+            userInterface.startMenuOptions();
+        }
+
     }
 
     public void savePlayer(Player player) {

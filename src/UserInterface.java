@@ -186,13 +186,14 @@ public class UserInterface {
                 "                          ▀                                               ███    ███ ▀                    ");
         System.out.println("*****************************************************************************************************");
         System.out.println("START YOUR ADVENTURE!");
-        ui.displayMsg("\n1: Continue game\n2: New game\n3: Exit Game");
 
         startMenuOptions();
     }
 
     public void startMenuOptions() throws InterruptedException {
+        TextUI ui = new TextUI();
         StartMenu menu = new StartMenu();
+        ui.displayMsg("\n1: Continue game\n2: New game\n3: Exit Game");
         switch (UI.userInput()) {
             case "1":
                 menu.continueGame();
