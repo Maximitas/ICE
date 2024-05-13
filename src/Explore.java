@@ -86,6 +86,11 @@ public class Explore {
                         randomDialogue(player);
                         z = false;
                 case "4":
+                    String sentence = ("Searching.. .. ... ...!\n");
+                    for (String s : sentence.split(" ")) {
+                        System.out.println(s);
+                        Thread.sleep(delay);
+                    }
                     combat.combatRandom(player);
                         case "5":
                             explore(player);

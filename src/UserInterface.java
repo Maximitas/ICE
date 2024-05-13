@@ -7,7 +7,7 @@ public class UserInterface {
         CombatInterface combat = new CombatInterface();
         Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
-        UI.displayMsg("1: Switch pokémon\n2: Bag\n3: Town\n4: Explore\n5: Find Pokémon\n6: Save\n7: Exit Game");
+        UI.displayMsg("1: Switch pokémon\n2: Bag\n3: Town\n4: Explore\n5: Save\n6: Exit Game");
 // //UI.displayMsg("  __________________________\n" +
 //        "   |                          |\n" +
 //        "   | .----------------------. |\n" +
@@ -48,29 +48,17 @@ public class UserInterface {
                     townOrPokeCenter(player);
                     whileKey = true;
                     break;
-
                 case "4": //explore
                     explore.exploreInterface(player);
                     whileKey = true;
                     break;
-
-                case "5": //random encounter
-                    int delay = 1000;
-                    String sentence = ("Searching.. .. ... ...!\n");
-                    for (String s : sentence.split(" ")) {
-                        System.out.println(s);
-                        Thread.sleep(delay);
-                    }
-                    combat.combatRandom(player);
-                    whileKey = true;
-                    break;
-                case "6": //Save game
+                case "5": //Save game
                     whileKey = true;
                     startMenu.savePlayer(player);
                     UI.displayMsg("Your game has been saved!");
                     userOptions(player);
                     break;
-                case "7": //Exit game
+                case "6": //Exit game
                     whileKey = true;
                     UI.displayMsg("You have exited the game.");
                     break;
