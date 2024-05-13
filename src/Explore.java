@@ -22,7 +22,6 @@ public class Explore {
 
     public void explore(Player player) throws InterruptedException {
         TextUI ui = new TextUI();
-
         int rand = random(4);
         int delay = 1000;
         String sentence = ("Exploring. .. ... ...!\n");
@@ -57,7 +56,6 @@ public class Explore {
     }
 
     public void exploreInterface(Player player) throws InterruptedException {
-
         int delay = 1000;
         ui.displayMsg("     .               *             .       __      .            .-.   .         \n" +
                 " *            .           .   *      . __.'  `.         *   .    ) )         *  \n" +
@@ -75,7 +73,7 @@ public class Explore {
                 "[][][|[=] [=]|:|:||[][][]|[][][]|:|:|+/__\\++/__\\++/__\\+|||_|_|_//__\\\\|_|_|_|:|[]\n" +
                 "[][][|[=] [=]|·=·:|[][][]|[][][]|·=·|/ HH \\/ HH \\/ H·=·||_|_|_//||||\\\\|_|_||:|[]");
 
-        System.out.println("1: Fishing\n2: Search for items\n3: Enter the wilderness\n4: Random\n5: Back");
+        System.out.println("1: Fishing\n2: Search for items\n3: NPC Interaction\n4: Enter the wilderness\n5: Random\n6: Back");
         boolean z = true;
         while(z){
             String user = ui.userInput();
@@ -87,10 +85,12 @@ public class Explore {
                     case "3":
                         randomDialogue(player);
                         z = false;
-                        case "4":
+                case "4":
+                    combat.combatRandom(player);
+                        case "5":
                             explore(player);
                             randomSelect(player);
-                case "5":
+                case "6":
                     UserInterface ui2 = new UserInterface();
                     ui2.userOptions(player);
 

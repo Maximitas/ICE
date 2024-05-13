@@ -83,6 +83,7 @@ public class UserInterface {
 
     public void pokeMartOptions(Player player) throws InterruptedException {
         Town town = new Town();
+
         UserInterface user = new UserInterface();
         UI.displayMsg(".  .  .  .  .  .  .  .  .  .  .  .  .  _N_.  .  .  .  .  .  .  .  .  .  .  .  . \n" +
                 " : . : . : . : . : . : . : . : . : . : |=|. : . : . : . : . : . : .__ . : . : . \n" +

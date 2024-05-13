@@ -7,6 +7,7 @@ public class Music {
         playMusic("src/Pokémon-Theme-Song.wav");// Replace with the path to your sound file
         playMusicBattle("src/pokemon-battle.wav");
         playMusicStart("src/vN8GiDHbO4.wav");
+        playMusicPokeCenter("src/Pokemon Blue⧸Red - Pokemon Center.wav");
     }
 
 
@@ -44,5 +45,19 @@ public class Music {
             e.printStackTrace();
         }
     }
+
+    public static void playMusicPokeCenter(String filePath) {
+        try {
+            File soundFile = new File(filePath);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
