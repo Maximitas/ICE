@@ -11,10 +11,10 @@ public class StartMenu {
         Player player = new Player();
 
         if (!playerData.isEmpty()) {
-        player.setName(playerData.get(0));
-        player.setWallet(Integer.parseInt(playerData.get(1)));
+            player.setName(playerData.get(0));
+            player.setWallet(Integer.parseInt(playerData.get(1)));
 
-        userInterface.userOptions(player);
+            userInterface.userOptions(player);
         } else {
             userInterface.startMenuOptions();
         }
@@ -40,7 +40,7 @@ public class StartMenu {
         userInterface.userOptions(player);
     }
 
-    public Player choosePlayerName(){
+    public Player choosePlayerName() {
         Player player = new Player();
         ui.displayMsg("Please type your name");
         String name = ui.userInput();
@@ -50,7 +50,7 @@ public class StartMenu {
         return player;
     }
 
-    public void chooseStarterPokemon(){
+    public void chooseStarterPokemon() {
         ArrayList<Pokemon> allPokemons = file.loadPokemonFromFile("Data/Pokemon.csv");
 
         //Souts starting pokemons
@@ -60,24 +60,34 @@ public class StartMenu {
         ui.displayMsg("3: " + allPokemons.get(6).getName());
         ui.displayMsg("4: " + allPokemons.get(24).getName());
 
-        int userInput = translatePlayerChoiceToPokeindex(ui.userInputInt());
+        int userInput = translatePlayerChoiceToPokeindex();
 
         Pokemon playerPokemon = allPokemons.get(userInput);
 
         file.savePokemonToPlayerPokemons("Data/PlayerPokemons.csv", playerPokemon);
 
     }
-    public int translatePlayerChoiceToPokeindex(int playerChoice){
-        if(playerChoice == 1){
-            playerChoice = 0;
-        } else if(playerChoice == 2){
-            playerChoice = 3;
-        } else if(playerChoice == 3){
-            playerChoice = 6;
-        } else if(playerChoice == 4){
-            playerChoice = 24;
-        }
-        return playerChoice;
-    }
 
+    public int translatePlayerChoiceToPokeindex() {
+        int playerChoice;
+        do {
+            playerChoice = ui.userInputInt();
+            switch (playerChoice) {
+                case 1:
+                    return 0;
+                case 2:
+                    return 3;
+                case 3:
+                    return 6;
+                case 4:
+                    return 24;
+                default:
+                    ui.displayMsg("Invalid input. Please choose again.");
+            }
+
+
+        }
+        while (true);
+    }
 }
+

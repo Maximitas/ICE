@@ -49,7 +49,7 @@ public class Town {
                 int choice = Integer.parseInt(choiceInput);
                 if (choice == 0) {
                     textUI.displayMsg("Thank you for visiting the PokéMart!");
-                    return;
+                    user.townOrPokeCenter(player);
 
                 }
 
@@ -72,6 +72,7 @@ public class Town {
             }
             buy(player);
             user.townOrPokeCenter(player);
+
         }
 
         public void sell(Player player) throws InterruptedException {
