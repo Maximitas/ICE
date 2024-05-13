@@ -172,7 +172,6 @@ public class CombatInterface {
             ui.displayMsg("No enemy Pokémon available.");
             return;
         }
-
         combatOptions(player, enemyPokemon);
 
     }
