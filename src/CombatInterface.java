@@ -19,7 +19,7 @@ public class CombatInterface {
     }
 
     public void combatOptions(Player player, Pokemon enemyPokemon) throws InterruptedException {
-
+        Music.playMusic("src/pokemon-battle.wav");
         boolean battleActive = true;
         while (battleActive) {
             ui.displayMsg("Select your option below:");

@@ -82,10 +82,8 @@ public class Explore {
             switch (user){
                 case "1":
                     fishing(player);
-                    z = false;
                 case "2":
                     findItem(player);
-                    z = false;
                     case "3":
                         randomDialogue(player);
                         z = false;
