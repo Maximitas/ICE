@@ -7,7 +7,7 @@ public class UserInterface {
         CombatInterface combat = new CombatInterface();
         Explore explore = new Explore();
         UI.displayMsg("Select your option below:");
-        UI.displayMsg("1: Pokémon\n2: Bag\n3: Town\n4: Explore\n5: Find Pokémon\n6: Save\n7: Exit Game");
+        UI.displayMsg("1: Switch pokémon\n2: Bag\n3: Town\n4: Explore\n5: Find Pokémon\n6: Save\n7: Exit Game");
 // //UI.displayMsg("  __________________________\n" +
 //        "   |                          |\n" +
 //        "   | .----------------------. |\n" +
