@@ -86,6 +86,8 @@ public class Explore {
 
     public void exploreInterface(Player player) throws InterruptedException {
         int delay = 1000;
+        Music.clip.stop();
+
         ui.displayMsg("     .               *             .       __      .            .-.   .         \n" +
                 " *            .           .   *      . __.'  `.         *   .    ) )         *  \n" +
                 "   ..     *         .           _____.'        `-----.___       `-'    *    .   \n" +
