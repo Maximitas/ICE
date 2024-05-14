@@ -1,3 +1,2 @@
 pokemonID,hp,maxHp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
-129,20,20,5,10,55,Magikarp,Water,None,Swift Swim,Common
-1,45,45,5,49,49,Bulbasaur,Grass,Poison,Overgrow,Common
+25,35,35,5,55,40,Pikachu,Electric,None,Static,Common

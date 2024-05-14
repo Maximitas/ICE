@@ -200,7 +200,7 @@ public class CombatInterface {
 
     public void displayBag(ArrayList<Item> items) {
 
-        ui.displayMsg("Choose an item, press '0' to leave bag");
+        ui.displayMsg("Choose an item below. If no items are available, press '0' to leave bag");
         for (int i = 0; i < items.size(); i++) {
             ui.displayMsg(i+1 + ": " + items.get(i));
         }
