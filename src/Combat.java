@@ -44,7 +44,7 @@ public class Combat {
         finalizeBattle(player, enemyPokemon);
     }
 
-    private void performPlayerTurn(Player player, Pokemon enemyPokemon) {
+    private void performPlayerTurn(Player player, Pokemon enemyPokemon) throws InterruptedException {
         textUI.displayMsg(player.getName() + "'s " + primaryPlayerPokemon.getName() + " attacks!");
         dealDamage(primaryPlayerPokemon, enemyPokemon);
         displayEnemyPokemonStatus(enemyPokemon);
@@ -194,7 +194,17 @@ public class Combat {
     }
 
 
-    private void enemyDefeat(Pokemon playerPokemon, Player player, Pokemon enemyPokemon) {
+    private void enemyDefeat(Pokemon playerPokemon, Player player, Pokemon enemyPokemon) throws InterruptedException {
+        int delay = 1500;
+        Music.clip.stop();
+        Music.playMusic("src/Soundtracks/Pokémon Red & Blue Music： Trainer Victory Theme.wav");
+        String sentence = (". . . . ");
+        for (String s : sentence.split(" ")) {
+            System.out.println(s);
+            Thread.sleep(delay);
+        }
+
+
         textUI.displayMsg("Enemy " + enemyPokemon.getName() + " defeated!");
         player.addFunds(500);
         textUI.displayMsg("You receive P$ 500");
