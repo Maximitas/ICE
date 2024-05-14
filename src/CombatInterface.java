@@ -105,6 +105,14 @@ public class CombatInterface {
     }
 
     public void caughtPokemon(Player player,Pokemon enemyPokemon) throws InterruptedException {
+        Music.clip.stop();
+        Music.playMusic("src/red-and-blue-pokemon-red-and-blue-capture-sound-effect.wav");
+        int delay=1000;
+        String sentence = (".. .. ... ...!\n");
+        for (String s : sentence.split(" ")) {
+            System.out.println(s);
+            Thread.sleep(delay);
+        }
         ui.displayMsg("You caught a " + enemyPokemon.getName());
         userInterface.userOptions(player);
     }
