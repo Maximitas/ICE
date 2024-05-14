@@ -87,7 +87,7 @@ public class CombatInterface {
                     switchPokemon(player);
                     break;
                 case "4":
-                    battleActive = bag(enemyPokemon);
+                    battleActive = bag(enemyPokemon, player);
                     if(!battleActive) {
                         caughtPokemon(player, enemyPokemon);
                     }
@@ -121,65 +121,69 @@ public class CombatInterface {
         }
     }
 
-    public boolean bag(Pokemon enemyPokemon) {
+    public boolean bag(Pokemon enemyPokemon, Player player) {
         FileIO file = new FileIO();
         ArrayList<Item> items = file.readItemsFromBag("Data/Bag.csv");
 
         displayBag(items);
-        boolean pokemonCaught = usePokeball(items, enemyPokemon);
+        boolean pokemonCaught = usePokeball(items, enemyPokemon, player);
         if (!pokemonCaught) {
             file.savePokemonToPlayerPokemons("Data/PlayerPokemons.csv", enemyPokemon);
         }
         return pokemonCaught;
     }
 
-    public boolean usePokeball(ArrayList<Item> items, Pokemon enemyPokemon) {
+    public boolean usePokeball(ArrayList<Item> items, Pokemon enemyPokemon, Player player) {
         FileIO file = new FileIO();
         String option = ui.userInput();
         boolean pokemonCaught = true;
         try {
+            if(!option.equals("0")) {
             Item item = items.get(Integer.parseInt(option) - 1);
 
-            if (item.getName().equals("Poke Ball") || item.getName().equals("Master Ball") || item.getName().equals("Ultra Ball") || item.getName().equals("Great Ball")) {
-                for (int i = 0; i < items.size(); i++) {
-                    if (items.get(i).equals(item)) {
-                        items.remove(i);
+                if (item.getName().equals("Poke Ball") || item.getName().equals("Master Ball") || item.getName().equals("Ultra Ball") || item.getName().equals("Great Ball")) {
+                    for (int i = 0; i < items.size(); i++) {
+                        if (items.get(i).equals(item)) {
+                            items.remove(i);
+                        }
                     }
+                } else {
+                    ui.displayMsg("That's not a Poke ball");
+                }
+                switch (item.getName()) {
+                    case "Poke Ball":
+                        if (random(100) < 40){
+                            pokemonCaught = false;
+                        } else {
+                            ui.displayMsg("You failed to catch " + enemyPokemon.getName() + " using a Poke ball");
+                        }
+                        break;
+                    case "Great Ball":
+                        if (random(100) < 60){
+                            pokemonCaught = false;
+                        } else {
+                            ui.displayMsg("You failed to catch " + enemyPokemon.getName() + " using a Great ball");
+                        }
+                        break;
+                    case "Ultra Ball":
+                        if (random(100) < 80){
+                            pokemonCaught = false;
+                        } else {
+                            ui.displayMsg("You failed to catch " + enemyPokemon.getName() + " using a Ultra ball");
+                        }
+                        break;
+                    case "Master Ball":
+                        pokemonCaught = false;
+                        break;
                 }
             } else {
-                ui.displayMsg("That's not a Poke ball");
+                combatOptions(player, enemyPokemon);
             }
 
-            switch (item.getName()) {
-                case "Poke Ball":
-                    if (random(100) < 40){
-                        pokemonCaught = false;
-                    } else {
-                        ui.displayMsg("You failed to catch " + enemyPokemon.getName() + " using a Poke ball");
-                    }
-                    break;
-                case "Great Ball":
-                    if (random(100) < 60){
-                        pokemonCaught = false;
-                    } else {
-                        ui.displayMsg("You failed to catch " + enemyPokemon.getName() + " using a Great ball");
-                    }
-                    break;
-                case "Ultra Ball":
-                    if (random(100) < 80){
-                        pokemonCaught = false;
-                    } else {
-                        ui.displayMsg("You failed to catch " + enemyPokemon.getName() + " using a Ultra ball");
-                    }
-                    break;
-                case "Master Ball":
-                    pokemonCaught = false;
-                    break;
-            }
 
         } catch (Exception e) {
             ui.displayMsg("Invalid input");
-            usePokeball(items, enemyPokemon);
+            usePokeball(items, enemyPokemon, player);
         }
         file.saveItemsToBag("Data/Bag.csv", items);
         return pokemonCaught;
@@ -196,7 +200,7 @@ public class CombatInterface {
 
     public void displayBag(ArrayList<Item> items) {
 
-        ui.displayMsg("Choose an item");
+        ui.displayMsg("Choose an item, press '0' to leave bag");
         for (int i = 0; i < items.size(); i++) {
             ui.displayMsg(i+1 + ": " + items.get(i));
         }
