@@ -12,7 +12,6 @@ class StartMenu {
 + newGame()
 + continueGame()
 + exitGame()
-+ chooseGender()
 + chooseName()
 + chooseStarterPokemon()
 + savePlayer()
@@ -221,19 +220,19 @@ UserInterface -> Town
 UserInterface --> Explore
 Explore --> CombatInterface
 CombatInterface -> Combat
-Pokemon ---> Player
-Pokemon ---> Combat
+Pokemon -> Player
+Pokemon -> Combat
 StartMenu --> FileIO
 TextUI -> StartMenu
 TextUI --> UserInterface
 TextUI --> Explore
 TextUI --> CombatInterface
-Music -> CombatInterface
+Music --> CombatInterface
 Music -> Town
 Music -> UserInterface
 Main -> Music
-Item -> FileIO
-Item -> Town
+Item --> FileIO
+Item --> Town
 
 
 @enduml
