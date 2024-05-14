@@ -484,12 +484,8 @@ public class Explore {
         for (String s : sentencePika.split(" ")) {
             System.out.println(s);
             Thread.sleep(delay);
-
         }
-
     }
-
-
     public void addPokemonToPlayerPokemon(int input) {
 
         ArrayList<Pokemon> allPokemons = io.loadPokemonFromFile("Data/Pokemon.csv");
