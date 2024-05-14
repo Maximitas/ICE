@@ -1,4 +1,4 @@
-# Text-based Pokémon Game!
+# Text-Based Pokémon Game!
 
 Zana Baran - cph-zb40@cphbusiness.dk
 
