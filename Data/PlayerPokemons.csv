@@ -1,5 +1,6 @@
 pokemonID,hp,maxHp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
 1,45,45,5,49,49,Bulbasaur,Grass,Poison,Overgrow,Common
+16,40,40,5,45,40,Pidgey,Normal,Flying,Keen Eye,Common
 129,20,20,5,10,55,Magikarp,Water,None,Swift Swim,Common
 129,20,20,5,10,55,Magikarp,Water,None,Swift Swim,Common
 129,20,20,5,10,55,Magikarp,Water,None,Swift Swim,Common

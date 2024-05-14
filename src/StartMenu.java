@@ -34,10 +34,22 @@ public class StartMenu {
         file.clearBagFile("Data/Bag.csv");
         file.clearPlayerFile("Data/PlayerData.csv");
 
+        addPokeballs();
+
         Player player = choosePlayerName();
         chooseStarterPokemon();
 
         userInterface.userOptions(player);
+    }
+
+    public void addPokeballs() {
+        FileIO file = new FileIO();
+        ArrayList<Item> pokeballs = new ArrayList<>();
+        Item item = new Item("Poke Ball",200);
+        for (int i = 0; i < 5; i++) {
+            pokeballs.add(item);
+        }
+        file.saveItemsToBag("Data/Bag.csv",pokeballs);
     }
 
     public Player choosePlayerName() {
