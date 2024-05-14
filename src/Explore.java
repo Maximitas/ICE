@@ -34,7 +34,7 @@ public class Explore {
             fishing(player);
         } else if (rand < 2) {
             findItem(player);
-        } else if (rand <3 ) {
+        } else if (rand < 3) {
             randomDialogue(player);
         } else if (rand < 4) {
             combat.combatRandom(player);
@@ -47,10 +47,10 @@ public class Explore {
         CombatInterface combat = new CombatInterface();
 
         boolean key = true;
-        System.out.println("Gates Of Pokémons");
-        System.out.println("1: Lvl 1-10\n2: Lvl 10-25\n3: Lvl 25-70");
-        while (key){
-            switch(ui.userInput()){
+        ui.displayMsg("Gates Of Pokémons");
+        ui.displayMsg("1: Lvl 1-10\n2: Lvl 10-25\n3: Lvl 25-70\n4: Leave Gates of Pokémon");
+        while (key) {
+            switch (ui.userInput()) {
                 case "1": //lvl 5-10;
                     combat.combat5to10(player);
                     key = false;
@@ -59,25 +59,31 @@ public class Explore {
                     combat.combat10to25(player);
                     key = false;
                     break;
-                    case "3": //25-70
-                        combat.combat25to50(player);
-                        key = false;
-                        break;
+                case "3": //25-70
+                    combat.combat25to50(player);
+                    key = false;
+                    break;
+                case "4":
+                    ui.displayMsg("Leaving Gates of Pokémon");
+                    exploreInterface(player);
+                    key = false;
+                    break;
                 default:
-                    System.out.println("Professor Oak: Try again..");
+                    ui.displayMsg("Oak: Try again..");
                     break;
 
             }
         }
 
     }
+
     public void randomSelect(Player player) throws InterruptedException {
         int rand = random(4);
         if (rand < 1) {
             fishing(player);
         } else if (rand < 2) {
             findItem(player);
-        } else if (rand <3 ) {
+        } else if (rand < 3) {
             randomDialogue(player);
         } else if (rand < 4) {
             combat.combatRandom(player);
@@ -106,9 +112,9 @@ public class Explore {
         System.out.println("Choose an option! ");
         System.out.println("1: Fishing\n2: Items Searching\n3: Gates Of Pokémon \n4: NPC Dialogue\n5: Find Random Pokémons\n6: Random events\n7: Stop Exploring");
         boolean z = true;
-        while(z){
+        while (z) {
             String user = ui.userInput();
-            switch (user){
+            switch (user) {
                 case "1":
                     fishing(player);
                 case "2":
@@ -116,9 +122,9 @@ public class Explore {
                 case "3":
                     gatesOfPokemon(player);
                     z = false;
-                    case "4":
-                        randomDialogue(player);
-                        z = false;
+                case "4":
+                    randomDialogue(player);
+                    z = false;
                 case "5":
                     String sentence = ("Searching.. .. ... ...!\n");
                     for (String s : sentence.split(" ")) {
@@ -126,9 +132,9 @@ public class Explore {
                         Thread.sleep(delay);
                     }
                     combat.combatRandom(player);
-                        case "6":
-                            explore(player);
-                            randomSelect(player);
+                case "6":
+                    explore(player);
+                    randomSelect(player);
                 case "7":
                     UserInterface ui2 = new UserInterface();
                     ui2.userOptions(player);
@@ -161,7 +167,7 @@ public class Explore {
 
         } else if (randy < 100) {
             showPikachu(1000);
-           exploreInterface(player);
+            exploreInterface(player);
 
         } else if (randy < 150) {
             showGyarados(1000);
@@ -175,11 +181,12 @@ public class Explore {
         itemList();
         return random(item.size());
     }
+
     public void playerInfo(Player player) throws InterruptedException {
         System.out.println("Pokemon Party: " + player.getPokemonParty().size());
-       System.out.println("Player: " + player.getName());
-       System.out.println("Player currency: " + player.getWallet());
-       System.out.println("Player bag: " + player.getBag());
+        System.out.println("Player: " + player.getName());
+        System.out.println("Player currency: " + player.getWallet());
+        System.out.println("Player bag: " + player.getBag());
         user.userOptions(player);
     }
 
@@ -217,7 +224,7 @@ public class Explore {
         } else if (randy < 80) {
             ui.displayMsg("You are came near a Diglett's Cave ..");
             ui.displayMsg("Entering Diglett's Cave.");
-           showDigglet(1000);
+            showDigglet(1000);
             addPokemonToPlayerPokemon(49);
             ui.displayMsg("You found: " + "Diglett ding, diglett ding - DIGLETT");
 
@@ -230,7 +237,7 @@ public class Explore {
             int number = itemInitializer();
             System.out.println("You found: " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
-           exploreInterface(player);
+            exploreInterface(player);
         }
     }
 
@@ -243,18 +250,19 @@ public class Explore {
             dialogGirlyTrainee(player);
         } else if (randy < 2) {
             dialogFishingMan(player);
-        } else if (randy <3) {
+        } else if (randy < 3) {
             dialogIdiotKid(player);
-        } else if (randy <4) {
+        } else if (randy < 4) {
             dialogOldman(player);
         } else if (randy < 5) {
             dialogLegendary(player);
         }
 
     }
+
     public void respawn(Player player) throws InterruptedException {
         Town town = new Town();
-        if (player.getPokemonParty().isEmpty()){
+        if (player.getPokemonParty().isEmpty()) {
             town.pokeCenter(player);
         }
     }
@@ -412,7 +420,7 @@ public class Explore {
 
 
     public void showPikachu(int delay) throws InterruptedException {
-        String sentencePika = ("... ... ... ...!\n"+
+        String sentencePika = ("... ... ... ...!\n" +
                 "⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶\n" +
                 "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿\n" +
                 "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣀⣾⣿⣿⣿⣿\n" +
@@ -434,6 +442,7 @@ public class Explore {
         }
 
     }
+
     public void showGyarados(int delay) throws InterruptedException {
         String sentencePika = ("... ... ... ...!  \n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
@@ -452,7 +461,7 @@ public class Explore {
                 "⠀⠀⠀⠀⠀⠀⠈⠉⠛⠿⣿⡇⠀⠀⠀⠀⠀⠀⢸⣿⠿⠛⠉⠁⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢰⣧⠀⠀⣼⡆⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣷⣾⣿⣶⣶⣿⣷⣾⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
-                 "YOU FOUND A GYARADOS! PREPARE FOR BATTLE!⠀");
+                "YOU FOUND A GYARADOS! PREPARE FOR BATTLE!⠀");
 
         for (String s : sentencePika.split(" ")) {
             System.out.println(s);
@@ -461,6 +470,7 @@ public class Explore {
         }
 
     }
+
     public void showDigglet(int delay) throws InterruptedException {
         String sentencePika = ("... ... ... ...!  \n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣾⣿⣿⣿⣶⣦⡀⠀⠀⠀⠀⠀⠀⠀\n" +
@@ -488,8 +498,6 @@ public class Explore {
         }
 
     }
-
-
 
 
     public void addPokemonToPlayerPokemon(int input) {
