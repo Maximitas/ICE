@@ -11,7 +11,7 @@ public class Town {
     public void pokeCenter(Player player) throws InterruptedException {
         int delay = 1500;
         Music.clip.stop();
-        Music.playMusic("src/Pokemon Blue⧸Red - Pokemon Center.wav");
+        Music.playMusic("src/Soundtracks/Pokemon Blue⧸Red - Pokemon Center.wav");
         ArrayList<Pokemon> pokemons = player.getPokemonParty();
         String sentence = ("Healing.. .. ... ...!\n");
         for (String s : sentence.split(" ")) {

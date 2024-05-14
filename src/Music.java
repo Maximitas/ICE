@@ -5,10 +5,10 @@ import java.io.IOException;
 public class Music {
     static Clip clip;
     public static void main(String[] args) {
-        playMusic("src/Pokémon-Theme-Song.wav");// Replace with the path to your sound file
-        playMusicBattle("src/pokemon-battle.wav");
-        playMusicStart("src/vN8GiDHbO4.wav");
-        playMusicPokeCenter("src/Pokemon Blue⧸Red - Pokemon Center.wav");
+        playMusic("src/Soundtracks/Pokémon-Theme-Song.wav");// Replace with the path to your sound file
+        playMusicBattle("src/Soundtracks/pokemon-battle.wav");
+        playMusicStart("src/Soundtracks/vN8GiDHbO4.wav");
+        playMusicPokeCenter("src/Soundtracks/Pokemon Blue⧸Red - Pokemon Center.wav");
     }
 
 

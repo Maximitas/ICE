@@ -92,7 +92,7 @@ public class Explore {
     public void exploreInterface(Player player) throws InterruptedException {
         int delay = 1000;
         Music.clip.stop();
-        Music.playMusic("src/Pokémon Red & Blue - The Road to Cerulean from Mt. Moon.wav");
+        Music.playMusic("src/Soundtracks/Pokémon Red & Blue - The Road to Cerulean from Mt. Moon.wav");
 
         ui.displayMsg("     .               *             .       __      .            .-.   .         \n" +
                 " *            .           .   *      . __.'  `.         *   .    ) )         *  \n" +

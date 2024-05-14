@@ -1,3 +1,2 @@
 pokemonID,hp,maxHp,lvl,attackPower,defensePower,name,typeOne,typeTwo,abilities,rarity
 4,39,39,5,52,43,Charmander,Fire,None,Blaze,Common
-69,50,50,5,75,35,Bellsprout,Grass,Poison,Chlorophyll,Common

@@ -21,7 +21,6 @@ public class CombatInterface {
     public void combat5to10(Player player) throws InterruptedException {
         int minLvl = 5;
         int maxLvl = 10;
-
         int randomLevel = (int) (Math.random() * (maxLvl - minLvl + 1));
 
         Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
@@ -65,7 +64,7 @@ public class CombatInterface {
 
     public void combatOptions(Player player, Pokemon enemyPokemon) throws InterruptedException {
         Music.clip.stop();
-        Music.playMusic("src/pokemon-battle.wav");
+        Music.playMusic("src/Soundtracks/pokemon-battle.wav");
         boolean battleActive = true;
         while (battleActive) {
             ui.displayMsg("Select your option below:");
@@ -106,7 +105,7 @@ public class CombatInterface {
 
     public void caughtPokemon(Player player,Pokemon enemyPokemon) throws InterruptedException {
         Music.clip.stop();
-        Music.playMusic("src/red-and-blue-pokemon-red-and-blue-capture-sound-effect.wav");
+        Music.playMusic("src/Soundtracks/red-and-blue-pokemon-red-and-blue-capture-sound-effect.wav");
         int delay=1000;
         String sentence = (".. .. ... ...!\n");
         for (String s : sentence.split(" ")) {
