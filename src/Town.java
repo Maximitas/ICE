@@ -9,15 +9,14 @@ public class Town {
     private int price;
 
     public void pokeCenter(Player player) throws InterruptedException {
-        int delay = 1500;
+        int delay = 1000;
         Music.clip.stop();
-        Music.playMusic("src/Soundtracks/Pokemon Blue⧸Red - Pokemon Center.wav");
+        Music.playMusic("src/Soundtracks/Pokemon healing sound effect.wav");
         ArrayList<Pokemon> pokemons = player.getPokemonParty();
-        String sentence = ("Healing.. .. ... ...!\n");
+        String sentence = ("Healing.. .. ...!\n");
         for (String s : sentence.split(" ")) {
             System.out.println(s);
             Thread.sleep(delay);
-
         }
         textUI.displayMsg("All Pokémon have been fully healed at the PokéCenter!");
 

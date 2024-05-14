@@ -61,10 +61,5 @@ public class Music {
         }
     }
 
-
-    public void stopMusic(){
-        clip.stop();
-    }
-
 }
 

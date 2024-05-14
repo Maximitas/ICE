@@ -44,6 +44,8 @@ public class Explore {
     public void gatesOfPokemon(Player player) throws InterruptedException {
         TextUI ui = new TextUI();
         CombatInterface combat = new CombatInterface();
+        Music.clip.stop();
+        Music.playMusic("src/Soundtracks/Pokemon Blue⧸Red - Gym.wav");
 
         boolean key = true;
         ui.displayMsg("Gates of Pokémon");
