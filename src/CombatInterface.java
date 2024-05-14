@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class CombatInterface {
@@ -38,6 +39,11 @@ public class CombatInterface {
     }
 
     public void combat5to10(Player player) throws InterruptedException {
+        FileIO fileIO = new FileIO();
+        List<Pokemon> pokemonlist = fileIO.loadPokemonFromFile("Data/Pokemon.csv");
+        pokemonlist.stream().filter("pokemon"::equals).forEach(pokemon -> {
+            System.out.println("lvl: " + pokemon.getLvl());
+        });
         int minLvl = 5;
         int maxLvl = 10;
         Pokemon enemyPokemon = getRandomPokemonList(minLvl, maxLvl);
@@ -310,6 +316,7 @@ public class CombatInterface {
             ui.displayMsg("Oak: No enemy Pokémon available.");
             return;
         }
+        ui.displayMsg("Red sent " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ")!");
         combatOptions(player, enemyPokemon);
     }
 
@@ -319,7 +326,7 @@ public class CombatInterface {
             ui.displayMsg("Oak: No enemy Pokémon available.");
             return;
         }
-
+        ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
         combatOptions(player, enemyPokemon);
     }
 
@@ -329,7 +336,7 @@ public class CombatInterface {
             ui.displayMsg("Oak: No enemy Pokémon available.");
             return;
         }
+        ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
         combatOptions(player, enemyPokemon);
-
     }
 }
