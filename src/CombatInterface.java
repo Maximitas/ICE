@@ -217,10 +217,14 @@ public class CombatInterface {
     public void viewBag() {
         FileIO file = new FileIO();
         ArrayList<Item> items = file.readItemsFromBag("Data/Bag.csv");
-        for (Item item : items) {
-            ui.displayMsg(item.getName() + ", " + item.getPrice());
+        if(!items.isEmpty()) {
+            for (Item item : items) {
+                ui.displayMsg(item.getName() + ", " + item.getPrice());
+            }
+            ui.displayMsg("\n");
+        } else {
+            ui.displayMsg("Your bag is empty");
         }
-        ui.displayMsg("\n");
     }
 
     public void displayBag(ArrayList<Item> items) {

@@ -45,6 +45,7 @@ public class UserInterface {
                 case "6": //Exit game
                     whileKey = true;
                     UI.displayMsg("You have exited the game.");
+                    System.exit(0);
                     break;
                 default:
                     UI.displayMsg("Oak: That isn't the right input!");
@@ -210,6 +211,7 @@ public class UserInterface {
                 break;
             case "3":
                 UI.displayMsg("You have exited the game.");
+                System.exit(0);
                 break;
 
             default:
