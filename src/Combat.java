@@ -18,19 +18,19 @@ public class Combat {
         this.enemyPokemonList = fileIO.loadPokemonFromFile(enemyPokemonFile);
 
         if (playerPokemonList.isEmpty()) {
-            textUI.displayMsg("No player Pokémon data loaded. Check file path: " + playerPokemonFile);
+            textUI.displayMsg("Oak: No player Pokémon data loaded. Check file path: " + playerPokemonFile);
         } else {
             primaryPlayerPokemon = playerPokemonList.getFirst();
         }
 
         if (enemyPokemonList.isEmpty()) {
-            textUI.displayMsg("No enemy Pokémon data loaded. Check file path: " + enemyPokemonFile);
+            textUI.displayMsg("Oak: No enemy Pokémon data loaded. Check file path: " + enemyPokemonFile);
         }
     }
 
     public void battleRound(Player player, Pokemon enemyPokemon) throws InterruptedException {
         if (enemyPokemon == null) {
-            textUI.displayMsg("No enemy Pokémon available.");
+            textUI.displayMsg("Oak: No enemy Pokémon available.");
             return;
         }
 

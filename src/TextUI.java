@@ -25,17 +25,18 @@ public class TextUI {
     }
 
     public void oldManTalk() throws InterruptedException {
-        System.out.println("Soon this beast will come back alive.");
-        System.out.println("i hope there is good enough poketrainers in this world..");
-        System.out.println("I heard last time it came, the world was near extinction");
-        System.out.println("But one unbelievable savior came, and harnest the darkness. no one knows what happend to him or the beast.. ");
-        System.out.println("But that was 600 years ago, what do we do now!...");
-        System.out.println("faith... faith.. thats all, faith.");
-        System.out.println("I haven't slept for years..");
-        System.out.println("... , ... , ..., ..., ");
-        System.out.println("... What is happening!");
-        System.out.println("Why is everything black!");
-        System.out.println("...'Shadow figure appearing'...");
+        TextUI ui = new TextUI();
+        ui.displayMsg("Soon that beast will return...");
+        ui.displayMsg("I hope there is good enough Pokémon Trainers out in this world..");
+        ui.displayMsg("I heard last time it came, the world was near extinction");
+        ui.displayMsg("But one unbelievable savior came, and dispelled the darkness. No one knows what happened to him or the beast.. ");
+        ui.displayMsg("But that was 600 years ago, what do we do now!");
+        ui.displayMsg("Faith... Faith.. That's all, faith.");
+        ui.displayMsg("I haven't slept for years..");
+        ui.displayMsg("... , ... , ..., ..., ");
+        ui.displayMsg("... What is happening!");
+        ui.displayMsg("Why is everything black!");
+        ui.displayMsg("... 'A Shadowy figure appears'...");
     }
 
 }

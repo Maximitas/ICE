@@ -27,9 +27,9 @@ public class FileIO {
                 pokemonList.add(new Pokemon(id, hp, maxHp, lvl, attackPower, defensePower, name, typeOne, typeTwo, abilities, rarity));
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            System.out.println("Oak: File not found");
         } catch (NumberFormatException e) {
-            System.out.println("Error parsing value");
+            System.out.println("Oak: Error parsing value");
         }
         return pokemonList;
     }
@@ -66,7 +66,7 @@ public class FileIO {
                 writer.write("\n" + item.getName() + "," + item.getPrice());
 
         } catch (IOException e) {
-            System.out.println("Error writing items to file: " + e.getMessage());
+            System.out.println("Oak: Error writing items to file: " + e.getMessage());
         }
     }
 
@@ -89,7 +89,7 @@ public class FileIO {
                     playerPokemon.getAbilities() + "," + playerPokemon.getRarity());
 
         } catch (IOException e) {
-            System.out.println("Error writing Pokémon to file: " + e.getMessage());
+            System.out.println("Oak: Error writing Pokémon to file: " + e.getMessage());
         }
 
     }
@@ -107,9 +107,9 @@ public class FileIO {
                 items.add(new Item(name, price));
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            System.out.println("Oak: File not found");
         } catch (NumberFormatException e) {
-            System.out.println("Error parsing value: " + e.getMessage());
+            System.out.println("Oak: Error parsing value: " + e.getMessage());
         }
     return items;
     }
@@ -134,7 +134,7 @@ public class FileIO {
             playerData.add(name);
             playerData.add(balance);
         } else {
-                System.out.println("There is no saved game, please start a new game.");
+                System.out.println("Oak: There is no saved game, please start a new game.");
             }
 
         } catch (FileNotFoundException e) {
@@ -148,7 +148,7 @@ public class FileIO {
             writer.write("\n" + name + "," + balance);
 
         } catch (IOException e) {
-            System.out.println("Error writing items to file: " + e.getMessage());
+            System.out.println("Oak: Error writing items to file: " + e.getMessage());
         }
 
     }

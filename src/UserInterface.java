@@ -11,28 +11,8 @@ public class UserInterface {
         Music.clip.stop();
         Music.playMusic("src/Wii Music - Gaming Background Music (HD).wav");
         UI.displayMsg("Select your option below:");
-        UI.displayMsg("1: Switch pokémon\n2: Bag\n3: Town\n4: Explore\n5: Save\n6: Exit Game");
-// //UI.displayMsg("  __________________________\n" +
-//        "   |                          |\n" +
-//        "   | .----------------------. |\n" +
-//        "   | |  .----------------.  | |\n" +
-//        "   | |  | 1: Explore     |  | |\n" +
-//        "   | |))| 2: Town        |  | |\n" +
-//        "   | |  | 3: Player Bag  |  | |\n" +
-//        "   | |  | 4: Find Pokémon|  | |\n" +
-//        "   | |  | 5: Save        |  | |\n" +
-//        "   | |  | 6: Exit Game   |  | |\n" +
-//        "   | |  |                |  | |\n" +
-//        "   | |  '----------------'  | |\n" +
-//        "   | |__GAME BOY____________/ |\n" +
-//        "   |          ________        |\n" +
-//        "   |    .    (Nintendo)       |\n" +
-//        "   |  _| |_   \"\"\"\"\"\"\"\"   .-.  |\n" +
-//        "   |-[_   _]-       .-. (   ) |\n" +
-//        "   |   |_|         (   ) '-'  |\n" +
-//        "   |    '           '-'   A   |\n" +
-//        "   |                 B        |\n" +
-//        "   '-----------------------`");
+        UI.displayMsg("1: Party\n2: Bag\n3: Town\n4: Explore\n5: Save\n6: Exit Game");
+
         boolean whileKey = false;
 
         while (!whileKey) {
@@ -44,13 +24,10 @@ public class UserInterface {
                     whileKey = true;
                     break;
                 case "2"://Bag
-
                     combat.viewBag();
                     userOptions(player);
-
                     whileKey = true;
                     break;
-
                 case "3"://Town
                     townOrPokeCenter(player);
                     whileKey = true;
@@ -70,7 +47,7 @@ public class UserInterface {
                     UI.displayMsg("You have exited the game.");
                     break;
                 default:
-                    UI.displayMsg("Invalid input, please try again");
+                    UI.displayMsg("Oak: That isn't the right input!");
 
             }
         }
@@ -119,7 +96,7 @@ public class UserInterface {
                     whileKey = true;
                     break;
                 default:
-                    UI.displayMsg("Invalid input, please try again");
+                    UI.displayMsg("Oak: That isn't the right input!");
             }
 
             user.townOrPokeCenter(player);
@@ -139,7 +116,7 @@ public class UserInterface {
                 " ///////-\\////====\\==|:::::::::::::::::::::::::::::::::::|u u| U U U U U\n" +
                 " |----/\\u |--|++++|..|'''''''''''::::::::::::::''''''''''|+++|+-+-+-+-+-+\n" +
                 " |u u|u | |u ||||||..|              '::::::::'           |===|>=== _ _ ==\n" +
-                " |===|  |u|==|++++|==| pokécenter   .::::::::.    pokémart    | T |....| V |..\n" +
+                " |===|  |u|==|++++|==| PokéCenter   .::::::::.    PokéMart    | T |..| V |..\n" +
                 " |u u|u | |u ||HH||         \\|/    .::::::::::.\n" +
                 " |===|_.|u|_.|+HH+|_              .::::::::::::.              _\n" +
                 "                __(_)___         .::::::::::::::.         ___(_)__\n" +
@@ -153,7 +130,7 @@ public class UserInterface {
                 "_|_______|____[=  == ]/ |.::::::;;:::::::::::::;;;::::::.| \\[  === ]______|_\n" +
                 "   |       |  [ === =] /.::::::;;::::::::::::::;;;:::::::.\\ [===  =]   |\n" +
                 "___|_______|__[ == ==]/.::::::;;;:::::::::::::::;;;:::::::.\\[=  == ]___|_____");
-        UI.displayMsg("You are now in the town..\nWhat place do you want to visit?");
+        UI.displayMsg("Welcome to Celadon City!\nWhat place would you like to visit?");
         UI.displayMsg("1: PokéCenter\n2: PokéMart\n3: Leave town");
         switch (UI.userInput()) {
             case "1":
@@ -166,7 +143,7 @@ public class UserInterface {
                 userOptions(player);
                 break;
             default:
-                System.out.println("Invalid input. Try again!");
+                System.out.println("Oak: That isn't the right input!");
                 townOrPokeCenter(player);
                 break;
 
@@ -187,7 +164,7 @@ public class UserInterface {
                 " ▄████▀       ▀██████▀    ███   ▀█▀   ██████████  ▀███▀███▀   ▀██████▀    ███    ███ █████▄▄██ ████████▀  \n" +
                 "                          ▀                                               ███    ███ ▀                    ");
         System.out.println("*****************************************************************************************************");
-        System.out.println("START YOUR ADVENTURE!");
+        System.out.println("WELCOME TO THE WORLD OF POKÉMON!");
         System.out.println("\nSelect an option below:");
         ui.displayMsg("\n1: Continue game\n2: New game\n3: Exit Game");
 
@@ -208,7 +185,7 @@ public class UserInterface {
                 break;
 
             default:
-                UI.displayMsg("Invalid input, please try again");
+                UI.displayMsg("Oak: That isn't the right input!");
                 startMenuOptions();
 
         }

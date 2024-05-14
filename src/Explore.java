@@ -15,13 +15,12 @@ public class Explore {
         this.item = io.readItemsFromBag(itemFile);
 
         if (item.isEmpty()) {
-            ui.displayMsg("No item data found: " + item);
+            ui.displayMsg("Oak: No item data found: " + item);
 
         }
     }
 
     public void explore(Player player) throws InterruptedException {
-        TextUI ui = new TextUI();
         int rand = random(4);
         int delay = 1000;
         String sentence = ("Exploring. .. ... ...!\n");
@@ -47,8 +46,8 @@ public class Explore {
         CombatInterface combat = new CombatInterface();
 
         boolean key = true;
-        ui.displayMsg("Gates Of Pokémons");
-        ui.displayMsg("1: Lvl 1-10\n2: Lvl 10-25\n3: Lvl 25-70\n4: Leave Gates of Pokémon");
+        ui.displayMsg("Gates of Pokémon");
+        ui.displayMsg("1: 1F (Lvl 1-10)\n2: 2F (Lvl 10-25)\n3: 3F (25-70)\n4: Leave Gates of Pokémon");
         while (key) {
             switch (ui.userInput()) {
                 case "1": //lvl 5-10;
@@ -69,7 +68,7 @@ public class Explore {
                     key = false;
                     break;
                 default:
-                    ui.displayMsg("Oak: Try again..");
+                    ui.displayMsg("Oak: That isn't the right input!");
                     break;
 
             }
@@ -103,7 +102,7 @@ public class Explore {
                 "  ·  .-------.    ·  .------'   · · ·   ·   · ·   · ·   ·   · · · \\  ·   · /· · \n" +
                 "     !-------!      /· · · ·   ·   · · ·   · ·   · ·   · · ·   _ · `.__   /··· ·\n" +
                 "·   ·| POKÉ  | ·   ;· · · · · · · · _ · · · · · · · · · · · ·_|-| ·    `./·:· · \n" +
-                "     | World |   .'··_ ··· ··· ··· |-|_··· ··· ··· ··· ··· ·|-|:|· · ·   \\_···:·\n" +
+                "     | WORLD |   .'··_ ··· ··· ··· |-|_··· ··· ··· ··· ··· ·|-|:|· · ·   \\_···:·\n" +
                 "-----|[=] [=]| _::·_|-|_:.------.:_|:|-|_:··_:_·_·: _:_ ··: |:|:| ····=· |-|:.--\n" +
                 "-----|[=] [=]||-|_|-|:|-|!------!|-|:|:|-|_|-|-|-|_|-|-|.------------|¨|---.|!--\n" +
                 "[][][|[=] [=]||:_ .------|[][][]||:_:___:_-_:_:_:_-_:_: ||_|_|_|_/\\|_!_!_|_|:|[]\n" +
@@ -111,7 +110,7 @@ public class Explore {
                 "[][][|[=] [=]|:|:||[][][]|[][][]|:|:|+/__\\++/__\\++/__\\+|||_|_|_//__\\\\|_|_|_|:|[]\n" +
                 "[][][|[=] [=]|·=·:|[][][]|[][][]|·=·|/ HH \\/ HH \\/ H·=·||_|_|_//||||\\\\|_|_||:|[]");
         System.out.println("Choose an option! ");
-        System.out.println("1: Fishing\n2: Items Searching\n3: Gates Of Pokémon \n4: NPC Dialogue\n5: Find Random Pokémons\n6: Random events\n7: Stop Exploring");
+        System.out.println("1: Fishing\n2: Items searching\n3: Gates of Pokémon \n4: NPC dialogue\n5: Find random Pokémons\n6: Random events\n7: Stop exploring");
         boolean z = true;
         while (z) {
             String user = ui.userInput();
@@ -143,7 +142,7 @@ public class Explore {
 
 
                 default:
-                    System.out.println("Try again.");
+                    System.out.println("Oak: That isn't the right input!");
                     break;
 
             }
@@ -186,66 +185,66 @@ public class Explore {
     }
 
     public void playerInfo(Player player) throws InterruptedException {
-        System.out.println("Pokemon Party: " + player.getPokemonParty().size());
-        System.out.println("Player: " + player.getName());
-        System.out.println("Player currency: " + player.getWallet());
-        System.out.println("Player bag: " + player.getBag());
+        ui.displayMsg("Pokemon Party: " + player.getPokemonParty().size());
+        ui.displayMsg("Player: " + player.getName());
+        ui.displayMsg("Player currency: " + player.getWallet());
+        ui.displayMsg("Player bag: " + player.getBag());
         user.userOptions(player);
     }
 
 
     public void findItem(Player player) throws InterruptedException {
-        ui.displayMsg("Exploring the world... (for items)");
+        ui.displayMsg("Exploring the world... In the search for items!");
         int randy = random(100);
         if (randy < 20) {
-            ui.displayMsg("You see a Rock Tunnel..");
-            ui.displayMsg("Entering Rock Tunnel.");
+            ui.displayMsg("You spot a Mysterious Cave..");
+            ui.displayMsg("Entering the cave...");
             showTreasureChest(1000);
             int number = itemInitializer();
-            System.out.println("You found: " + item.get(number));
+            System.out.println("You found a " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
             exploreInterface(player);
 
         } else if (randy < 40) {
-            ui.displayMsg("You see a Power Plant ..");
-            ui.displayMsg("Entering Power Plant.");
+            ui.displayMsg("You spot an Abandoned House..");
+            ui.displayMsg("Entering the house...");
             showTreasureChest(1000);
             int number = itemInitializer();
-            System.out.println("You found: " + item.get(number));
+            System.out.println("You found a " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
             exploreInterface(player);
 
         } else if (randy < 60) {
-            ui.displayMsg("You are visiting Safari Zone ..");
-            ui.displayMsg("Entering Safari Zone.");
+            ui.displayMsg("You visited the Safari Zone..");
+            ui.displayMsg("Entering the Safari Zone...");
             showTreasureChest(1000);
             int number = itemInitializer();
-            System.out.println("You found: " + item.get(number));
+            System.out.println("You found a " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
             exploreInterface(player);
 
         } else if (randy < 80) {
-            ui.displayMsg("You are came near a Diglett's Cave ..");
-            ui.displayMsg("Entering Diglett's Cave.");
+            ui.displayMsg("You spotted the Diglett Cave..");
+            ui.displayMsg("Entering Diglett Cave.");
             showDigglet(1000);
             addPokemonToPlayerPokemon(49);
-            ui.displayMsg("You found: " + "Diglett ding, diglett ding - DIGLETT");
+            ui.displayMsg("You found a Diglett!");
 
             exploreInterface(player);
 
         } else if (randy < 100) {
-            ui.displayMsg("You are came near a Pokemon Tower ..");
-            ui.displayMsg("Entering Pokemon Tower.");
+            ui.displayMsg("You came near Sky Pillar");
+            ui.displayMsg("Entering Sky Pillar.");
             showTreasureChest(1000);
             int number = itemInitializer();
-            System.out.println("You found: " + item.get(number));
+            System.out.println("You found a " + item.get(number));
             io.saveItemToBag("Data/Bag.csv", item.get(number));
             exploreInterface(player);
         }
     }
 
     public void randomDialogue(Player player) throws InterruptedException {
-        ui.displayMsg("Exploring the area... (for knowledge)");
+        ui.displayMsg("Exploring the area... In the search for knowledge!");
 
         int randy = random(5);
 
@@ -263,24 +262,17 @@ public class Explore {
 
     }
 
-    public void respawn(Player player) throws InterruptedException {
-        Town town = new Town();
-        if (player.getPokemonParty().isEmpty()) {
-            town.pokeCenter(player);
-        }
-    }
-
     public void dialogLegendary(Player player) throws InterruptedException {
-        ui.displayMsg("You are enjoying yourself and see a group of people storming at you!");
-        ui.displayMsg("It seems like you need to prepare for battle");
-        ui.displayMsg("Some guy named 'Red' wants to battle you");
-        ui.displayMsg("Do you want this. y/n");
+        ui.displayMsg("You are out about to reach the top of Mt. Silver.");
+        ui.displayMsg("While enjoying your hike you spot an individual int the distance.");
+        ui.displayMsg("You talk to the individual who introduces himself as Red and he wants to battle you?!");
+        ui.displayMsg("Do you accept this challenge. Y/N");
         String input = ui.userInput();
-        if (input.equals("y")) {
+        if (input.equalsIgnoreCase("Y")) {
             ui.displayMsg("You are now battling Red!");
             combat.combatOptionsRed(player);
-        } else if (input.equals("n")) {
-            ui.displayMsg("Next time, take the battle, you wont regret it..Goodluck");
+        } else if (input.equalsIgnoreCase("N")) {
+            ui.displayMsg("Next time, take the challenge, you wont regret it.. Goodluck!");
 
         }
 
@@ -289,15 +281,14 @@ public class Explore {
     }
 
     public void dialogOldman(Player player) throws InterruptedException {
-        ui.displayMsg("You see a old man near a statue...");
-        ui.displayMsg("Do you want to approach him? y/n");
+        ui.displayMsg("You see an old man near a statue...");
+        ui.displayMsg("Do you want to approach him? Y/N");
         String input = ui.userInput();
-        if (input.equals("y")) {
+        if (input.equalsIgnoreCase("Y")) {
             ui.oldManTalk();
             combat.combatOptionsDarkrai(player);
-        } else if (input.equals("n")) {
-            ui.displayMsg("He looked worried.. maybe i should talk to him.");
-            //todo enten tilbage til randomdialog eller menu
+        } else if (input.equalsIgnoreCase("N")) {
+            ui.displayMsg("He looked worried.. Maybe i should've talk to him.");
 
         }
         exploreInterface(player);
@@ -306,13 +297,12 @@ public class Explore {
 
     public void dialogIdiotKid(Player player) throws InterruptedException {
         ui.displayMsg("You see a kid sitting near a tree...");
-        ui.displayMsg("Do you want to approach him? y/n");
+        ui.displayMsg("Do you want to approach him? Y/N");
         String input = ui.userInput();
-        if (input.equals("y")) {
-            ui.displayMsg("When i think about it, you, too, are all alone in this world..");
-        } else if (input.equals("n")) {
+        if (input.equalsIgnoreCase("Y")) {
+            ui.displayMsg("When i think about it, you too, are all alone in this world..");
+        } else if (input.equalsIgnoreCase("N")) {
             ui.displayMsg("Trust me, you dodged a bullet..");
-            //todo enten tilbage til randomdialog eller menu
 
         }
         exploreInterface(player);
@@ -323,12 +313,11 @@ public class Explore {
     public void dialogFishingMan(Player player) throws InterruptedException {
 
         ui.displayMsg("You see a man fishing...");
-        ui.displayMsg("do you want to approach him? y/n");
+        ui.displayMsg("Do you want to approach him? Y/N");
         String input = ui.userInput();
-        if (input.equals("y")) {
+        if (input.equalsIgnoreCase("Y")) {
             ui.fishingmanTalk();
-            //todo enten tilbage til randomdialog eller menu
-        } else if (input.equals("n")) {
+        } else if (input.equalsIgnoreCase("N")) {
             ui.displayMsg("No sushi today..");
 
         }
@@ -336,18 +325,16 @@ public class Explore {
     }
 
     public void dialogGirlyTrainee(Player player) throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
-        ui.displayMsg("You meet a random PokeTrainee..");
-        ui.displayMsg("do you want to approach her? y/n");
+        ui.displayMsg("You meet a random Pokémon Trainer..");
+        ui.displayMsg("Do you want to approach her? Y/N");
         String input = ui.userInput();
-        if (input.equals("y")) {
-            ui.displayMsg("I want to become Strong... but i can't seem to catch any pokemons.. what do i do!");
+        if (input.equalsIgnoreCase("Y")) {
+            ui.displayMsg("I want to become Strong... But i can't seem to catch any Pokémon.. What do i do?");
             ui.displayMsg("Tell her what to do:");
             String answer = ui.userInput();
             ui.displayMsg("You told her: " + answer);
-            ui.displayMsg("Hmm.. never thought about that, I'll do my best!");
-            //todo enten tilbage til randomdialog eller menu
-        } else if (input.equals("n")) {
+            ui.displayMsg("Hmm.. I never thought about that, I'll do my best!");
+        } else if (input.equalsIgnoreCase("N")) {
             ui.displayMsg("You fled the area");
 
         }

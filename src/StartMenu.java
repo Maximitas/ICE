@@ -42,11 +42,11 @@ public class StartMenu {
 
     public Player choosePlayerName() {
         Player player = new Player();
-        ui.displayMsg("Please type your name");
+        ui.displayMsg("First, what is your name?");
         String name = ui.userInput();
         player.setName(name);
 
-        ui.displayMsg("You have chosen " + player.getName());
+        ui.displayMsg("Right! So your name is " + player.getName() + "!");
         return player;
     }
 
@@ -54,7 +54,7 @@ public class StartMenu {
         ArrayList<Pokemon> allPokemons = file.loadPokemonFromFile("Data/Pokemon.csv");
 
         //Souts starting pokemons
-        ui.displayMsg("Choose the pokemon you want.");
+        ui.displayMsg("Choose the starter Pokémon you want.");
         ui.displayMsg("1: " + allPokemons.get(0).getName());
         ui.displayMsg("2: " + allPokemons.get(3).getName());
         ui.displayMsg("3: " + allPokemons.get(6).getName());
@@ -81,7 +81,7 @@ public class StartMenu {
                 case "4":
                     return 24;
                 default:
-                    ui.displayMsg("Invalid input. Please choose again.");
+                    ui.displayMsg("Oak: That isn't the right input!");
             }
 
 

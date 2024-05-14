@@ -16,6 +16,7 @@ public class Town {
         String sentence = ("Healing.. .. ... ...!\n");
         for (String s : sentence.split(" ")) {
             System.out.println(s);
+            System.out.println("All Pokémon have been fully healed at the PokéCenter!");
             Thread.sleep(delay);
         }
             for (Pokemon pokemon : pokemons) {
@@ -24,7 +25,6 @@ public class Town {
 
             }
 
-            textUI.displayMsg("All Pokémon have been fully healed at the PokéCenter!");
             user.townOrPokeCenter(player);
 
 
@@ -64,7 +64,7 @@ public class Town {
                 }
 
                 if (choice < 1 || choice > itemsForSale.length) {
-                    textUI.displayMsg("Invalid selection.");
+                    textUI.displayMsg("Oak: That isn't the right input!");
                     buy(player);
                 }
 
@@ -78,7 +78,7 @@ public class Town {
                     textUI.displayMsg("You do not have enough money to buy this item.");
                 }
             } catch (NumberFormatException e) {
-                textUI.displayMsg("Invalid input. Please enter a valid number.");
+                textUI.displayMsg("Oak: That isn't the right input!");
             }
             buy(player);
             user.townOrPokeCenter(player);
@@ -115,7 +115,7 @@ public class Town {
                 }
 
                 if (choice < 1 || choice > playerBag.size()) {
-                    textUI.displayMsg("Invalid selection.");
+                    textUI.displayMsg("Oak: That isn't the right input!");
                     return;
                 }
 
@@ -129,7 +129,7 @@ public class Town {
                 textUI.displayMsg("You have sold a " + selectedItem.getName() + " for P$" + sellPrice + ".");
                 textUI.displayMsg("Remaining balance: P$" + player.getWallet());
             } catch (NumberFormatException e) {
-                textUI.displayMsg("Invalid input. Please enter a valid number.");
+                textUI.displayMsg("Oak: That isn't the right input!");
             }
            user.userOptions(player);
         }

@@ -12,7 +12,7 @@ public class CombatInterface {
     public void combatRandom(Player player) throws InterruptedException {
         Pokemon enemyPokemon = combat.getRandomPokemon();
         if (enemyPokemon == null) {
-            ui.displayMsg("No enemy Pokémon available.");
+            ui.displayMsg("Oak: No enemy Pokémon available.");
             return;
         }
         ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
@@ -27,7 +27,7 @@ public class CombatInterface {
         Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
 
         if (enemyPokemon == null) {
-            ui.displayMsg("No enemy Pokémon available in the specified level range.");
+            ui.displayMsg("Oak: No enemy Pokémon available in the specified level range.");
             return;
         }
 
@@ -37,11 +37,12 @@ public class CombatInterface {
     public void combat10to25(Player player) throws InterruptedException {
         int minLvl = 10;
         int maxLvl = 25;
+
         int randomLevel = (int) (Math.random() * (maxLvl - minLvl + 1));
         Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
 
         if (enemyPokemon == null) {
-            ui.displayMsg("No enemy Pokémon available in the specified level range.");
+            ui.displayMsg("Oak: No enemy Pokémon available in the specified level range.");
             return;
         }
 
@@ -55,7 +56,7 @@ public class CombatInterface {
         Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
 
         if (enemyPokemon == null) {
-            ui.displayMsg("No enemy Pokémon available in the specified level range.");
+            ui.displayMsg("Oak: No enemy Pokémon available in the specified level range.");
             return;
         }
         ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
@@ -68,7 +69,7 @@ public class CombatInterface {
         boolean battleActive = true;
         while (battleActive) {
             ui.displayMsg("Select your option below:");
-            ui.displayMsg("1: Fight\n2: Run\n3: Switch Pokémon\n4: Bag");
+            ui.displayMsg("1: Attack\n2: Run\n3: Party\n4: Bag");
 
             String option = ui.userInput();
             switch (option) {
@@ -93,7 +94,7 @@ public class CombatInterface {
                     }
                     break;
                 default:
-                    ui.displayMsg("Invalid input, please try again.");
+                    ui.displayMsg("Oak: That isn't the right input!");
             }
         }
     }
@@ -233,7 +234,7 @@ public class CombatInterface {
     }
 
         catch(Exception e){
-            ui.displayMsg("Invalid input, please try again.");
+            ui.displayMsg("Oak: That isn't the right input!");
             changePokemonInParty(player);
 
         }
@@ -264,10 +265,10 @@ public class CombatInterface {
                         break;
                     }
                 } else {
-                    ui.displayMsg("Invalid choice, please try again.");
+                    ui.displayMsg("Oak: That isn't the right input!");
                 }
             } catch (NumberFormatException e) {
-                ui.displayMsg("Invalid input, please enter a number.");
+                ui.displayMsg("Oak: That isn't the right input!");
             }
         }
     }
@@ -280,7 +281,7 @@ public class CombatInterface {
     public void combatOptionsRed(Player player) throws InterruptedException {
         Pokemon enemyPokemon = combat.getSpecificPokemonMewto();
         if (enemyPokemon == null) {
-            ui.displayMsg("No enemy Pokémon available.");
+            ui.displayMsg("Oak: No enemy Pokémon available.");
             return;
         }
         combatOptions(player, enemyPokemon);
@@ -289,7 +290,7 @@ public class CombatInterface {
     public void combatOptionsDarkrai(Player player) throws InterruptedException {
         Pokemon enemyPokemon = combat.getSpecificPokemonDarkrai();
         if (enemyPokemon == null) {
-            ui.displayMsg("No enemy Pokémon available.");
+            ui.displayMsg("Oak: No enemy Pokémon available.");
             return;
         }
 
@@ -299,7 +300,7 @@ public class CombatInterface {
     public void combatOptionsGyarados(Player player) throws InterruptedException {
         Pokemon enemyPokemon = combat.getSpecificPokemonGyarados();
         if (enemyPokemon == null) {
-            ui.displayMsg("No enemy Pokémon available.");
+            ui.displayMsg("Oak: No enemy Pokémon available.");
             return;
         }
         combatOptions(player, enemyPokemon);
