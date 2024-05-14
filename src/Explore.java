@@ -9,7 +9,6 @@ public class Explore {
     private FileIO io = new FileIO();
     private ArrayList<Item> item = new ArrayList<>();
     String itemFile = "Data/Item.csv";
-    UserInterface user = new UserInterface();
 
     public void itemList() {
         this.item = io.readItemsFromBag(itemFile);
@@ -185,15 +184,6 @@ public class Explore {
         itemList();
         return random(item.size());
     }
-
-    public void playerInfo(Player player) throws InterruptedException {
-        ui.displayMsg("Pokemon Party: " + player.getPokemonParty().size());
-        ui.displayMsg("Player: " + player.getName());
-        ui.displayMsg("Player currency: " + player.getWallet());
-        ui.displayMsg("Player bag: " + player.getBag());
-        user.userOptions(player);
-    }
-
 
     public void findItem(Player player) throws InterruptedException {
         ui.displayMsg("Exploring the world... In the search for items!");

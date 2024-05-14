@@ -6,7 +6,6 @@ public class Player {
 
     private ArrayList<Pokemon> pokeDex;
     private ArrayList<Item> bag;
-    private ArrayList<String> playerInfo;
     private ArrayList<Pokemon> pokemonParty;
     private int wallet = 1000;
     private String name;
@@ -17,7 +16,6 @@ public class Player {
         this.wallet = wallet;
         this.pokeDex = new ArrayList<>();
         this.bag = new ArrayList<>();
-        this.playerInfo = new ArrayList<>();
         this.pokemonParty = new ArrayList<>();
     }
 

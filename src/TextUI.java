@@ -7,21 +7,16 @@ public class TextUI {
         return scan.nextLine();
     }
 
-    public int userInputInt() {
-        return scan.nextInt();
-    }
-
-
     public void displayMsg(String msg) {
         System.out.println(msg);
     }
     public void fishingmanTalk() throws InterruptedException {
         TextUI ui = new TextUI();
-        ui.displayMsg("These lakes has a lot of history in them\n");
+        ui.displayMsg("These lakes have a lot of history\n");
         ui.displayMsg("There was a legend about a big fish..\n");
-        ui.displayMsg("Tales says that the one, that gets the hold of it, will become a strong poketrainer");
-        ui.displayMsg("it was about this season it should appear...");
-        ui.displayMsg("So far i have only found magikarps, but one day i might see it!");
+        ui.displayMsg("Tales say that the one, that gets the hold of it, will become a strong Pokémon Trainer");
+        ui.displayMsg("It was about this season it should appear...");
+        ui.displayMsg("So far i have only found Magikarps, but one day i might see it!");
     }
 
     public void oldManTalk() throws InterruptedException {

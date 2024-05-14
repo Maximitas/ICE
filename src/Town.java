@@ -5,8 +5,6 @@ public class Town {
     private UserInterface user = new UserInterface();
     private TextUI textUI = new TextUI();
     private FileIO fileIO = new FileIO();
-    private String name;
-    private int price;
 
     public void pokeCenter(Player player) throws InterruptedException {
         int delay = 1000;

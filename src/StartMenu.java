@@ -53,7 +53,6 @@ public class StartMenu {
     public void chooseStarterPokemon() {
         ArrayList<Pokemon> allPokemons = file.loadPokemonFromFile("Data/Pokemon.csv");
 
-        //Souts starting pokemons
         ui.displayMsg("Choose the starter Pokémon you want.");
         ui.displayMsg("1: " + allPokemons.get(0).getName());
         ui.displayMsg("2: " + allPokemons.get(3).getName());
