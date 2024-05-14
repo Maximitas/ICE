@@ -239,10 +239,6 @@ public class Combat {
         Random random = new Random();
         return enemyPokemonList.get(random.nextInt(enemyPokemonList.size()));
     }
-    Pokemon getRandomPokemonList(int randomLevel) {
-        Random random = new Random();
-        return enemyPokemonList.get(random.nextInt(enemyPokemonList.size()));
-    }
 
     public Pokemon getPrimaryPlayerPokemon() {
         return primaryPlayerPokemon;

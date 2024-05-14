@@ -18,12 +18,29 @@ public class CombatInterface {
         ui.displayMsg("A wild " + enemyPokemon.getName() + " (Lvl " + enemyPokemon.getLvl() + ") has appeared!");
         combatOptions(player, enemyPokemon);
     }
+    Pokemon getRandomPokemonList(int minLvl, int maxLvl) {
+        FileIO fileIO = new FileIO();
+        ArrayList<Pokemon> allPokemons = fileIO.loadPokemonFromFile("Data/Pokemon.csv");
+        ArrayList<Pokemon> lvlFilteredPokemons = new ArrayList<>();
+
+        for (Pokemon pokemon : allPokemons) {
+            if (pokemon.getLvl() >= minLvl && pokemon.getLvl() <= maxLvl) {
+                lvlFilteredPokemons.add(pokemon);
+            }
+        }
+
+        if (lvlFilteredPokemons.isEmpty()) {
+            ui.displayMsg("Oak: No enemy Pokémon available in the specified level range.");
+            return null;
+        }
+
+        return lvlFilteredPokemons.get(new Random().nextInt(lvlFilteredPokemons.size()));
+    }
+
     public void combat5to10(Player player) throws InterruptedException {
         int minLvl = 5;
         int maxLvl = 10;
-        int randomLevel = (int) (Math.random() * (maxLvl - minLvl + 1));
-
-        Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
+        Pokemon enemyPokemon = getRandomPokemonList(minLvl, maxLvl);
 
         if (enemyPokemon == null) {
             ui.displayMsg("Oak: No enemy Pokémon available in the specified level range.");
@@ -37,8 +54,8 @@ public class CombatInterface {
         int minLvl = 10;
         int maxLvl = 25;
 
-        int randomLevel = (int) (Math.random() * (maxLvl - minLvl + 1));
-        Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
+        Pokemon enemyPokemon = getRandomPokemonList(minLvl, maxLvl);
+
 
         if (enemyPokemon == null) {
             ui.displayMsg("Oak: No enemy Pokémon available in the specified level range.");
@@ -51,8 +68,8 @@ public class CombatInterface {
     public void combat25to50(Player player) throws InterruptedException {
         int minLvl = 25;
         int maxLvl = 50;
-        int randomLevel = (int) (Math.random() * (maxLvl - minLvl + 1));
-        Pokemon enemyPokemon = combat.getRandomPokemonList(randomLevel);
+        Pokemon enemyPokemon = getRandomPokemonList(minLvl, maxLvl);
+
 
         if (enemyPokemon == null) {
             ui.displayMsg("Oak: No enemy Pokémon available in the specified level range.");
@@ -223,8 +240,6 @@ public class CombatInterface {
             if (pokemon.getHp() > 0) {
                 ui.displayMsg(playerPokemonList.indexOf(pokemon) + 1 + ": " + pokemon.getName() + " (Lvl " + pokemon.getLvl() + ") - HP: " + pokemon.getHp());
             }
-
-
 
         }
         try{
