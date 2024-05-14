@@ -1,5 +1,4 @@
 @startuml
-!pragma layout smetana
 'https://plantuml.com/class-diagram
 skinparam linetype polyline
 skinparam linetype ortho
@@ -53,7 +52,7 @@ class Pokemon{
 + levelUp
 
 }
-class music{
+class Music{
 - playMusic
 - playMusicBattle
 - playMusicStart
@@ -218,17 +217,23 @@ class TextUI{
 Main --> StartMenu
 StartMenu --> UserInterface
 UserInterface --> Player
-UserInterface --> Town
+UserInterface -> Town
 UserInterface --> Explore
 Explore --> CombatInterface
-CombatInterface --> Combat
+CombatInterface -> Combat
 Pokemon ---> Player
 Pokemon ---> Combat
-StartMenu -> FileIO
+StartMenu --> FileIO
 TextUI -> StartMenu
 TextUI --> UserInterface
 TextUI --> Explore
 TextUI --> CombatInterface
+Music -> CombatInterface
+Music -> Town
+Music -> UserInterface
+Main -> Music
+Item -> FileIO
+Item -> Town
 
 
 @enduml
