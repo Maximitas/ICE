@@ -1,4 +1,5 @@
 @startuml
+!pragma layout smetana
 'https://plantuml.com/class-diagram
 skinparam linetype polyline
 skinparam linetype ortho
@@ -14,7 +15,12 @@ class StartMenu {
 + exitGame()
 + chooseGender()
 + chooseName()
-+ starterPokemon()
++ chooseStarterPokemon()
++ savePlayer()
++ choosePlayerName()
++ translatePlayerChoiceToPokeindex()
++
+
 }
 
 
@@ -29,12 +35,57 @@ class Pokemon{
 - String typeTwo
 - String abilities
 - String rarity
++ Pokemon()
++ getMaxHp()
++ getPokemonID()
++ getHp()
++ setHp()
++ getLvl()
++ getAttackPower()
++ getDefensePower()
++ getName()
++ getTypeOne()
++ getTypeTwo()
++ getAbilities()
++ getRarity()
++ restoreHP()
++ levelUp()
++ levelUp
+
+}
+class music{
+- playMusic
+- playMusicBattle
+- playMusicStart
+- playMusicPokeCenter
 }
 
 class Combat{
 + takeDamage()
 + giveDamage()
 + blackout()
++ battleRound
+- performPlayerTurn
+- performEnemyTurn
+- finalizeBattle
+- displayPlayerPokemonStatus
+- displayEnemyPokemonStatus
++ dealDamage
++ calculateDamage
+- calculateDefenseScaling
+- typeMultiplier
+- enemyDefeat
+- PlayerPokemonFaint
+- pokemonsDefeated
+- playerDefeatPenalty
++ getRandomPokemon()
++ getRandomPokemonList()
++ getPrimaryPlayerPokemon
++ setPrimaryPlayerPokemon
++ getSpecificPokemonMewto()
++ getSpecificPokemonDarkrai()
++ getSpecificPokemonGyarados()
++ getPlayerPokemonList()
 }
 
 class CombatInterface{
@@ -44,6 +95,22 @@ class CombatInterface{
 + bag()
 + switchPokemon()
 + catchPokemon()
++ combatRandom()
++ combat5to10()
++ combat10to25()
++ combat25to50()
++ caughtPokemon()
++ usePokeball()
++ viewBag()
++ displayBag()
++ changePokemonInParty()
++ switchPokemon()
++ random()
++ combatOptionsRed()
++ combatOptionsDarkrai()
++ combatOptionsGyarados()
+
+
 
 }
 
@@ -52,6 +119,17 @@ class Player{
 - wallet
 - Arraylist<Pokemon> pokeDex
 - Arraylist<String> bag
++ Player()
++ getName()
++ setName()
++ getWallet()
++ setWallet()
++ Arraylist<Pokemon> getPokemonParty()
++ addItemToBag()
++ Arraylist<Item> getBag()
++ addFunds()
++ removeFunds()
++ removeItemFromBag()
 
 }
 
@@ -60,11 +138,28 @@ class UserInterface {
 - Town town = new Town
 - Player player = new Player
 + userOptions()
++ pokeMartOptions()
++ TownOrPokeCenter()
++ Startmenu()
++ StartMenuOptions()
++ 
 }
 
 class Town {
 + pokeCenter()
 + pokeMart()
++ buy()
++ sell()
++
+}
+
+class Item{
+- name
+- price
++ Item()
++ getName()
++ getPrice()
++ toString()
 }
 
 class Explore {
@@ -73,16 +168,51 @@ class Explore {
 + fishing()
 + findItem()
 + randomDialogue()
++ itemList()
++ explore()
++ gatesOfPokemon()
++ randomSelect()
++ exploreInterface()
++ random()
++ fishing()
++ itemInitializer()
++ findItem()
++ randomDialogue()
++ dialogLegendary()
++ dialogOldman()
++ dialogIdiotKid()
++ dialogFishingMan()
++ dialogGirlyTrainee()
++ showMagikarp()
++ showTreasureChest()
++ showPikachu()
++ showGyarados()
++ showDigglet()
++ addPokemonToPlayerPokemon()
 }
 
 class FileIO{
 + writeData()
 + loadData()
++ loadPokemonFromFile()
++ clearPlayerPokemonFile()
++ clearBagFile()
++ clearPlayerFile()
++ saveItemToBag()
++ saveItemsToBag()
++ savePokemonToPlayerPokemons()
++ Arraylist<Item> readItemsFromBag()
++ savePokemonData()
++ readPlayerData()
++ savePlayerData()
 }
 class TextUI{
 - Scanner scanner = new Scanner
 + displayMsg()
 + userInput()
++ fishingmanTalk()
++ oldManTalk()
+
 }
 
 Main --> StartMenu
