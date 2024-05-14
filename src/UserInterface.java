@@ -8,6 +8,8 @@ public class UserInterface {
         StartMenu startMenu = new StartMenu();
         CombatInterface combat = new CombatInterface();
         Explore explore = new Explore();
+        Music.clip.stop();
+        Music.playMusic("src/Wii Music - Gaming Background Music (HD).wav");
         UI.displayMsg("Select your option below:");
         UI.displayMsg("1: Switch pokémon\n2: Bag\n3: Town\n4: Explore\n5: Save\n6: Exit Game");
 // //UI.displayMsg("  __________________________\n" +
@@ -76,6 +78,8 @@ public class UserInterface {
 
     public void pokeMartOptions(Player player) throws InterruptedException {
         Town town = new Town();
+        Music.clip.stop();
+        Music.playMusic("src/Poké Mart [Pokémon： HeartGold & SoulSilver].wav");
 
         UserInterface user = new UserInterface();
         UI.displayMsg(".  .  .  .  .  .  .  .  .  .  .  .  .  _N_.  .  .  .  .  .  .  .  .  .  .  .  . \n" +
@@ -124,6 +128,8 @@ public class UserInterface {
 
     public void townOrPokeCenter(Player player) throws InterruptedException {
         Town town = new Town();
+        Music.clip.stop();
+        Music.playMusic("src/Pokemon Blue⧸Red - Pallet Town.wav");
 
         System.out.println("                                                          |>>>\n" +
                 "                   _                      _                |\n" +

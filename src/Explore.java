@@ -93,6 +93,7 @@ public class Explore {
     public void exploreInterface(Player player) throws InterruptedException {
         int delay = 1000;
         Music.clip.stop();
+        Music.playMusic("src/Pokémon Red & Blue - The Road to Cerulean from Mt. Moon.wav");
 
         ui.displayMsg("     .               *             .       __      .            .-.   .         \n" +
                 " *            .           .   *      . __.'  `.         *   .    ) )         *  \n" +
@@ -136,8 +137,10 @@ public class Explore {
                     explore(player);
                     randomSelect(player);
                 case "7":
+                    Music.clip.stop();
                     UserInterface ui2 = new UserInterface();
                     ui2.userOptions(player);
+
 
                 default:
                     System.out.println("Try again.");

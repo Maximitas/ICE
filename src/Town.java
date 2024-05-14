@@ -9,15 +9,24 @@ public class Town {
     private int price;
 
     public void pokeCenter(Player player) throws InterruptedException {
+        int delay = 1500;
+        Music.clip.stop();
+        Music.playMusic("src/Pokemon Blue⧸Red - Pokemon Center.wav");
         ArrayList<Pokemon> pokemons = player.getPokemonParty();
-        for (Pokemon pokemon : pokemons) {
-            pokemon.restoreHP();
-            fileIO.savePokemonData("Data/PlayerPokemons.csv", pokemons);
-
+        String sentence = ("Healing.. .. ... ...!\n");
+        for (String s : sentence.split(" ")) {
+            System.out.println(s);
+            Thread.sleep(delay);
         }
+            for (Pokemon pokemon : pokemons) {
+                pokemon.restoreHP();
+                fileIO.savePokemonData("Data/PlayerPokemons.csv", pokemons);
 
-        textUI.displayMsg("All Pokémon have been fully healed at the PokéCenter!");
-        user.townOrPokeCenter(player);
+            }
+
+            textUI.displayMsg("All Pokémon have been fully healed at the PokéCenter!");
+            user.townOrPokeCenter(player);
+
 
 
     }
