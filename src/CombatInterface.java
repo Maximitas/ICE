@@ -39,11 +39,6 @@ public class CombatInterface {
     }
 
     public void combat5to10(Player player) throws InterruptedException {
-        FileIO fileIO = new FileIO();
-        List<Pokemon> pokemonlist = fileIO.loadPokemonFromFile("Data/Pokemon.csv");
-        pokemonlist.stream().filter("pokemon"::equals).forEach(pokemon -> {
-            System.out.println("lvl: " + pokemon.getLvl());
-        });
         int minLvl = 5;
         int maxLvl = 10;
         Pokemon enemyPokemon = getRandomPokemonList(minLvl, maxLvl);
